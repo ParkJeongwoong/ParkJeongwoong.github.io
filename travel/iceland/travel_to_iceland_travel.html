@@ -1,67 +1,229 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- fontawsome -->
-  <script src="https://kit.fontawesome.com/7d193e8adc.js" crossorigin="plane-departure"></script>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="01_nav_footer.css">
-  <link rel="stylesheet" href="02_home.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Travel_to_Iceland</title>
-</head>
-<body>
-
-  <!-- 01_nav_footer.html -->
-  <!-- 01_nav_footer 에서 완성한 Navigation bar 코드를 붙여넣어 주세요. -->
-  <nav class="fixed-top bg-dark d-flex justify-content-between align-items-center">
-    <div>
-      <a href="./travel_to_iceland_home.html" class="text-decoration-none text-white ">
-        <p class="my-auto ms-2 fw-bold fs-4">ICELAND <i class="fas fa-plane-departure"></i></p>
-      </a>
-      <div class="collapse d-md-none hamburger">
-        <div class="bg-dark pt-1">
-          <ul class="mb-0 ps-2">
-            <a href="./travel_to_iceland_route.html" class="text-decoration-none text-white">
-              <ul class="p-0">back! <i class="fas fa-car"></i></ul>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <ul class="mb-0 d-md-flex align-items-center fs-4 d-none">
-      <a href="./travel_to_iceland_route.html" class="text-decoration-none mx-4 text-white">
-        <ul class="p-0">back! <i class="fas fa-car"></i></ul>
-      </a>
-    </ul>
-    <ul class="mb-0 me-2 d-flex flex-column align-items-end d-md-none">
-      
-      <nav class="navbar navbar-dark bg-dark my-auto">
-        <div class="container-fluid mt-1">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".hamburger" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-      
-    </ul>
-  </nav>
-
-  <!-- 02_home.html -->
-
-
-
-
-
-  <!-- 01_nav_footer.html -->
-  <!-- 01_nav_footer 에서 완성한 Footer 코드를 붙여넣어 주세요. -->
-  <footer class="fixed-bottom d-flex justify-content-center my-3 text-secondary">
-    Iceland 2018_08_21-31
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>YOU'RE TRAVELING ICELAND</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top" id="mainNav">
+            <!-- <div class="container"> -->
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Iceland</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Route
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug21">August 21</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug22">August 22</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug23">August 23</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug24">August 24</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug25">August 25</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug26">August 26</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug27">August 27</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug28">August 28</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug29">August 29</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug30">August 30</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#aug31">August 31</a></li>
+                </ul>
+            </div>
+            <!-- </div> -->
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container d-flex h-100 align-items-center">
+                <div class="mx-auto text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">ICELAND</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-1">from 2018.08.21</h2>
+                    <h2 class="text-white-50 mx-auto mt-0 mb-5">to 2018.08.31</h2>
+                    <a class="btn btn-primary js-scroll-trigger" href="#about">Let's Move</a>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-white mb-4">아이슬란드 여행기</h2>
+                        <p class="text-white-50">
+                            2018년 8월 21일부터 2018년 8월 31일까지 머물렀던 아이슬란드 여행에 대한 웹페이지입니다.
+                            자동차를 타고 Keflavík를 출발하여 수도인 Reykjavík를 지나 Skaftafell, Seyðisfjörður를 거쳐 Mývatn을 방문하고 Snæfellsnes를 마지막으로 아이슬란드를 한 바퀴 돌았던 꿈 같았던 시간을 Bootstrap을 사용하여 기록했습니다.
+                            <div class="text-light">
+                                (모든 사진은 동행했던 친구와 제가 찍은 사진입니다.)
+                            </div>
+                                
+                        </p>
+                    </div>
+                </div>
+                <!-- <img class="img-fluid" src="assets/img/ipad.png" alt="" /> -->
+            </div>
+        </section>
+        <!-- Projects-->
+        <section class="projects-section bg-light" id="aug21">
+            <div class="container">
+                <!-- Featured Project Row-->
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="" /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>Shoreline</h4>
+                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project One Row-->
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Misty</h4>
+                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Two Row-->
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Mountains</h4>
+                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- August 31-->
+        <section class="projects-section bg-light" id="aug31">
+            <div class="container">
+                <!-- Featured Project Row-->
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="" /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>Shoreline</h4>
+                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project One Row-->
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Misty</h4>
+                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Two Row-->
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Mountains</h4>
+                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-->
+        <section class="signup-section" id="signup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">The End of a Journey</h2>
+                            <a class="btn btn-primary mx-auto" href="./travel_to_iceland_route.html" role="button">Thanks</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="contact-section bg-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Address</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">MAPO · SEOUL, REPUBLIC OF KOREA, 04186</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50"><a href="#!">dvlprjw@gmail.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <hr class="my-4" />
+                                <div class="small text-black-50">(+82)-10-2033-****</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="./travel_to_iceland_home.html"><i class="fas fa-plane-departure"></i></a>
+                    <a class="mx-2" href="../../index.html"><i class="fas fa-home"></i></a>
+                    <a class="mx-2" href="https://github.com/ParkJeongwoong"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Iceland 2018_08_21-31</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
