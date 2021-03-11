@@ -10271,6 +10271,25 @@ body {
   padding-top: 10rem;
   background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
 }
+/* custom */
+.about-section1 {
+  padding-top: 10rem;
+  background: linear-gradient(to top, #83a6b4 0%, rgba(95, 132, 146, 0.9) 75%, rgba(247, 247, 247, 0.8) 100%);
+}
+.about-section1end {
+  padding-top: 15rem;
+  background: linear-gradient(to bottom, #83b4ac 0%, rgba(247, 247, 247, 0.8) 100%);
+}
+
+.about-section2 {
+  padding-top: 10rem;
+  background: linear-gradient(to top, #000000 0%, rgba(61, 61, 61, 0.9) 75%, rgba(247, 247, 247, 0.8) 100%);
+}
+.about-section2end {
+  padding-top: 15rem;
+  background: linear-gradient(to bottom, #5e6856 0%, rgba(164, 170, 156, 0.8) 55%, rgba(247, 247, 247, 0.8) 100%);
+}
+/* custom end */
 .about-section p {
   margin-bottom: 5rem;
 }
