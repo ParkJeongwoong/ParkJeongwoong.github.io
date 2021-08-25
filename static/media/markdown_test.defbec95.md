@@ -26,7 +26,7 @@ b=2
 
 print(a+b)
 
-아 쉬고싶다
+오늘은 2021년 8월 25일
 
 ```
 
@@ -73,7 +73,6 @@ www.example.com, https://example.com, and contact@example.com.
 
 
 | a | b | c | d |
-
 | - | :- | -: | :-: |
 
 
