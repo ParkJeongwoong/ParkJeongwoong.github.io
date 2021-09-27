@@ -108,12 +108,12 @@ Data Link Control을 지원하는 Protocol은 2가지가 있음
 
 #### Sliding window
 
-- **Window size** : 한 번에 보내는 <u>frame의 개수</u> = **# of outstanding frame**(=unacknowledged frame)
+- **Window size** : 한 번에 보내는 frame의 개수 = **# of outstanding frame**(=unacknowledged frame)
 - frame의 Header 부분에 frame 번호가 들어감 (보통 3비트를 사용)
 
 
 
-- 한 번에 **여러 개의 frame**을 보냄 (<u>window size 만큼</u>) -> **acknowledgment**를 회신 -> **window size 갱신** -> 다시 **frame** 송신
+- 한 번에 **여러 개의 frame**을 보냄 (window size 만큼) -> **acknowledgment**를 회신 -> **window size 갱신** -> 다시 **frame** 송신
 
 
 

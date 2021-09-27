@@ -12,7 +12,7 @@
 
 
 
-*기울이기*
+*기울이기*  => 슬래쉬로 변환
 
 
 
@@ -47,6 +47,8 @@ print(a+b)
 ### 링크2
 
 - [Naver](https://naver.com)
+- [_**Google**_](http://www.google.com)
+- [_*Google*_](http://www.google.com)
 
 
 

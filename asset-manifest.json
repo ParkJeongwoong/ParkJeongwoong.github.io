@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.935e8862.chunk.css",
-    "main.js": "/static/js/main.ea6df6da.chunk.js",
-    "main.js.map": "/static/js/main.ea6df6da.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f50eca98.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f50eca98.js.map",
-    "static/js/2.d30cc5a5.chunk.js": "/static/js/2.d30cc5a5.chunk.js",
-    "static/js/2.d30cc5a5.chunk.js.map": "/static/js/2.d30cc5a5.chunk.js.map",
-    "static/js/3.ddd33bab.chunk.js": "/static/js/3.ddd33bab.chunk.js",
-    "static/js/3.ddd33bab.chunk.js.map": "/static/js/3.ddd33bab.chunk.js.map",
+    "main.css": "/static/css/main.54e52fbb.chunk.css",
+    "main.js": "/static/js/main.b15cbbee.chunk.js",
+    "main.js.map": "/static/js/main.b15cbbee.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fdc4f0c8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fdc4f0c8.js.map",
+    "static/js/2.2f499c46.chunk.js": "/static/js/2.2f499c46.chunk.js",
+    "static/js/2.2f499c46.chunk.js.map": "/static/js/2.2f499c46.chunk.js.map",
+    "static/js/3.c8136c00.chunk.js": "/static/js/3.c8136c00.chunk.js",
+    "static/js/3.c8136c00.chunk.js.map": "/static/js/3.c8136c00.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.935e8862.chunk.css.map": "/static/css/main.935e8862.chunk.css.map",
-    "static/js/2.d30cc5a5.chunk.js.LICENSE.txt": "/static/js/2.d30cc5a5.chunk.js.LICENSE.txt",
+    "static/css/main.54e52fbb.chunk.css.map": "/static/css/main.54e52fbb.chunk.css.map",
+    "static/js/2.2f499c46.chunk.js.LICENSE.txt": "/static/js/2.2f499c46.chunk.js.LICENSE.txt",
     "static/media/01_Data Link Control.md": "/static/media/01_Data Link Control.63eff5f2.md",
-    "static/media/02_HDLC.md": "/static/media/02_HDLC.55a9b79b.md",
-    "static/media/20210826_GitHubBlog_require.md": "/static/media/20210826_GitHubBlog_require.7ffe9642.md",
-    "static/media/20210901_GitHubBlog.md": "/static/media/20210901_GitHubBlog.d972cab7.md",
-    "static/media/markdown_test.md": "/static/media/markdown_test.defbec95.md"
+    "static/media/02_HDLC.md": "/static/media/02_HDLC.4bf4a7c9.md",
+    "static/media/20210826_GitHubBlog_require.md": "/static/media/20210826_GitHubBlog_require.c3acc6dd.md",
+    "static/media/20210901_GitHubBlog.md": "/static/media/20210901_GitHubBlog.fb9dae09.md",
+    "static/media/20210927_GitHubBlog.md": "/static/media/20210927_GitHubBlog.388cd027.md",
+    "static/media/markdown_test.md": "/static/media/markdown_test.b44a546d.md"
   },
   "entrypoints": [
-    "static/js/runtime-main.f50eca98.js",
-    "static/js/2.d30cc5a5.chunk.js",
-    "static/css/main.935e8862.chunk.css",
-    "static/js/main.ea6df6da.chunk.js"
+    "static/js/runtime-main.fdc4f0c8.js",
+    "static/js/2.2f499c46.chunk.js",
+    "static/css/main.54e52fbb.chunk.css",
+    "static/js/main.b15cbbee.chunk.js"
   ]
 }
