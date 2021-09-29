@@ -161,7 +161,7 @@ ReactMarkdown 태그 안에 Plugin 형태로 추가하면 끝!
 
 그 중 코드 인용은 `react-syntax-highlighter`를 통해 표시가 가능하다.
 
-```bash
+​```bash
 npm install react-syntax-highlighter
 ```
 
@@ -175,8 +175,8 @@ npm install react-syntax-highlighter
 ```react
 <ReactMarkdown remarkPlugins={[remarkGfm]} children={markdown}
             components={{
-              %%%수정할 태그%%%({ node, inline, className, children, ...props }) {
-                return %%%수정된 태그%%
+              수정할 태그({ node, inline, className, children, ...props }) {
+              return 수정된 태그
               }
             }}
           />
