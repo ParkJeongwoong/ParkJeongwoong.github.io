@@ -175,9 +175,7 @@ npm install react-syntax-highlighter
 ```react
 <ReactMarkdown remarkPlugins={[remarkGfm]} children={markdown}
             components={{
-              수정할 태그({ node, inline, className, children, ...props }) {
-              return 수정된 태그
-              }
+              %%%수정할 태그%%%({ node, inline, className, children, ...props }) { return %%%수정된 태그%%% }
             }}
           />
 ```
