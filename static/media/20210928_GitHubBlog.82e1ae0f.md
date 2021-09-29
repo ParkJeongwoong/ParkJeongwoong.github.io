@@ -180,7 +180,11 @@ npm install react-syntax-highlighter
     />
 ```
 
->  **! github 페이지에선 {% %} 가 아닌  형태, 예를 들면 {{ }} 와 같은 꼴을 사용 에러가 나기 때문에 코드 블록 중괄호를 하나만 사용했다. 실제로는 component={{ }} 안에 코드를 작성해야 한다.**
+>  **! github 페이지에선 중괄호( `{}` )를 중첩해서 사용하면 에러가 나기 때문에 중괄호를 하나만 사용했다.**
+>
+> **실제로는 component={ } 에서 중괄호를 두 번 작성해야 한다.**
+>
+> ( 소스코드 참고 : https://github.com/ParkJeongwoong/ParkJeongwoong.github.io/blob/master/src/components/Markdown/MarkdownRenderer.js )
 
 
 
