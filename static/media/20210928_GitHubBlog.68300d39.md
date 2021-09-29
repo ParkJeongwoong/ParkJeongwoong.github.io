@@ -204,7 +204,7 @@ npm install react-syntax-highlighter
 인용문은 <blockquote> 형태로 출력되기 때문에 인용문을 바꾸고 싶다면 다음과 같이 적으면 된다.
 
 ```react
-components={{
+components={
             // 인용문
             blockquote({ node, children, ...props }) {
                 return (
@@ -220,8 +220,14 @@ components={{
                   </div>
                 );
               }
-           }}
+           }
 ```
+
+>  **! github 페이지에선 중괄호( `{}` )를 중첩해서 사용하면 에러가 나기 때문에 중괄호를 하나만 사용했다.**
+>
+> **실제로는 component={ } 에서 중괄호를 두 번 작성해야 한다.**
+>
+> ( 소스코드 참고 : https://github.com/ParkJeongwoong/ParkJeongwoong.github.io/blob/master/src/components/Markdown/MarkdownRenderer.js )
 
 
 
@@ -242,7 +248,7 @@ components={{
 따라서 강조 표시와 코드 인용은 다음과 같이 적으면 된다.
 
 ```react
-components={{
+components={
             code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
                 return inline ? (
@@ -277,8 +283,14 @@ components={{
                   />
                 );
               }
-           }}
+           }
 ```
+
+>  **! github 페이지에선 중괄호( `{}` )를 중첩해서 사용하면 에러가 나기 때문에 중괄호를 하나만 사용했다.**
+>
+> **실제로는 component={ } 에서 중괄호를 두 번 작성해야 한다.**
+>
+> ( 소스코드 참고 : https://github.com/ParkJeongwoong/ParkJeongwoong.github.io/blob/master/src/components/Markdown/MarkdownRenderer.js )
 
 
 

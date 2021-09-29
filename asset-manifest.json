@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.f517377a.chunk.css",
-    "main.js": "/static/js/main.f5dfb7c9.chunk.js",
-    "main.js.map": "/static/js/main.f5dfb7c9.chunk.js.map",
+    "main.js": "/static/js/main.5bac22ec.chunk.js",
+    "main.js.map": "/static/js/main.5bac22ec.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fdc4f0c8.js",
     "runtime-main.js.map": "/static/js/runtime-main.fdc4f0c8.js.map",
     "static/js/2.2f499c46.chunk.js": "/static/js/2.2f499c46.chunk.js",
@@ -16,13 +16,13 @@
     "static/media/02_HDLC.md": "/static/media/02_HDLC.4bf4a7c9.md",
     "static/media/20210901_GitHubBlog.md": "/static/media/20210901_GitHubBlog.6cc97420.md",
     "static/media/20210927_GitHubBlog.md": "/static/media/20210927_GitHubBlog.9372ab49.md",
-    "static/media/20210928_GitHubBlog.md": "/static/media/20210928_GitHubBlog.82e1ae0f.md",
+    "static/media/20210928_GitHubBlog.md": "/static/media/20210928_GitHubBlog.68300d39.md",
     "static/media/markdown_test.md": "/static/media/markdown_test.b44a546d.md"
   },
   "entrypoints": [
     "static/js/runtime-main.fdc4f0c8.js",
     "static/js/2.2f499c46.chunk.js",
     "static/css/main.f517377a.chunk.css",
-    "static/js/main.f5dfb7c9.chunk.js"
+    "static/js/main.5bac22ec.chunk.js"
   ]
 }
