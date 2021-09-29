@@ -4,15 +4,14 @@
 
 Tistory나 Velog를 사용할 지, 아니면 Jekyll을 이용한 Github 블로그를 만들어야 할 지..
 
-고민 끝에 직접 블로그를 만들어보기로 결심했고, **Jekyll 없이 Github 블로그를 만들기로 결정**했다.
+고민 끝에 직접 블로그를 만들어보기로 결심했고, **Jekyll Theme 없이 Github 블로그를 만들기로 결정**했다.
 
 
 
 블로그는 다음과 같은 형태로 만들 계획이다.
 
-- **No Jekyll**
-  
-  - Jekyll 없이 구현 / <u>게시글 등록 자동화</u>
+- **No Template**
+  - Jekyll Theme 없이 직접 구현 / <u>게시글 등록 자동화</u>
   
 - **React**
   - Redux 없이 Context API와 Hook을 이용하여 전역 상태 관리
