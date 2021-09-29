@@ -1,4 +1,4 @@
-# [GitHub Blog 개발기] 개발일지(20210927)
+# [GitHub Blog 개발기] 개발일지
 
 블로그를 운영하기로 결정하고서 어떤 식으로 만들어야 할 지 고민을 많이 했다.
 
@@ -23,5 +23,4 @@ Tistory나 Velog를 사용할 지, 아니면 Jekyll을 이용한 Github 블로�
 - **Markdown 기반**
   
   - Articles에 작성되는 게시글들은 마크다운 파일을 ReactMarkdown을 이용하여 마크다운 형식으로 출력
-  
 
