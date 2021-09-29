@@ -173,11 +173,7 @@ npm install react-syntax-highlighter
 2. 수정하고 싶은 태그를 적고 수정된 결과물을 return에 넣는다.
 
 ```react
-<ReactMarkdown remarkPlugins={[remarkGfm]} children={markdown}
-            components={{
-              %%%수정할 태그%%%({ node, inline, className, children, ...props }) { return %%%수정된 태그%%% }
-            }}
-          />
+<ReactMarkdown remarkPlugins={[remarkGfm]} children={markdown} components={{ %%%수정할 태그%%%({ node, inline, className, children, ...props }) { return %%%수정된 태그%%% } }} />
 ```
 
 
