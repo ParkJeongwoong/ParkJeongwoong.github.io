@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<!-- 메뉴 -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/profile</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/archives</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+
+<!-- Develop -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/1</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/2</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/3</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+
+<!-- CS -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/0</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/1</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+
+</urlset>
