@@ -4,3 +4,6 @@
 - Markdown 연동
 - GitHub Blog 주소 새로고침 문제
 - 구글 검색 등록
+  - SEO - SSR
+- 글 자동 등록/배포 (sitemap.xml 반영 포함)
+
