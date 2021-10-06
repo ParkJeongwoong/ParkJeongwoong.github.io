@@ -255,4 +255,4 @@ export default function SEO({ description, title, siteTitle }) {
 ## 부가 정보
 
 - `window` , `localStorage` , `navigator` 같은 **Web API**들은 CSR에서 사용 가능 => Next.js는 Pre-Rendering을 하기 때문에 바로 useEffect를 사용하는 방법 등을 활용해서 Client 측에서만 위 기능이 사용되도록 설정해야 함
-- 환경변수 - `.env` 변수를 지원하지만 접두사로 쓰인 `REACT_APP_` 를 모두 `NEXT_PUBLIC_` 로 바꿔야 합니다.
+- 환경변수 - `.env` 변수를 지원하지만 접두사로 쓰인 `REACT_APP_` 를 모두 `NEXT_PUBLIC_` 로 바꿔야 함
