@@ -2,13 +2,17 @@
 
 Next.js를 이용한 SSR 환경 구축 방법
 
-> 참조: https://nextjs.org/
+> [참조]
+>
+> https://nextjs.org/
 
 
 
 ## 앞서 알아보기
 
-<참조: https://lemontia.tistory.com/938>
+> [참조]
+>
+>  https://lemontia.tistory.com/938
 
 > `Next.js는 React.js의 Framework`로 **React.js app에서 SSR 구현을 편리하게 가능하게 만들어 주는 도구이다.** 
 >
@@ -52,11 +56,13 @@ Client는 지속적으로 Frontend Server(Github)와 통신하며 HTML 파일을
 
 ## 새로운 Next.js App 생성
 
-<참조: [공식 튜토리얼](https://nextjs.org/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=next-website)>
-
-<참조: [공식 튜토리얼 (번역)](https://brunch.co.kr/@hee072794/81)>
-
-<참조: [Velog Next.js 글](https://velog.io/@ansrjsdn/series/Next)>
+> [참조]
+>
+> [[공식 튜토리얼](https://nextjs.org/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=next-website)
+>
+> [공식 튜토리얼 (번역)](https://brunch.co.kr/@hee072794/81)
+>
+> [Velog Next.js 글](https://velog.io/@ansrjsdn/series/Next)
 
 ```bash
 npx create-next-app blog-ssr --use-npm
@@ -82,11 +88,13 @@ npm run dev
 
 ## 기존 React.js App 전환
 
-<참조: https://nextjs.org/docs/migrating/from-create-react-app>
-
-<참조: https://nextjs.org/docs/migrating/from-react-router>
-
-<참조: https://blog.logrocket.com/how-to-adopt-next-js-into-your-existing-application/>
+> [참조]
+>
+> https://nextjs.org/docs/migrating/from-create-react-app
+>
+> https://nextjs.org/docs/migrating/from-react-router
+>
+> https://blog.logrocket.com/how-to-adopt-next-js-into-your-existing-application/
 
 
 
