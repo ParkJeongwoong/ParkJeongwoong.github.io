@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a1e8418f.chunk.css",
+    "main.js": "/static/js/main.a4f808a1.chunk.js",
+    "main.js.map": "/static/js/main.a4f808a1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b5c6803c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b5c6803c.js.map",
+    "static/js/2.7205b0cd.chunk.js": "/static/js/2.7205b0cd.chunk.js",
+    "static/js/2.7205b0cd.chunk.js.map": "/static/js/2.7205b0cd.chunk.js.map",
+    "static/js/3.e4974acb.chunk.js": "/static/js/3.e4974acb.chunk.js",
+    "static/js/3.e4974acb.chunk.js.map": "/static/js/3.e4974acb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a1e8418f.chunk.css.map": "/static/css/main.a1e8418f.chunk.css.map",
+    "static/js/2.7205b0cd.chunk.js.LICENSE.txt": "/static/js/2.7205b0cd.chunk.js.LICENSE.txt",
+    "static/media/01_Data Link Control.md": "/static/media/01_Data Link Control.63eff5f2.md",
+    "static/media/02_HDLC.md": "/static/media/02_HDLC.4bf4a7c9.md",
+    "static/media/20210901_GitHubBlog.md": "/static/media/20210901_GitHubBlog.dd76637b.md",
+    "static/media/20210927_GitHubBlog.md": "/static/media/20210927_GitHubBlog.9372ab49.md",
+    "static/media/20210928_GitHubBlog.md": "/static/media/20210928_GitHubBlog.68300d39.md",
+    "static/media/20211005_GitHubBlog.md": "/static/media/20211005_GitHubBlog.de43b304.md",
+    "static/media/20211006_GitHubBlog.md": "/static/media/20211006_GitHubBlog.b697d70e.md",
+    "static/media/20211007_GitHubBlog.md": "/static/media/20211007_GitHubBlog.283e4aac.md",
+    "static/media/markdown_test.md": "/static/media/markdown_test.b44a546d.md"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5c6803c.js",
+    "static/js/2.7205b0cd.chunk.js",
+    "static/css/main.a1e8418f.chunk.css",
+    "static/js/main.a4f808a1.chunk.js"
+  ]
+}
