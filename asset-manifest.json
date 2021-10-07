@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.a1e8418f.chunk.css",
-    "main.js": "/static/js/main.a4f808a1.chunk.js",
-    "main.js.map": "/static/js/main.a4f808a1.chunk.js.map",
+    "main.js": "/static/js/main.f90e35de.chunk.js",
+    "main.js.map": "/static/js/main.f90e35de.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b5c6803c.js",
     "runtime-main.js.map": "/static/js/runtime-main.b5c6803c.js.map",
     "static/js/2.7205b0cd.chunk.js": "/static/js/2.7205b0cd.chunk.js",
@@ -19,13 +19,13 @@
     "static/media/20210928_GitHubBlog.md": "/static/media/20210928_GitHubBlog.68300d39.md",
     "static/media/20211005_GitHubBlog.md": "/static/media/20211005_GitHubBlog.de43b304.md",
     "static/media/20211006_GitHubBlog.md": "/static/media/20211006_GitHubBlog.b697d70e.md",
-    "static/media/20211007_GitHubBlog.md": "/static/media/20211007_GitHubBlog.283e4aac.md",
+    "static/media/20211007_GitHubBlog.md": "/static/media/20211007_GitHubBlog.a93274e9.md",
     "static/media/markdown_test.md": "/static/media/markdown_test.b44a546d.md"
   },
   "entrypoints": [
     "static/js/runtime-main.b5c6803c.js",
     "static/js/2.7205b0cd.chunk.js",
     "static/css/main.a1e8418f.chunk.css",
-    "static/js/main.a4f808a1.chunk.js"
+    "static/js/main.f90e35de.chunk.js"
   ]
 }
