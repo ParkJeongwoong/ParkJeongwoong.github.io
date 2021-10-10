@@ -1,0 +1,11 @@
+.link_tag {
+  color: var(--link-color);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 20vw;
+}

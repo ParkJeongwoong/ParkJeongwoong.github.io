@@ -1,0 +1,17 @@
+.Archived_item__detail {
+  padding: 0px 0px 20px 0px;
+}
+
+.Archived_item__title {
+  cursor: pointer;
+}
+
+.Archived_item > div{
+  overflow: hidden;
+  transition: 1s;
+  
+}
+
+.Archived_item__show {
+  height: 0;
+}

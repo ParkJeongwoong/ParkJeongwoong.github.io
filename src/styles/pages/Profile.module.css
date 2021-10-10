@@ -1,0 +1,36 @@
+.Profile {
+  padding: 20px 4vw;
+}
+
+.Profile__introduction, .Profile__tech_stack, .Profile__career {
+  padding-left: 10px;
+  border-left: 4px solid var(--main-color-dark);
+}
+
+.Profile__tech_stack > div {
+  display: flex;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  background: var(--sub-color);
+}
+
+.Profile__tech_stack_logo {
+  height: 8vw;
+}
+
+.Profile__tech_stack_logo img {
+  width: 7vw;
+  max-height: 8vw;
+  margin: 0 1vw;
+}
+
+.Profile__career_name {
+  font-weight: bold;
+}
+
+.Profile__career_content {
+  margin-bottom: 10px;
+}

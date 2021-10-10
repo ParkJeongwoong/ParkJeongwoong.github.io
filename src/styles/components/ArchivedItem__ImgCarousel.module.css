@@ -1,0 +1,42 @@
+.ArchivedItem__ImgCarousel {
+  position: relative;
+  margin-bottom: 4vw;
+}
+
+.ImgCarousel_images {
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  overflow: hidden;
+  /* margin-left: var(--small-margin-size);
+  margin-right: var(--small-margin-size); */
+  /* height: 100px; */
+  position: relative;
+}
+
+.ImgCarousel_images > img {
+  position: relative;
+  width: 70vw;
+  transition: 1s;
+}
+
+.carouselArrow {
+  position: absolute;
+  bottom: -2.5vw;
+  left: 7vw;
+  width: 1.5vw;
+} 
+
+.carouselArrow:hover {
+  z-index: 1;
+  cursor: pointer;
+  width: 1.8vw;
+  transition: 0.2s;
+}
+.carouselArrow__left {
+  left: 0;
+}
+
+.carouselArrow__right {
+  left: 68.5vw;
+}

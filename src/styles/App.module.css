@@ -1,0 +1,15 @@
+.App {
+  min-height: 100vh;
+}
+
+.App__Content {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  box-sizing: border-box
+}
+
+.link_tag {
+  color: var(--link-color);
+  font-size: large;
+}

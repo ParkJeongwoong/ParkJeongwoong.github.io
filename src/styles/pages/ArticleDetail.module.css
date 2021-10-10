@@ -1,0 +1,33 @@
+.ArticleDetail {
+  display: flex;
+}
+
+/* 레이아웃 */
+.ArticleDetail__left {
+  width: 20%;
+}
+
+.ArticleDetail__right {
+  width: 80%;
+  padding: 30px 60px 30px 60px;
+}
+
+
+/* 반응형 웹 디자인 */
+@media (max-width: 960px) {
+  .ArticleDetail {
+    flex-direction: column;
+  }
+
+  .ArticleDetail__left {
+    width: 100%;
+  }
+
+  .ArticleDetail__right {
+    width: 100%;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+  }
+}

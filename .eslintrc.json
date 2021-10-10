@@ -1,0 +1,7 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // "next/image"로 인한 경고 제거
+    "@next/next/no-img-element": "off"
+  }
+}
