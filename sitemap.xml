@@ -55,4 +55,10 @@
         <changefreq>daily</changefreq>
     </url>
 
+<!-- Web -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
 </urlset>
