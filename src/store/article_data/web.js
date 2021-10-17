@@ -14,6 +14,13 @@ const web = [
     content:
       "store/article_data/web/20211017_Spring_Automatic_Dependency_Injection.md",
   },
+  {
+    category: "Web",
+    id: 2,
+    title: "[TIP] a 태그 줄바꿈 문제",
+    date: new Date("2021-10-18, 00:31"),
+    content: "store/article_data/web/20211018_a_tag_word_break.md",
+  },
 ];
 
 export default web;
