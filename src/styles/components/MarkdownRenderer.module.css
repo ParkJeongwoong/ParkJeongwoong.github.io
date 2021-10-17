@@ -36,6 +36,10 @@
   margin-bottom: 10px;
 }
 
+.MarkdownRenderer a {
+  overflow: hidden;
+  word-break: break-all;
+}
 
 .MarkdownRenderer em {
   font-style: normal;
