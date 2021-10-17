@@ -24,7 +24,7 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "predeploy": "npm run build && npm run export && cp google74bbd1bb0c2ee4ad.html out/google74bbd1bb0c2ee4ad.html && cp robots.txt out/robots.txt && cp sitemap.xml out/sitemap.xml && cp .nojekyll out/.nojekyll",
+    "predeploy": "rm -rf node_modules/.cache && next build && next export && cp google74bbd1bb0c2ee4ad.html out/google74bbd1bb0c2ee4ad.html && cp robots.txt out/robots.txt && cp sitemap.xml out/sitemap.xml && touch out/.nojekyll",
     "deploy": "gh-pages --dotfiles -d out"
   },
   "eslintConfig": {

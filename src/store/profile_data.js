@@ -6,6 +6,7 @@ const profile = {
       "/tech_stack/javascript.png",
       "/tech_stack/react.png",
       "/tech_stack/vue.png",
+      "/tech_stack/nextjs.png",
     ],
     backend: [
       "/tech_stack/python.png",

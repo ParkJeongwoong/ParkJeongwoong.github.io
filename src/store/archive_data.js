@@ -62,6 +62,12 @@ const archives = [
         images: ["/archives/blog/7-1.png"],
         content: "Google Search Console 등록",
       },
+      {
+        id: 7,
+        date: "2021-10-10",
+        images: ["/archives/blog/8-1.jpg"],
+        content: "Next.js 전환 완료",
+      },
     ],
   },
 
