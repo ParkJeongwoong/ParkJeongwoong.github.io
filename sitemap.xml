@@ -19,7 +19,21 @@
         <changefreq>weekly</changefreq>
     </url>
 
+<!-- CS -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/1</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
 <!-- Develop -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Develop/1</loc>
         <changefreq>daily</changefreq>
@@ -44,14 +58,8 @@
         <loc>https://parkjeongwoong.github.io/articles/Develop/6</loc>
         <changefreq>daily</changefreq>
     </url>
-
-<!-- CS -->
     <url>
-        <loc>https://parkjeongwoong.github.io/articles/CS/0</loc>
-        <changefreq>daily</changefreq>
-    </url>
-    <url>
-        <loc>https://parkjeongwoong.github.io/articles/CS/1</loc>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/7</loc>
         <changefreq>daily</changefreq>
     </url>
 
