@@ -1,6 +1,6 @@
-import cs from "./article_data/cs.js";
-import develop from "./article_data/develop.js";
-import web from "./article_data/web.js";
+import cs from "./article_data/CS.js";
+import develop from "./article_data/Develop.js";
+import web from "./article_data/Web.js";
 
 const articles = {
   categoryId: -1,

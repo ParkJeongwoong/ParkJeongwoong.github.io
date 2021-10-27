@@ -85,19 +85,19 @@ const archives = [
     ],
   },
 
-  // DAOU Internship
-  {
-    id: 2,
-    title: "Internship",
-    details: [
-      {
-        id: 0,
-        date: "2021-08.17 ~ 2021-09-10",
-        images: [],
-        content: "다우기술 금융개발 직무 (키움증권) 인턴",
-      },
-    ],
-  },
+  // // DAOU Internship
+  // {
+  //   id: 2,
+  //   title: "Internship",
+  //   details: [
+  //     {
+  //       id: 0,
+  //       date: "2021-08.17 ~ 2021-09-10",
+  //       images: [],
+  //       content: "다우기술 금융개발 직무 (키움증권) 인턴\n",
+  //     },
+  //   ],
+  // },
 ];
 
 export default archives;

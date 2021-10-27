@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- 메뉴 -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/profile</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/archives</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+
+<!-- CS -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/CS/1</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
+<!-- Develop -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/1</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/2</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/3</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/4</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/5</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/6</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
+<!-- Web -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/1</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/2</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
+</urlset>

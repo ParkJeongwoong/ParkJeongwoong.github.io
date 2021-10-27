@@ -16,7 +16,7 @@
 
 ### @Resource
 
-> name 속성의 이름을 기준으로 탐색
+> id 또는 name 속성을 기준으로 탐색
 
 - Java에서 지원하는 어노테이션
 
@@ -35,6 +35,7 @@
 > type 속성의 이름을 기준으로  탐색
 
 - Spring에서 지원하는 어노테이션
+- `@Qualifier("qualifier 값")` 를 통해 연결 대상 지정
 
 #### 탐색 순서
 
@@ -51,6 +52,9 @@
 > type 속성의 이름을 기준으로  탐색
 
 - Java에서 지원하는 어노테이션
+- required 속성을 적용할 수 없음
+  - (Autowired의 경우 required=false로 설정함으로써 XML에 해당하는 객체가 없을 때 발생하는 Exceprion을 피할 수 있다.)
+- `@Named(value="bean 객체 id")` 를 통해 bean 객체를 지정해서 자동 주입할 수 있다.
 
 ####  탐색 순서
 

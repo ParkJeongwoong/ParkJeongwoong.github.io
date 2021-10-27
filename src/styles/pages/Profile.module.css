@@ -32,5 +32,10 @@
 }
 
 .Profile__career_content {
+  margin-left: 5px;
   margin-bottom: 10px;
+}
+
+.Profile__career_content_item {
+  margin-top: 3px;
 }

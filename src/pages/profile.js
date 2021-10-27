@@ -75,7 +75,14 @@ function Profile() {
                     {element.name}
                   </div>
                   <div className={styles.Profile__career_content}>
-                    {element.content}
+                    {element.content.split("\n").map((element, idx) => (
+                      <div
+                        key={idx}
+                        className={styles.Profile__career_content_item}
+                      >
+                        {element}
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
