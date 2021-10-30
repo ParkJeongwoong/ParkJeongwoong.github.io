@@ -6,9 +6,7 @@
 2. **sitemap.xml**에 해당 글의 url 추가
 3. **배포**
 
-
-
-마크다운으로 글을 작성하고 난 뒤, 위의 세 가지 프로세스를 한 번에 진행하고 싶었고 Shell Script를 이용해서 이를 구현하기로 결정했다.
+처음에 계획했던 대로 위의 세 가지 프로세스를 자동화하고 싶었고 Shell Script를 이용해서 자동화를 구현했다.
 
 
 
@@ -53,37 +51,50 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     </url>" > sitemap.xml
 ##### sitemap (1) END #####
 
+
+##### 폴더 / 파일 구분
+diretories=()
+
 for entry in `ls $search_dir`; do
+  if [ -d $search_dir/$entry ]; then
+    diretories+=($entry)
+  fi
+done
+
+echo Directories : ${diretories[@]}
+
+
 
 ############### [폴더] ###############
-    if [ -d $search_dir/$entry ]; then
-      CATEGORY=$entry
-      ARTICLE_ID=0
+for dir in ${diretories[@]}; do
+  echo [D : ${dir} 폴더 진입]
+  CATEGORY=$dir
+  ARTICLE_ID=0
 
 ##### js file (1) - Category 파일 생성
-      echo "const ${CATEGORY} = [" > $search_dir/${CATEGORY}.js
+  echo "const ${CATEGORY} = [" > $search_dir/${CATEGORY}.js
 ##### js file (1) END #####
 
-      ##### 폴더의 파일 하나씩 추출 -> 날짜, 위치
-      for file in `ls $search_dir/$entry`; do
-        DATE="${file%%_*}"
+  ##### 폴더의 파일 하나씩 추출 -> 날짜, 위치
+  for file in `ls $search_dir/$dir`; do
+    DATE="${file%%_*}"
 
-        REL_ADDRESS=$search_dir/$entry/$file
-        FILE_ADDRESS=$file_dir/$entry/$file
-        
-        ##### 파일 읽기 -> 제목 추출
-        while read line; do
+    REL_ADDRESS=$search_dir/$dir/$file
+    FILE_ADDRESS=$file_dir/$dir/$file
+    
+    ##### 파일 읽기 -> 제목 추출
+    while read line; do
 
-          if [[ ${line:0:2} == "# " ]]; then
-            TITLE="${line#*# }" # 각 파일의 첫 번째 H1을 제목으로 선택
-            TITLE="${TITLE::-1}" # 개행문자 제거
-            break
-          fi
+      if [[ ${line:0:2} == "# " ]]; then
+        TITLE="${line#*# }" # 각 파일의 첫 번째 H1을 제목으로 선택
+        TITLE="${TITLE::-1}" # 개행문자 제거
+        break
+      fi
 
-        done < $REL_ADDRESS
+    done < $REL_ADDRESS
 
 ##### js file (2) - Article Data 추가
-        echo "  {
+    echo "  {
     category: \"${CATEGORY}\",
     id: ${ARTICLE_ID},
     title: \"${TITLE}\",
@@ -91,59 +102,74 @@ for entry in `ls $search_dir`; do
     content: \"${FILE_ADDRESS}\",
   }," >> $search_dir/${CATEGORY}.js
   
-        ARTICLE_ID=`expr $ARTICLE_ID + 1`
+    ARTICLE_ID=`expr $ARTICLE_ID + 1`
 ##### js file (2) END #####
 
-      done
+  done
 
 ##### js file (3) - Category 파일 완료
-      echo "];
+  echo "];
 
 export default ${CATEGORY};
 " >> $search_dir/${CATEGORY}.js
 ##### js file (3) END #####
 
+  echo -D : ${entry}.js 파일 생성-
+done
 ######################################
 
 
+
+files=()
+
+for entry in `ls $search_dir`; do
+  if [ -f $search_dir/$entry ]; then
+    files+=($entry)
+  fi
+done
+
+echo Files : ${files[@]}
+
+
+
 ############### [파일] ###############
-    elif [ -f $search_dir/$entry ]; then
+for file in ${files[@]}; do
+  echo [F : ${file} 파일 진입]
       
 ##### sitemap (2) - 카테고리 준비
-      category="${entry%%.*}"
-      url_index=0
-      echo "
+  category="${file%%.*}"
+  url_index=0
+  echo "
 <!-- ${category} -->" >> sitemap.xml
 ##### sitemap (2) END #####
       
-      while read line; do
+  while read line; do
 
-        # 파일 위치 확인
-        if [[ "$line" == *"{"* ]]; then
+    # 파일 위치 확인
+    if [[ "$line" == *"{"* ]]; then
 
 ##### sitemap (3) - URL 추가
-          echo "    <url>
+      echo "    <url>
         <loc>https://parkjeongwoong.github.io/articles/${category}/${url_index}</loc>
         <changefreq>daily</changefreq>
     </url>" >> sitemap.xml
 
-          url_index=`expr $url_index + 1`
+      url_index=`expr $url_index + 1`
 ##### sitemap (3) END #####
 
-        fi
-
-      done < $search_dir/$entry
-
     fi
+
+  done < $search_dir/$file
+
+  echo -F : sitemap에 ${file} 정보 추가-
+done
 ######################################
 
-done
 
 ##### sitemap (4) - sitemap 태그 닫기
 echo "
 </urlset>" >> sitemap.xml
 ##### sitemap (4) END #####
-
 
 
 ############### [배포] ###############
@@ -157,11 +183,12 @@ npm run deploy
 
 ### Array
 
-- **[ 변수명=() ]** 형태로 생성
-- **[ 변수명+=(값) ]** 형태로 값 추가 가능
+- [ **변수명=()** ] 형태로 생성
+- [ **변수명+=(값)** ] 형태로 값 추가 가능
 
 - [ $변수명 ] 은 0번째 인덱스의 값만 불러옴
-  - **[ ${변수먕[@]} ]**
+  - 따라서 전체 값을 가져올 때는 반드시 [@]을 붙여서 써야 한다
+  - [ **${변수명[@]}** ]
 
 
 

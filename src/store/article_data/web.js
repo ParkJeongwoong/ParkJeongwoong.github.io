@@ -20,6 +20,13 @@ const Web = [
     date: new Date("2021-10-18"),
     content: "store/article_data/Web/20211018_a_tag_word_break.md",
   },
+  {
+    category: "Web",
+    id: 3,
+    title: "[Spring Boot 프로젝트] 프로젝트 생성하기 (Eclipse)",
+    date: new Date("2021-10-29"),
+    content: "store/article_data/Web/20211029_SpringBoot_AWS.md",
+  },
 ];
 
 export default Web;
