@@ -53,20 +53,20 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 
 
 ##### 폴더 / 파일 구분
-diretories=()
+directories=()
 
 for entry in `ls $search_dir`; do
   if [ -d $search_dir/$entry ]; then
-    diretories+=($entry)
+    directories+=($entry)
   fi
 done
 
-echo Directories : ${diretories[@]}
+echo Directories : ${directories[@]}
 
 
 
 ############### [폴더] ###############
-for dir in ${diretories[@]}; do
+for dir in ${directories[@]}; do
   echo [D : ${dir} 폴더 진입]
   CATEGORY=$dir
   ARTICLE_ID=0
