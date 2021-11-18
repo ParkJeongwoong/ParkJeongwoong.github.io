@@ -96,5 +96,9 @@
         <loc>https://parkjeongwoong.github.io/articles/Web/7</loc>
         <changefreq>daily</changefreq>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/8</loc>
+        <changefreq>daily</changefreq>
+    </url>
 
 </urlset>
