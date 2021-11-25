@@ -68,7 +68,7 @@ echo Directories : ${directories[@]}
 ############### [폴더] ###############
 for dir in ${directories[@]}; do
   echo [D : ${dir} 폴더 진입]
-  CATEGORY=$dir
+  CATEGORY="${dir%%/*}" # 윈도우에서 실행하는 경우 폴더명 끝에 /이 붙는 문제 해결
   ARTICLE_ID=0
 
 ##### js file (1) - Category 파일 생성
@@ -76,11 +76,11 @@ for dir in ${directories[@]}; do
 ##### js file (1) END #####
 
   ##### 폴더의 파일 하나씩 추출 -> 날짜, 위치
-  for file in `ls $search_dir/$dir`; do
+  for file in `ls $search_dir/$CATEGORY`; do
     DATE="${file%%_*}"
 
-    REL_ADDRESS=$search_dir/$dir/$file
-    FILE_ADDRESS=$file_dir/$dir/$file
+    REL_ADDRESS=$search_dir/$CATEGORY/$file
+    FILE_ADDRESS=$file_dir/$CATEGORY/$file
     
     ##### 파일 읽기 -> 제목 추출
     while read line; do
