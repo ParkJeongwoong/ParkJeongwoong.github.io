@@ -19,6 +19,16 @@
         <changefreq>weekly</changefreq>
     </url>
 
+<!-- BlockChain -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/BlockChain/0</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/BlockChain/1</loc>
+        <changefreq>daily</changefreq>
+    </url>
+
 <!-- CS -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/CS/0</loc>
@@ -98,6 +108,10 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Web/8</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/9</loc>
         <changefreq>daily</changefreq>
     </url>
 

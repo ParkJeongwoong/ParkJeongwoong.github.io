@@ -62,6 +62,13 @@ const Web = [
     date: new Date("2021-11-19"),
     content: "store/article_data/Web/20211119_Spring_Encofing_Service_Dao.md",
   },
+  {
+    category: "Web",
+    id: 9,
+    title: "[Spring] Controller 객체",
+    date: new Date("2021-11-30"),
+    content: "store/article_data/Web/20211130_Spring_Controller.md",
+  },
 ];
 
 export default Web;
