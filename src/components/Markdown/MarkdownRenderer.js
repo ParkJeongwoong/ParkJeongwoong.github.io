@@ -23,8 +23,7 @@ function MarkdownRenderer({ documentTitle, markdown }) {
           <span className={globalStyles.loader_text}>Loading...</span>
         </div>
       ) : (
-        <div className={styles.MarkdownRenderer}>
-          <h1 className={styles.MarkdownRenderer__Title}>{documentTitle}</h1>
+        <div className={styles.MarkdownRenderer} id="MarkdownRenderer">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{

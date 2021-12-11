@@ -13,6 +13,20 @@ const BlockChain = [
     date: new Date("2021-11-29"),
     content: "store/article_data/BlockChain/20211129_BlockChain_Concept.md",
   },
+  {
+    category: "BlockChain",
+    id: 2,
+    title: "[블록체인] 작업증명",
+    date: new Date("2021-12-02"),
+    content: "store/article_data/BlockChain/20211202_BlockChain_POW.md",
+  },
+  {
+    category: "BlockChain",
+    id: 3,
+    title: "[블록체인] 지분증명",
+    date: new Date("2021-12-07"),
+    content: "store/article_data/BlockChain/20211207_BlockChain_POS.md",
+  },
 ];
 
 export default BlockChain;

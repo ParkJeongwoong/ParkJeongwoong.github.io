@@ -18,12 +18,24 @@ function ArticleDetail({ markdown, documentTitle }) {
 
   useEffect(() => {
     dispatch({ type: "GET_ARTICLES" });
+    setIsLoading(false);
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch({ type: "GET_ARTICLES" });
-    setIsLoading(false);
-  }, [dispatch]);
+    if (!isLoading && window.innerWidth > 960) {
+      setTimeout(function () {
+        const articleDetail_left = document.querySelector(
+          "#ArticleDetail_left"
+        );
+        const articleCategory = document.querySelector("#Article_Category");
+        const MarkdownRenderer = document.querySelector("#MarkdownRenderer");
+
+        articleDetail_left.style.width = "13%";
+        articleCategory.style.width = "10%";
+        MarkdownRenderer.style.width = "90%";
+      }, 100);
+    }
+  }, [isLoading]);
 
   return (
     <div>
@@ -41,11 +53,14 @@ function ArticleDetail({ markdown, documentTitle }) {
         ) : (
           <div className={styles.ArticleDetail}>
             {/* 왼쪽 */}
-            <div className={styles.ArticleDetail__left}>
+            <div className={styles.ArticleDetail__left} id="ArticleDetail_left">
               <ArticleCategory />
             </div>
             {/* 오른쪽 */}
-            <div className={styles.ArticleDetail__right}>
+            <div
+              className={styles.ArticleDetail__right}
+              id="ArticleDetail_right"
+            >
               <MarkdownRenderer
                 documentTitle={documentTitle}
                 markdown={markdown}

@@ -5,6 +5,8 @@
 /* 레이아웃 */
 .ArticleDetail__left {
   width: 20%;
+
+  transition: 1s;
 }
 
 .ArticleDetail__right {

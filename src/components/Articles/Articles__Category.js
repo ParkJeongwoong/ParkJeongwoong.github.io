@@ -3,7 +3,7 @@ import { store } from "store/store";
 import { useRouter } from "next/router";
 import styles from "styles/components/Articles__Category.module.css";
 
-function Article__Category() {
+function Article__Category({ moveList }) {
   const router = useRouter();
 
   // 전역 상태 관리 (store)
@@ -12,9 +12,12 @@ function Article__Category() {
   const { articles } = value;
 
   const selectCategory = event => {
-    if (router.pathname !== "/articles") {
+    if (!moveList) {
       router.push({ pathname: "/articles" });
+    } else {
+      moveList(true);
     }
+
     dispatch({
       type: "SELECT_CATEGORY",
       value: parseInt(event.target.getAttribute("value")),
@@ -22,7 +25,7 @@ function Article__Category() {
   };
 
   return (
-    <div className={styles.Articles__Category}>
+    <div className={styles.Articles__Category} id="Article_Category">
       <h1>Articles</h1>
       <div
         className={styles.Category__Button}

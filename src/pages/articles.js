@@ -19,6 +19,34 @@ function Articles() {
     setIsLoading(false);
   }, [dispatch]);
 
+  useEffect(() => {
+    moveList();
+  }, [isLoading]);
+
+  function moveList(refresh) {
+    if (!isLoading && window.innerWidth > 960) {
+      const articleDetail_left = document.querySelector("#ArticleDetail_left");
+      const articleCategory = document.querySelector("#Article_Category");
+      const articlesList = document.querySelector("#ArticlesList");
+
+      if (refresh) {
+        articleDetail_left.style.transition = "0s";
+        articleCategory.style.transition = "0s";
+      }
+      articleDetail_left.style.width = "13%";
+      articleCategory.style.width = "10%";
+
+      setTimeout(function () {
+        articleDetail_left.style.transition = "1s";
+        articleCategory.style.transition = "1s";
+
+        articleDetail_left.style.width = "20%";
+        articleCategory.style.width = "12%";
+        articlesList.style.padding = "20px 50px";
+      }, 100);
+    }
+  }
+
   return (
     <div>
       <SEO
@@ -35,8 +63,8 @@ function Articles() {
         ) : (
           <div className={styles.Articles}>
             {/* 왼쪽 */}
-            <div className={styles.Articles__left}>
-              <ArticleCategory />
+            <div className={styles.Articles__left} id="ArticleDetail_left">
+              <ArticleCategory moveList={moveList} />
             </div>
             {/* 오른쪽 */}
             <div className={styles.Articles__right}>

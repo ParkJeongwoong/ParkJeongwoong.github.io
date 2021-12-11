@@ -47,7 +47,7 @@ function Articles__List() {
   };
 
   return (
-    <div className={styles.Articles__List}>
+    <div className={styles.Articles__List} id="ArticlesList">
       <div className={styles.Articles__List__Selected}>{selectedCategory}</div>
       {articleList[0] ? (
         <div>

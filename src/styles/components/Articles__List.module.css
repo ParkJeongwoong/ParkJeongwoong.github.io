@@ -1,8 +1,10 @@
 .Articles__List {
   margin: 0;
-  padding: 20px 50px;
+  padding: 20px 0px;
 
   width: 60vw;
+
+  transition: 1s;
 }
 
 .Articles__List__Selected {

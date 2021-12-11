@@ -1,6 +1,6 @@
 # [Spring] UTF-8 한글 인코딩 설정, Service 객체
 
-오늘은 Spring에서 한글로 된 데이터를 온전하게 다루기 위한 UTF-8 설정 방법과 Service, Dao 객체를 만드는 법에 대해 알아보겠습니다.
+오늘은 Spring에서 한글로 된 데이터를 온전하게 다루기 위한 UTF-8 설정 방법과 Service를 만드는 법에 대해 알아보겠습니다.
 
 
 
@@ -75,9 +75,9 @@ Spring에서 한글 깨짐 현상이 나타난다면 UTF-8 설정이 되지 않�
 
 
 
-## Service, Dao 객체
+## Service 객체
 
-웹서비스의 기능을 담당하는 **Service 객체**와 DB 접근을 담당하는 **DAO(Database Access Object) 객체**를 생성하기 위한 방법은 여러 가지가 있습니다.
+웹서비스의 기능을 담당하는 **Service 객체**를 생성하기 위한 방법은 여러 가지가 있습니다.
 
 
 
