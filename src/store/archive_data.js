@@ -68,6 +68,30 @@ const archives = [
         images: ["/archives/blog/8-1.jpg"],
         content: "Next.js 전환 완료",
       },
+      {
+        id: 8,
+        date: "2021-12-11",
+        images: [
+          "/archives/blog/9-1.jpg",
+          "/archives/blog/9-2.jpg",
+          "/archives/blog/9-3.jpg",
+          "/archives/blog/9-4.jpg",
+        ],
+        content:
+          "Header 및 Articles 페이지 Layout 수정 (뒤의 사진 2장이 구버전)",
+      },
+      {
+        id: 9,
+        date: "2021-12-12",
+        images: ["/archives/blog/10-1.jpg"],
+        content: "폰트 변경",
+      },
+      {
+        id: 10,
+        date: "2021-12-13",
+        images: ["/archives/blog/11-1.jpg", "/archives/blog/11-2.jpg"],
+        content: "모바일 버전 카테고리 메뉴 토글 기능 추가",
+      },
     ],
   },
 

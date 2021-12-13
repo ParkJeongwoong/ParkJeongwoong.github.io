@@ -151,3 +151,16 @@ echo "
 ############### [배포] ###############
 npm run deploy
 ######################################
+
+
+
+Pause()
+{
+  key=""
+  echo "Press any key to continue..."
+  stty -icanon
+  key=`dd count=1 2>/dev/null`
+  stty icanon
+}
+
+Pause;

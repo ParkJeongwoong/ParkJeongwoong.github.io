@@ -9,3 +9,9 @@
   
   height: 20vw;
 }
+
+.link_tag:hover {
+  color: var(--blue);
+
+  transition: 5s;
+}

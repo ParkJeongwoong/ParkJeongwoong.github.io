@@ -26,6 +26,11 @@
   font-size: var(--huge-font-size);
 }
 
+.Category__Mobile {
+  cursor: pointer;
+  display: none;
+}
+
 .Category__Button {
   cursor: pointer;
 }
@@ -41,6 +46,14 @@
   }
 
   .Articles__Category > h1 {
+    display: none;
+  }
+
+  .Category__Mobile {
+    display: inline;
+  }
+
+  .Category__Button {
     display: none;
   }
 }

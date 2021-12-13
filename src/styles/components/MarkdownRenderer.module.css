@@ -1,7 +1,7 @@
 .MarkdownRenderer {
   margin-top: 30px;
   padding: 0px 50px 20px 0px;
-  width: 60vw;
+  width: 90%;
 
   border-radius: 10px;
 
@@ -46,8 +46,8 @@
 @media (max-width: 960px) {
   .MarkdownRenderer {
     margin-top: 0px;
-    padding: 10px 10px;
-    width: 80vw;
+    padding: 10px 0px;
+    width: 90vw;
   }
 
   .MarkdownRenderer__Title {

@@ -28,11 +28,9 @@ function ArticleDetail({ markdown, documentTitle }) {
           "#ArticleDetail_left"
         );
         const articleCategory = document.querySelector("#Article_Category");
-        const MarkdownRenderer = document.querySelector("#MarkdownRenderer");
 
         articleDetail_left.style.width = "13%";
         articleCategory.style.width = "10%";
-        MarkdownRenderer.style.width = "90%";
       }, 100);
     }
   }, [isLoading]);

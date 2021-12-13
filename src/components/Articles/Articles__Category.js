@@ -24,9 +24,33 @@ function Article__Category({ moveList }) {
     });
   };
 
+  const toggleCategory = () => {
+    let categoryList = document.querySelectorAll("#Article_Category > div");
+    let font_weight;
+    let category_visible;
+
+    if (categoryList[0].style["font-weight"]) {
+      font_weight = "";
+      category_visible = "none";
+    } else {
+      font_weight = "bold";
+      category_visible = "inline";
+    }
+
+    categoryList[0].style["font-weight"] = font_weight;
+    for (let i = 1; i < categoryList.length; i++) {
+      categoryList[i].style.display = category_visible;
+    }
+  };
+
   return (
     <div className={styles.Articles__Category} id="Article_Category">
       <h1>Articles</h1>
+      <div className={styles.Category__Mobile} onClick={toggleCategory}>
+        {articles.categoryId == -1
+          ? "전체보기"
+          : articles.categoryList[Number(articles.categoryId)].category}
+      </div>
       <div
         className={styles.Category__Button}
         onClick={selectCategory}

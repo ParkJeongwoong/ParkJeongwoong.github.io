@@ -2,6 +2,8 @@
   "extends": "next/core-web-vitals",
   "rules": {
     // "next/image"로 인한 경고 제거
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    // Google Font 경로 추가
+    "@next/next/no-document-import-in-page": "off"
   }
 }
