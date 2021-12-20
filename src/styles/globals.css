@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  line-height: 28px;
+}
+
 :root {
   /* 색상 정보 */
   --main-color: #e7f0f3;

@@ -12,13 +12,10 @@ const profile = {
       "/tech_stack/python.png",
       "/tech_stack/django.png",
       "/tech_stack/java.png",
+      "/tech_stack/spring.png",
     ],
     version_control: ["/tech_stack/git.png"],
-    studying: [
-      "/tech_stack/spring.png",
-      "/tech_stack/mysql.png",
-      "/tech_stack/cpp.png",
-    ],
+    studying: ["/tech_stack/mysql.png", "/tech_stack/cpp.png"],
   },
   career: [
     {

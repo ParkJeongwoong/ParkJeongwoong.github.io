@@ -12,18 +12,22 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <url>
         <loc>https://parkjeongwoong.github.io/</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/profile</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles</loc>
         <changefreq>daily</changefreq>
+        <priority>0.3</priority>
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/archives</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.1</priority>
     </url>" > sitemap.xml
 ##### sitemap (1) END #####
 
@@ -128,6 +132,7 @@ for file in ${files[@]}; do
       echo "    <url>
         <loc>https://parkjeongwoong.github.io/articles/${category}/${url_index}</loc>
         <changefreq>daily</changefreq>
+        <priority>0.8</priority>
     </url>" >> sitemap.xml
 
       url_index=`expr $url_index + 1`

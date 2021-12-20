@@ -69,6 +69,20 @@ const Web = [
     date: new Date("2021-11-30"),
     content: "store/article_data/Web/20211130_Spring_Controller.md",
   },
+  {
+    category: "Web",
+    id: 10,
+    title: "[Spring] 세션 & 쿠키",
+    date: new Date("2021-12-16"),
+    content: "store/article_data/Web/20211216_Spring_Session_Cookie.md",
+  },
+  {
+    category: "Web",
+    id: 11,
+    title: "[Spring] 리다이렉트 & 인터셉터",
+    date: new Date("2021-12-18"),
+    content: "store/article_data/Web/20211218_Spring_Redirect_Intercept.md",
+  },
 ];
 
 export default Web;
