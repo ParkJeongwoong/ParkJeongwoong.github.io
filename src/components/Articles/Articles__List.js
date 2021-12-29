@@ -84,10 +84,10 @@ function Articles__List() {
                     value={`${article.category}/${article.id}`}
                   >
                     {`
-                ${article.date.getFullYear()}년
-                ${article.date.getMonth() + 1}월
-                ${article.date.getDate()}일
-              `}
+                      ${article.date.getFullYear()}년
+                      ${article.date.getMonth() + 1}월
+                      ${article.date.getDate()}일
+                    `}
                   </div>
                 </div>
               </div>

@@ -83,6 +83,34 @@ const Web = [
     date: new Date("2021-12-18"),
     content: "store/article_data/Web/20211218_Spring_Redirect_Intercept.md",
   },
+  {
+    category: "Web",
+    id: 12,
+    title: "[Spring] Controller, Service, DAO, DTO, Domain",
+    date: new Date("2021-12-21"),
+    content: "store/article_data/Web/20211221_Spring_Controller_Service_Dao_Dto_Domain.md",
+  },
+  {
+    category: "Web",
+    id: 13,
+    title: "[Spring] Database",
+    date: new Date("2021-12-26"),
+    content: "store/article_data/Web/20211226_Spring_Database.md",
+  },
+  {
+    category: "Web",
+    id: 14,
+    title: "[Spring] JDBC",
+    date: new Date("2021-12-28"),
+    content: "store/article_data/Web/20211228_Spring_JDBC.md",
+  },
+  {
+    category: "Web",
+    id: 15,
+    title: "[Spring] Build : Maven과 Gradle",
+    date: new Date("2021-12-30"),
+    content: "store/article_data/Web/20211230_Spring_Build.md",
+  },
 ];
 
 export default Web;
