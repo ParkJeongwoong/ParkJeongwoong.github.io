@@ -107,9 +107,16 @@ const Web = [
   {
     category: "Web",
     id: 15,
+    title: "[Spring] Connection Pool과 JDBC Template",
+    date: new Date("2022-01-02"),
+    content: "store/article_data/Web/20220102_Spring_JDBC_Template_DBCP.md",
+  },
+  {
+    category: "Web",
+    id: 16,
     title: "[Spring] Build : Maven과 Gradle",
-    date: new Date("2021-12-30"),
-    content: "store/article_data/Web/20211230_Spring_Build.md",
+    date: new Date("2022-01-04"),
+    content: "store/article_data/Web/20220104_Spring_Build.md",
   },
 ];
 
