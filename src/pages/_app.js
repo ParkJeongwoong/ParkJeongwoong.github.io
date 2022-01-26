@@ -2,12 +2,27 @@ import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
 import { StateProvider } from "store/store";
 import "styles/globals.css";
+import Api from "api/api";
 
 function MyApp({ Component, pageProps }) {
-  console.log("환경변수1 : " + process.env.REACT_APP_SERVER_URL);
-  console.log("환경변수2 : " + process.env.REACT_APP_SERVER_URL2);
-  console.log("환경변수3 : " + process.env.REACT_APP_SERVER_URL3);
-  // console.log("환경변수2 : " + secrets.SERVER_URL);
+  Api.apiTest1(
+    null,
+    res => {
+      console.log("apiTest1 : " + JSON.stringify(res.data));
+    },
+    err => console.log(err)
+  );
+  Api.apiTest2(
+    {
+      name: "jeongwoong",
+      amount: "10",
+    },
+    res => {
+      console.log("apiTest2 : " + JSON.stringify(res.data));
+    },
+    err => console.log(err)
+  );
+
   return (
     <StateProvider>
       <div className="App">
