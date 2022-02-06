@@ -99,6 +99,13 @@
         <priority>0.8</priority>
     </url>
 
+<!-- Failure -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/0</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 <!-- Web -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Web/0</loc>
