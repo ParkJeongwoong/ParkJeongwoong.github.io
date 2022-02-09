@@ -118,6 +118,13 @@ const Web = [
     date: new Date("2022-01-04"),
     content: "store/article_data/Web/20220104_Spring_Build.md",
   },
+  {
+    category: "Web",
+    id: 17,
+    title: "[AWS] AWS Route53 호스팅 영역 요금",
+    date: new Date("2022-02-08"),
+    content: "store/article_data/Web/20220208_AWS_Route53_Hosting.md",
+  },
 ];
 
 export default Web;

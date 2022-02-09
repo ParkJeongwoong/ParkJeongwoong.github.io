@@ -2,6 +2,7 @@ import CS from "./article_data/CS.js";
 import Develop from "./article_data/Develop.js";
 import Web from "./article_data/Web.js";
 import BlockChain from "./article_data/BlockChain.js";
+import Failure from "./article_data/Failure.js";
 
 const articles = {
   categoryId: -1,
@@ -11,6 +12,7 @@ const articles = {
     { id: 2, category: "Web", itemList: Web },
     { id: 3, category: "BlockChain", itemList: BlockChain },
     { id: 4, category: "Algorithm", itemList: [] },
+    { id: 5, category: "Failure", itemList: Failure },
   ],
 };
 
