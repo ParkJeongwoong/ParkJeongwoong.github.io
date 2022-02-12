@@ -1,0 +1,1 @@
+{"pageProps":{"markdown":"# [CleanCode] 네이밍\r\n\r\n ## 의도 밝히기\r\n\r\n> 의도, 기능, 사용법이 잘 드러나는 이름\r\n\r\n이름을 지을 때는 해당 변수, 함수, 클래스, 패키지의 <u>의도가 무엇인지 쉽고 분명하게 알 수 있는 이름</u>으로 지어야 한다.\r\n\r\n","documentTitle":"[CleanCode] 네이밍"},"__N_SSG":true}
