@@ -35,6 +35,12 @@
   cursor: pointer;
 }
 
+.SubCategory__Button {
+  margin-left: 10%;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+}
+
 
 /* 반응형 웹 디자인 */
 @media (max-width: 960px) {
@@ -55,5 +61,9 @@
 
   .Category__Button {
     display: none;
+  }
+
+  .SubCategory__Button {
+    margin-left: 3%;
   }
 }

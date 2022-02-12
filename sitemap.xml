@@ -106,6 +106,18 @@
         <priority>0.8</priority>
     </url>
 
+<!-- Studied -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Studied/0</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Studied/1</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 <!-- Web -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Web/0</loc>
@@ -182,3 +194,20 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/15</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/16</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/17</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

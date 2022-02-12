@@ -1,6 +1,7 @@
 const Develop = [
   {
     category: "Develop",
+    subCategory: "",
     id: 0,
     title: "마크다운 테스트",
     date: new Date("2021-08-25"),
@@ -8,6 +9,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 1,
     title: "[GitHub Blog 개발기] 정리할 내용 목록",
     date: new Date("2021-09-01"),
@@ -15,6 +17,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 2,
     title: "[GitHub Blog 개발기] 개발일지",
     date: new Date("2021-09-27"),
@@ -22,6 +25,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 3,
     title: "[GitHub Blog 개발기] Markdown 적용 및 Require 함수",
     date: new Date("2021-09-28"),
@@ -29,6 +33,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 4,
     title: "[GitHub Blog 개발기] 구글 검색 등록 & SEO 구현(1)",
     date: new Date("2021-10-05"),
@@ -36,6 +41,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 5,
     title: "[GitHub Blog 개발기] SEO 구현(2) - Next.js app",
     date: new Date("2021-10-06"),
@@ -43,6 +49,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 6,
     title: "[GitHub Blog 개발기] SEO 구현(3) - Next.js app",
     date: new Date("2021-10-07"),
@@ -50,6 +57,7 @@ const Develop = [
   },
   {
     category: "Develop",
+    subCategory: "",
     id: 7,
     title: "[GitHub Blog 개발기] sitemap, 게시글 등록 자동화 (Shell Script)",
     date: new Date("2021-10-28"),

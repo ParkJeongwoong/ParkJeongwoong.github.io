@@ -1,6 +1,7 @@
 const CS = [
   {
     category: "CS",
+    subCategory: "",
     id: 0,
     title: "Data Link Control",
     date: new Date("2021-09-02"),
@@ -8,6 +9,7 @@ const CS = [
   },
   {
     category: "CS",
+    subCategory: "",
     id: 1,
     title: "High-level Data Link Control (HDLC)",
     date: new Date("2021-09-04"),

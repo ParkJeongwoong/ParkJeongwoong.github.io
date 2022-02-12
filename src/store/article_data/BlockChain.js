@@ -1,6 +1,7 @@
 const BlockChain = [
   {
     category: "BlockChain",
+    subCategory: "",
     id: 0,
     title: "블록체인을 공부하기로 마음먹은 계기",
     date: new Date("2021-11-27"),
@@ -8,6 +9,7 @@ const BlockChain = [
   },
   {
     category: "BlockChain",
+    subCategory: "",
     id: 1,
     title: "[블록체인] 개념정리",
     date: new Date("2021-11-29"),
@@ -15,6 +17,7 @@ const BlockChain = [
   },
   {
     category: "BlockChain",
+    subCategory: "",
     id: 2,
     title: "[블록체인] 작업증명",
     date: new Date("2021-12-02"),
@@ -22,6 +25,7 @@ const BlockChain = [
   },
   {
     category: "BlockChain",
+    subCategory: "",
     id: 3,
     title: "[블록체인] 지분증명",
     date: new Date("2021-12-07"),

@@ -66,6 +66,15 @@ function Article__Category({ moveList }) {
           value={article_type.id}
         >
           {article_type.category}
+          {article_type.subCategory.map((article_sub_type, sidx) => (
+            <div
+              key={sidx}
+              className={styles.SubCategory__Button}
+              value={`${article_type.id}_${sidx}`}
+            >
+              {article_sub_type}
+            </div>
+          ))}
         </div>
       ))}
     </div>

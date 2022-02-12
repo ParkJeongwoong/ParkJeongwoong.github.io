@@ -1,5 +1,56 @@
 # 자동화 스크립트
 
+######################################
+######################################
+############### [함수] ###############
+Read_files()
+{
+DATE="${file%%_*}"
+
+REL_ADDRESS=$search_dir/$CATEGORY/$component
+FILE_ADDRESS=$file_dir/$CATEGORY/$component
+
+##### 파일 읽기 -> 제목 추출
+while read line; do
+
+  if [[ ${line:0:2} == "# " ]]; then
+    TITLE="${line#*# }" # 각 파일의 첫 번째 H1을 제목으로 선택
+    TITLE="${TITLE::-1}" # 개행문자 제거
+    break
+  fi
+
+done < $REL_ADDRESS
+
+##### js file (2) - Article Data 추가
+echo "  {
+    category: \"${CATEGORY}\",
+    subCategory: \"${SUB_CATEGORY}\",
+    id: ${ARTICLE_ID},
+    title: \"${TITLE}\",
+    date: new Date(\"${DATE:0:4}-${DATE:4:2}-${DATE:6:2}\"),
+    content: \"${FILE_ADDRESS}\",
+  }," >> $search_dir/${CATEGORY}.js
+  
+ARTICLE_ID=`expr $ARTICLE_ID + 1`
+##### js file (2) END #####
+}
+
+Pause()
+{
+  key=""
+  echo "Press any key to continue..."
+  stty -icanon
+  key=`dd count=1 2>/dev/null`
+  stty icanon
+}
+######################################
+######################################
+######################################
+
+
+
+
+
 # article_data 파일 읽기
 search_dir=./src/store/article_data
 file_dir=store/article_data
@@ -56,34 +107,20 @@ for dir in ${directories[@]}; do
 ##### js file (1) END #####
 
   ##### 폴더의 파일 하나씩 추출 -> 날짜, 위치
-  for file in `ls $search_dir/$CATEGORY`; do
-    DATE="${file%%_*}"
+  for component in `ls $search_dir/$CATEGORY`; do
 
-    REL_ADDRESS=$search_dir/$CATEGORY/$file
-    FILE_ADDRESS=$file_dir/$CATEGORY/$file
-    
-    ##### 파일 읽기 -> 제목 추출
-    while read line; do
-
-      if [[ ${line:0:2} == "# " ]]; then
-        TITLE="${line#*# }" # 각 파일의 첫 번째 H1을 제목으로 선택
-        TITLE="${TITLE::-1}" # 개행문자 제거
-        break
-      fi
-
-    done < $REL_ADDRESS
-
-##### js file (2) - Article Data 추가
-    echo "  {
-    category: \"${CATEGORY}\",
-    id: ${ARTICLE_ID},
-    title: \"${TITLE}\",
-    date: new Date(\"${DATE:0:4}-${DATE:4:2}-${DATE:6:2}\"),
-    content: \"${FILE_ADDRESS}\",
-  }," >> $search_dir/${CATEGORY}.js
-  
-    ARTICLE_ID=`expr $ARTICLE_ID + 1`
-##### js file (2) END #####
+    # js file (2)
+    if [ -f $search_dir/$CATEGORY/$component ]; then
+      SUB_CATEGORY=""
+      file=$component
+      Read_files;
+    elif [ -d $search_dir/$CATEGORY/$component ]; then
+      SUB_CATEGORY="${component%%/*}" # 윈도우에서 실행하는 경우 폴더명 끝에 /이 붙는 문제 해결
+      for file in `ls $search_dir/$CATEGORY/$SUB_CATEGORY`; do
+        component="${SUB_CATEGORY}/${file}"
+        Read_files;
+      done
+    fi
 
   done
 
@@ -154,18 +191,8 @@ echo "
 
 
 ############### [배포] ###############
-npm run deploy
+#npm run deploy
 ######################################
 
-
-
-Pause()
-{
-  key=""
-  echo "Press any key to continue..."
-  stty -icanon
-  key=`dd count=1 2>/dev/null`
-  stty icanon
-}
 
 Pause;
