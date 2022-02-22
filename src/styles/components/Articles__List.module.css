@@ -41,6 +41,18 @@
   text-align: right;
 }
 
+.Article_SubCategory {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  font-size: var(--main-font-size);
+  
+  background-color: var(--main-color);
+  border-radius: 15px;
+  padding: 0px 10px;
+}
+
 .Article__Date {
   margin-bottom: -10px;
 
@@ -67,6 +79,10 @@
     position: absolute;
     top: 10px;
     left: 20px;
+  }
+
+  .Article_SubCategory {
+    right: 20px;
   }
 
   .Article__Date {

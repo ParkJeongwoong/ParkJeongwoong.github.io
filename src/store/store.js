@@ -46,8 +46,47 @@ const StateProvider = ({ children }) => {
         return { ...state, archives };
       // Article - Choose Article Category
       case "SELECT_CATEGORY":
-        const categoryId = action.value;
-        return { ...state, articles: { ...state.articles, categoryId } };
+        const parsedIdList = action.value;
+        const categoryId = parseInt(parsedIdList[0]);
+        let subCategoryId = -1;
+
+        if (parsedIdList.length == 2) {
+          subCategoryId = parseInt(parsedIdList[1]);
+        }
+
+        return {
+          ...state,
+          articles: { ...state.articles, categoryId, subCategoryId },
+        };
+      case "SELECT_PAGE":
+        const last_page = parseInt(state.articles.page_from / 10);
+        const page = action.value;
+        const page_from = page * 10;
+        const page_to = page_from + 10;
+
+        const last_page_DIV = document.querySelector(`#page${last_page}`);
+        const selected_page_DIV = document.querySelector(`#page${page}`);
+
+        if (last_page_DIV) {
+          last_page_DIV.style["font-size"] = "var(--mid-font-size)";
+          last_page_DIV.style["color"] = "black";
+          last_page_DIV.style["font-weight"] = "normal";
+        }
+        if (selected_page_DIV) {
+          selected_page_DIV.style["font-size"] = "var(--large-font-size)";
+          selected_page_DIV.style["color"] = "var(--main-color-deep-dark)";
+          selected_page_DIV.style["font-weight"] = "bold";
+        }
+
+        return {
+          ...state,
+          articles: {
+            ...state.articles,
+            page_from,
+            page_to,
+          },
+        };
+
       default:
         throw new Error();
     }

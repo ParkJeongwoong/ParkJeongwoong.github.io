@@ -9,5 +9,7 @@ const Failure = [
   },
 ];
 
-export default Failure;
+const Failure_SubCategory = [];
+
+export { Failure,  Failure_SubCategory };
 

@@ -64,7 +64,7 @@ service nginx start를 하니 다음과 같은 **status=203/EXEC** 에러가 떴
 
 
 
-## 성공
+## HTTPS 적용 성공
 
 https://kerobero.tistory.com/40
 
@@ -91,3 +91,72 @@ certbot은 yum으로 설치했다.
 
 
 이렇게 간단히 할 수 있는 걸 잘 모르는 상태에서 컴파일 설치를 하려고 이것저것 만지는 바람에 너무 오래 걸렸다. 그래도 삽질하면서 설정파일을 계속 오가며 수정한 덕분에 리눅스가 조금 더 익숙해졌다.
+
+
+
+### 포트 포워딩
+
+80번, 443번 포트로 접속해도 8080포트로 연결되도록 nginx.conf 파일의 server-loaction 부분을 다음과 같이 수정했다.
+
+```yaml
+# 출처 : https://steady-hello.tistory.com/46
+
+server {
+    listen       443 ssl;
+    server_name  localhost;
+
+    ssl_certificate /etc/letsencrypt/live/dvlprjw.kro.kr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dvlprjw.kro.kr/privkey.pem;
+
+	location / {
+        # 변경한 부분
+        proxy_pass http://localhost:8080;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_Add_X_forwarded_for;
+        proxy_set_header Host $http_host;
+        # 변경한 부분
+    }
+
+    #error_page  404              /404.html;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+
+
+## CORS
+
+현재 이루어지고 있는 통신은 다음과 같다.
+
+> [Client] ----- [github.io] ----- [AWS]
+
+이렇게 클라이언트는 github 페이지에 접속했는데, 요청을 AWS로 보냈기 때문에 CORS가 발생했다.
+
+
+
+CORS는 Response Header의 Access-Control-Allow-Origin에 허용할 요청의 주소를 넣어 해결할 수 있다.
+
+따라서 Spring-boot의 WebConfig.java 파일에 다음 코드를 추가함으로써 해결했다.
+
+```java
+@RequiredArgsConstructor
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    private final LoginUserArgumentResolver loginUserArgumentResolver;
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(loginUserArgumentResolver);
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000", "https://parkjeongwoong.github.io");
+    }
+}
+```
+

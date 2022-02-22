@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { store } from "store/store";
 import { useRouter } from "next/router";
 import styles from "styles/components/Articles__List.module.css";
+import Article__Pagination from "components/Articles/Article__Pagination";
 
 function Articles__List() {
   // router 사용
@@ -35,10 +36,28 @@ function Articles__List() {
       const selectedArticles = articles.categoryList.filter(
         category => category.id === articles.categoryId
       );
-      setSelectedCategory(selectedArticles[0].category);
-      setArticleList(selectedArticles[0].itemList);
+      if (articles.subCategoryId === -1) {
+        setSelectedCategory(selectedArticles[0].category);
+        setArticleList(selectedArticles[0].itemList);
+      } else {
+        setSelectedCategory(
+          selectedArticles[0].subCategory[articles.subCategoryId]
+        );
+        setArticleList(
+          selectedArticles[0].itemList.filter(
+            article =>
+              article.subCategory ===
+              selectedArticles[0].subCategory[articles.subCategoryId]
+          )
+        );
+      }
     }
-  }, [articles.categoryId, articles.categoryList]);
+  }, [
+    articles.categoryId,
+    articles.subCategoryId,
+    articles.categoryList,
+    articles.page_from,
+  ]);
 
   // 글 선택
   const selectArticle = event => {
@@ -54,48 +73,56 @@ function Articles__List() {
           {articleList
             .slice(0)
             .reverse()
-            .map((article, idx) => (
-              <div
-                key={idx}
-                className={styles.Articles__List__Article}
-                onClick={selectArticle}
-                value={`${article.category}/${article.id}`}
-              >
+            .map((article, idx) =>
+              articles.page_from <= idx && idx < articles.page_to ? (
                 <div
-                  className={styles.Article__Title}
+                  key={idx}
+                  className={styles.Articles__List__Article}
+                  onClick={selectArticle}
                   value={`${article.category}/${article.id}`}
                 >
-                  <h2 value={`${article.category}/${article.id}`}>
-                    {article.title}
-                  </h2>
-                </div>
-                <div
-                  className={styles.Article__Category_Date}
-                  value={`${article.category}/${article.id}`}
-                >
-                  <div
-                    className={styles.Article__Category}
-                    value={`${article.category}/${article.id}`}
-                  >
-                    {article.category}
+                  <div className={styles.Article_SubCategory}>
+                    {article.subCategory}
                   </div>
                   <div
-                    className={styles.Article__Date}
+                    className={styles.Article__Title}
                     value={`${article.category}/${article.id}`}
                   >
-                    {`
+                    <h2 value={`${article.category}/${article.id}`}>
+                      {article.title}
+                    </h2>
+                  </div>
+                  <div
+                    className={styles.Article__Category_Date}
+                    value={`${article.category}/${article.id}`}
+                  >
+                    <div
+                      className={styles.Article__Category}
+                      value={`${article.category}/${article.id}`}
+                    >
+                      {article.category}
+                    </div>
+                    <div
+                      className={styles.Article__Date}
+                      value={`${article.category}/${article.id}`}
+                    >
+                      {`
                       ${article.date.getFullYear()}년
                       ${article.date.getMonth() + 1}월
                       ${article.date.getDate()}일
                     `}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ) : (
+                ""
+              )
+            )}
         </div>
       ) : (
         <div>게시글이 없습니다.</div>
       )}
+      <Article__Pagination article_count={articleList.length} />
     </div>
   );
 }

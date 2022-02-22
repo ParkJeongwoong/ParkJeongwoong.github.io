@@ -145,5 +145,7 @@ const Web = [
   },
 ];
 
-export default Web;
+const Web_SubCategory = [];
+
+export { Web,  Web_SubCategory };
 

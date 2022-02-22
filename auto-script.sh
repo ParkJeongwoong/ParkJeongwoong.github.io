@@ -106,6 +106,9 @@ for dir in ${directories[@]}; do
   echo "const ${CATEGORY} = [" > $search_dir/${CATEGORY}.js
 ##### js file (1) END #####
 
+  ##### SubCategory List 준비
+  subCategories=()
+
   ##### 폴더의 파일 하나씩 추출 -> 날짜, 위치
   for component in `ls $search_dir/$CATEGORY`; do
 
@@ -116,6 +119,7 @@ for dir in ${directories[@]}; do
       Read_files;
     elif [ -d $search_dir/$CATEGORY/$component ]; then
       SUB_CATEGORY="${component%%/*}" # 윈도우에서 실행하는 경우 폴더명 끝에 /이 붙는 문제 해결
+      subCategories+=(\"$SUB_CATEGORY\",)
       for file in `ls $search_dir/$CATEGORY/$SUB_CATEGORY`; do
         component="${SUB_CATEGORY}/${file}"
         Read_files;
@@ -124,10 +128,15 @@ for dir in ${directories[@]}; do
 
   done
 
+##### SubCategory List 내 중복 제거
+subCategories=($(printf "%s\n" "${subCategories[@]}" | sort -u))
+
 ##### js file (3) - Category 파일 완료
   echo "];
 
-export default ${CATEGORY};
+const ${CATEGORY}_SubCategory = [${subCategories[@]}];
+
+export { ${CATEGORY},  ${CATEGORY}_SubCategory };
 " >> $search_dir/${CATEGORY}.js
 ##### js file (3) END #####
 
@@ -191,7 +200,7 @@ echo "
 
 
 ############### [배포] ###############
-#npm run deploy
+npm run deploy
 ######################################
 
 

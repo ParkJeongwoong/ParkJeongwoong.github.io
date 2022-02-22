@@ -1,0 +1,22 @@
+.Pagination__List {
+  margin: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pagination__DefaultPage {
+  font-size: var(--large-font-size);
+  font-weight: bold;
+  color: var(--main-color-deep-dark);
+
+  cursor: pointer;
+}
+
+.Pagination__Page {
+  font-size: var(--mid-font-size);
+  margin-left: 20px;
+
+  cursor: pointer;
+}

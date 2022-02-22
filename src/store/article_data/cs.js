@@ -17,5 +17,7 @@ const CS = [
   },
 ];
 
-export default CS;
+const CS_SubCategory = [];
+
+export { CS,  CS_SubCategory };
 

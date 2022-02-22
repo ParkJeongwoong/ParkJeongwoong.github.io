@@ -11,7 +11,7 @@ function ArticleDetail({ markdown, documentTitle }) {
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
-  const { articles } = value;
+  const {} = value;
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
@@ -97,15 +97,17 @@ export async function getStaticProps(context) {
   let path = "";
   let documentTitle = "";
   let markdown = "";
+  let has_SubCategory = false;
 
   // 파일 주소 찾기
   if (articles.categoryList) {
-    articles.categoryList.forEach(categoryElement => {
+    articles.categoryList.find(categoryElement => {
       if (categoryElement.category === context.params.articleCategory) {
-        categoryElement.itemList.forEach(articleElement => {
+        categoryElement.itemList.find(articleElement => {
           if (articleElement.id === parseInt(context.params.articleId)) {
             path = articleElement.content;
             documentTitle = articleElement.title;
+            has_SubCategory = articleElement.subCategory ? true : false;
           }
         });
       }
@@ -113,9 +115,16 @@ export async function getStaticProps(context) {
   }
 
   if (path) {
-    const readmePath = require(`store/article_data/${path.split("/")[2]}/${
-      path.split("/")[3]
-    }`);
+    let readmePath;
+    if (!has_SubCategory) {
+      readmePath = require(`store/article_data/${path.split("/")[2]}/${
+        path.split("/")[3]
+      }`);
+    } else {
+      readmePath = require(`store/article_data/${path.split("/")[2]}/${
+        path.split("/")[3]
+      }/${path.split("/")[4]}`);
+    }
 
     markdown = readmePath.default;
   }

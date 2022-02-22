@@ -92,6 +92,25 @@ const archives = [
         images: ["/archives/blog/11-1.jpg", "/archives/blog/11-2.jpg"],
         content: "모바일 버전 카테고리 메뉴 토글 기능 추가",
       },
+      {
+        id: 11,
+        date: "2022-02-08",
+        images: ["/archives/blog/12-1.jpg"],
+        content: "EC2 Web Application Server와 연결 성공",
+      },
+      {
+        id: 12,
+        date: "2022-02-12",
+        images: ["/archives/blog/13-1.jpg"],
+        content: "Articles의 카테고리 안에 서브 카테고리 추가",
+      },
+      {
+        id: 13,
+        date: "2022-02-14",
+        images: ["/archives/blog/14-1.jpg"],
+        content:
+          "페이지네이션 기능 추가\n페이지네이션 기능 추가 후 검색 기능의 필요성을 느낌 (더이상 Ctrl+f를 통한 글 검색이 불가능)",
+      },
     ],
   },
 

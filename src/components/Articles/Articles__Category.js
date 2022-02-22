@@ -18,9 +18,15 @@ function Article__Category({ moveList }) {
       moveList(true);
     }
 
+    const parsedIdList = event.target.getAttribute("value").split("_");
+
     dispatch({
       type: "SELECT_CATEGORY",
-      value: parseInt(event.target.getAttribute("value")),
+      value: parsedIdList,
+    });
+    dispatch({
+      type: "SELECT_PAGE",
+      value: 0,
     });
   };
 
@@ -49,27 +55,35 @@ function Article__Category({ moveList }) {
       <div className={styles.Category__Mobile} onClick={toggleCategory}>
         {articles.categoryId == -1
           ? "전체보기"
-          : articles.categoryList[Number(articles.categoryId)].category}
+          : articles.subCategoryId == -1
+          ? articles.categoryList[Number(articles.categoryId)].category
+          : articles.categoryList[Number(articles.categoryId)].subCategory[
+              articles.subCategoryId
+            ]}
       </div>
-      <div
-        className={styles.Category__Button}
-        onClick={selectCategory}
-        value="-1"
-      >
-        전체보기
-      </div>
-      {articles.categoryList.map((article_type, idx) => (
+      <div className={styles.Category__Div}>
         <div
-          key={idx}
           className={styles.Category__Button}
           onClick={selectCategory}
-          value={article_type.id}
+          value="-1"
         >
-          {article_type.category}
+          전체보기
+        </div>
+      </div>
+      {articles.categoryList.map((article_type, idx) => (
+        <div key={idx} className={styles.Category__Div}>
+          <div
+            className={styles.Category__Button}
+            onClick={selectCategory}
+            value={article_type.id}
+          >
+            {article_type.category}
+          </div>
           {article_type.subCategory.map((article_sub_type, sidx) => (
             <div
               key={sidx}
               className={styles.SubCategory__Button}
+              onClick={selectCategory}
               value={`${article_type.id}_${sidx}`}
             >
               {article_sub_type}
