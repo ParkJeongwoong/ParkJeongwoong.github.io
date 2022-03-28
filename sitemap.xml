@@ -44,11 +44,6 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://parkjeongwoong.github.io/articles/BlockChain/4</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
 
 <!-- CS -->
     <url>
@@ -58,11 +53,6 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/CS/1</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://parkjeongwoong.github.io/articles/CS/2</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -108,20 +98,10 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://parkjeongwoong.github.io/articles/Develop/8</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
 
 <!-- Failure -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Failure/0</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://parkjeongwoong.github.io/articles/Failure/1</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -134,6 +114,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Studied/1</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Studied/2</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -231,6 +216,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Web/18</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/19</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

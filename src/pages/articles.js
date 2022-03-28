@@ -5,8 +5,11 @@ import SEO from "components/seo";
 import { store } from "store/store";
 import globalStyles from "styles/globalStyles.module.css";
 import styles from "styles/pages/Articles.module.css";
+import { useRouter } from "next/router";
+import Api from "api/api";
 
 function Articles() {
+  const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { dispatch } = globalState;
@@ -47,7 +50,12 @@ function Articles() {
   useEffect(() => {
     dispatch({ type: "GET_ARTICLES" });
     setIsLoading(false);
-  }, [dispatch]);
+
+    // 방문 확인
+    Api.visited({
+      url: "https://parkjeongwoong.github.io" + router.asPath,
+    });
+  }, [dispatch, router.asPath]);
 
   useEffect(() => {
     moveList();

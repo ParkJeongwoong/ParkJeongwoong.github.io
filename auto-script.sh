@@ -172,7 +172,7 @@ for file in ${files[@]}; do
   while read line; do
 
     # 파일 위치 확인
-    if [[ "$line" == *"{"* ]]; then
+    if [[ "$line" == *"id: "* ]]; then
 
 ##### sitemap (3) - URL 추가
       echo "    <url>

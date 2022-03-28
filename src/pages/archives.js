@@ -4,8 +4,11 @@ import SEO from "components/seo";
 import { store } from "store/store";
 import globalStyles from "styles/globalStyles.module.css";
 import styles from "styles/pages/Archives.module.css";
+import Api from "api/api";
+import { useRouter } from "next/router";
 
 function Archives() {
+  const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
@@ -17,7 +20,12 @@ function Archives() {
   useEffect(() => {
     dispatch({ type: "GET_ARCHIVES" });
     setIsLoading(false);
-  }, [dispatch]);
+
+    // 방문 확인
+    Api.visited({
+      url: "https://parkjeongwoong.github.io" + router.asPath,
+    });
+  }, [dispatch, router.asPath]);
 
   return (
     <div>

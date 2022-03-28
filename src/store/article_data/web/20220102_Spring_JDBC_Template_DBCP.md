@@ -98,7 +98,7 @@ Connection Pool을 사용하면 **빠르게 데이터베이스에 접속이 가�
 
 DataSource 인터페이스에는 Connection 객체 생성과 Connection Pool에 대한 내용이 있습니다.
 
-DataSource는 Conection Pool을 통해 DriverManager를 한 단계 더 추상화 한 형태입니다. DriverManager는 실질적인 접속을 생성하며 close 메소드는 실제 접속을 종료하지면 DataSource는 논리적인 접속을 생성하며 close 메소드는 실제 접속을 종료하는 것이 아니라 Connection Pool로 관리하고 있는 접속 중 하나를 논리적으로 종료합니다.
+DataSource는 Connection Pool을 통해 DriverManager를 한 단계 더 추상화 한 형태입니다. DriverManager는 실질적인 접속을 생성하며 close 메소드가 실제 접속을 종료하지면 DataSource는 논리적인 접속을 생성하며 close 메소드가 실제 접속을 종료하는 것이 아니라 Connection Pool로 관리하고 있는 접속 중 하나를 논리적으로 종료합니다.
 
 
 
@@ -120,7 +120,7 @@ DBCP를 구현한 라이브러리의 종류
 
 ## JDBC Template
 
-> JDBC Template은 이런 JDBC의 구조적인 반복을 줄이기 위한 클래스
+> JDBC의 구조적인 반복을 줄이기 위한 클래스
 
 Java에서 제공하는 JDBC를 사용한 기존 코드는 SQL문과 관련된 부분을 제외하고 **드라이버 로딩, DB 연결, 자원 해제** 부분이 반복됩니다.
 
@@ -132,12 +132,14 @@ JDBC Template은 Driver를 논리적인 레벨에서 다루기 때문에 DriverM
 
 - **DataSource - No Connection Pool**
   - c3p0 : **com.mchange.v2.c3p0.DriverManagerDataSource**
-  - 스프링 : **`org.springframework.jdbc.datasource.DriverManagerDataSource**
+  - 스프링 : **org.springframework.jdbc.datasource.DriverManagerDataSource**
 - **DataSource - With Connection Pool**
   - c3p0 : **com.mchange.v2.c3p0.ComboPooledDataSource**
   - dbcp : **org.apache.commons.dbcp.BasicDataSource**
 
 
+
+---
 
 ## 사용하기
 
@@ -146,7 +148,7 @@ JDBC Template은 Driver를 논리적인 레벨에서 다루기 때문에 DriverM
 #### 의존설정 추가 (pom.xml)
 
 ```xml
-<!-- 오라클을 사용하는 경우 : 메이븐 레파지토리에 없는 오라클 Driver 관리를 위한 오라클 레파지토리 추가 -->
+<!-- 오라클을 사용하는 경우 : 오라클 Driver 관리를 위한 오라클 레파지토리 추가(메이븐 레파지토리에 없음) -->
 <repositories> <!-- 기존 -->
 	<repository>
     	<id>oracle</id>
@@ -158,17 +160,17 @@ JDBC Template은 Driver를 논리적인 레벨에서 다루기 때문에 DriverM
 ...
 
 <!-- DB -->
-<dependency> <!-- 기존 -->
+<dependency> <!-- 기존 DB 의존설정 -->
 	<groupId>com.oracle</groupId>
     <artifactId>objdbc6</artifactId>
     <version>12.1.0.2</version>
 </dependency>
-<dependency> <!-- 스프링에서 제공하는 JDBC 추가 -->
+<dependency> <!-- 스프링에서 제공하는 기본적인 JDBC를 사용하는 경우 추가 -->
 	<groupId>org.springframework</groupId>
     <artifactId>spring-jdbc</artifactId>
     <version>4.1.6.RELEASE</version>
 </dependency>
-<dependency> <!-- C3P0를 사용하는 경우 : JDBC 커넥션 풀을 지원하는 C3P0 모듈 추가 -->
+<dependency> <!-- C3P0를 사용하는 경우 : JDBC 커넥션 풀을 지원하는 C3P0 모듈을 사용하는 경우 추가 -->
 	<groupId>com.mchange</groupId>
     <artifactId>c3p0</artifactId>
     <version>0.9.5</version>
@@ -187,13 +189,13 @@ public class MemberDao implements IMmeberDao {
     private String userpw = "tiger";
     
     /* 1) template, dataSource 객체 생성 */
-    private DriverManagerDataSource dataSource; // c3p0 dataSource 사용
-    org.springframework.jdbc.datasource.DriverManagerDataSource dataSource // spring 제공 dataSource 사용
+    private DriverManagerDataSource dataSource; // c3p0 dataSource 사용하는 경우
+    org.springframework.jdbc.datasource.DriverManagerDataSource dataSource // spring 제공 dataSource 사용하는 경우
         
     private JdbcTemplate template; // template 객체 생성
     
     /* 2) 생성자 */
-    // 생성자 (c3p0 dataSource)
+    // c3p0 dataSource 사용
     public MemberDao() {
         dataSource = new DriverManagerDataSource();
         dataSource.setDriverClass(driver); // 1-0) 드라이버 로딩 준비
@@ -204,7 +206,7 @@ public class MemberDao implements IMmeberDao {
     	template = new JdbcTemplate();
         template.setDataSource(dataSource);
     }
-    // 생성자 (spring dataSource)
+    // spring dataSource 사용
     public MemberDao() {
         dataSource = new org.springframework.jdbc.datasource.DriverManagerDataSource();
         dataSource.setDriverClassName(driver); // 1-0) 드라이버 로딩 준비
@@ -225,7 +227,7 @@ public class MemberDao implements IMmeberDao {
 > update() 사용
 
 ```java
-// 방법 2
+// 방법 1
 @Override
 public int memberInsert(Member member) {
 	
@@ -240,7 +242,7 @@ public int memberInsert(Member member) {
 ```
 
 ```java
-// 방법 3
+// 방법 2
 @Override
 public int memberInsert(Member member) {
 	
@@ -387,6 +389,8 @@ public int memberDelete(Member member) {
 
 
 
+
+
 ### Connection Pool
 
 #### c3p0 모듈의 ComboPooledDataSource
@@ -465,7 +469,7 @@ public class MemberDao implements IMmeberDao {
 }
 ```
 
-스프링을 쓰는 가장 큰 이유 중 하나가 스프링 설정파일에 만든 Bean 객체를 활용하기 위함이며 데이터베이스 관련 정보를 따로 관리할 수 있기 때문에 유지보수에도 좋은 방법입니다.
+스프링을 쓰는 가장 큰 이유 중 하나가 스프링 설정파일에 만든 Bean 객체를 활용하기 위함이며, 데이터베이스 관련 정보를 따로 관리할 수 있기 때문에 유지보수에도 좋은 방법입니다.
 
 → **이 방식이 Spring Framework에서 DataBase를 이용하는 가장 일반적인 방법** (`최종 결과물`)
 
@@ -515,8 +519,8 @@ public class DBConfig {
 
 정리하자면 다음과 같습니다.
 
-1. Database Connection Pool, DBCP는 데이터베이스 연결을 효율적으로 관리하기 위한  기능이면 이를 구현한 DBCP 구현체들은 여러 종류가 있습니다.
-2. DataSource Interface는 각 벤더사마다 DBCP 구현체를 다르게 만들었던 것을 통일시키기 위해 만든 DBCP 구현체의 표준 입니다.
+1. Database Connection Pool, DBCP는 데이터베이스 연결을 논리적인 레벨에서 관리하기 위한 기능으로 이를 구현한 DBCP 구현체들은 여러 종류가 있습니다.
+2. DataSource Interface는 각 벤더사마다 DBCP 구현체를 다르게 만드는 것을 통일시키기 위한 DBCP 구현체의 표준 입니다.
 3. DBCP의 종류로는 Apache Commons DBCP, HikariCP, c3p0가 있습니다.
 4. JDBC Template은 JDBC를 이용했을 때 반복되는 구조를 개선하기 위해 Spring Framework에서 제공하는 클래스입니다.
 5. JDBC Template은 DataSource를 주입해서 사용합니다.

@@ -4,8 +4,11 @@ import { store } from "store/store";
 import Link from "next/link";
 import globalStyles from "styles/globalStyles.module.css";
 import styles from "styles/pages/Home.module.css";
+import { useRouter } from "next/router";
+import Api from "api/api";
 
 export default function Home() {
+  const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
@@ -17,7 +20,12 @@ export default function Home() {
   useEffect(() => {
     dispatch({ type: "GET_HOME" });
     setIsLoading(false);
-  }, [dispatch]);
+
+    // 방문 확인
+    Api.visited({
+      url: "https://parkjeongwoong.github.io" + router.asPath,
+    });
+  }, [dispatch, router.asPath]);
 
   return (
     <div>

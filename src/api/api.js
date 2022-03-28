@@ -23,11 +23,22 @@ const apiTest2 = (data, callback, errorCallback) => {
     .catch(errorCallback);
 };
 
+const visited = data => {
+  axios({
+    method: "post",
+    url: BASE_URL + "/blog-api/visited",
+    data: data,
+  })
+    .then()
+    .catch(err => console.log(err));
+};
+
 const Api = {
   apiTest1: (data, callback, errorCallback) =>
     apiTest1(data, callback, errorCallback),
   apiTest2: (data, callback, errorCallback) =>
     apiTest2(data, callback, errorCallback),
+  visited: data => visited(data),
 };
 
 export default Api;

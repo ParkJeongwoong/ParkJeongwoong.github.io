@@ -7,6 +7,22 @@ const Studied = [
     date: new Date("2022-02-12"),
     content: "store/article_data/Studied/CleanCode/20220212_CleanCode_Naming.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 1,
+    title: "[CleanCode] 함수",
+    date: new Date("2022-02-22"),
+    content: "store/article_data/Studied/CleanCode/20220222_CleanCode_Function.md",
+  },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 2,
+    title: "[CleanCode] 주석",
+    date: new Date("2022-03-02"),
+    content: "store/article_data/Studied/CleanCode/20220302_CleanCode_Annotation.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];

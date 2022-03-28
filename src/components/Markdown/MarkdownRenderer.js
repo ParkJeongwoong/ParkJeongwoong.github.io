@@ -33,8 +33,10 @@ function MarkdownRenderer({ documentTitle, markdown }) {
                   // 강조 (``)
                   <code
                     style={{
-                      background: "var(--highlight-color)",
+                      background:
+                        "linear-gradient( to right, var(--sub-highlight-color) 15%, var(--highlight-color) 85%, var(--sub-highlight-color) )",
                       padding: "2px",
+                      borderRadius: "3px",
                     }}
                     {...props}
                   >

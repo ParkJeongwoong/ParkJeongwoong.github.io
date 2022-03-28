@@ -143,6 +143,22 @@ const Web = [
     date: new Date("2022-02-08"),
     content: "store/article_data/Web/20220208_AWS_Route53_Hosting.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 18,
+    title: "[Spring] JNDI",
+    date: new Date("2022-03-09"),
+    content: "store/article_data/Web/20220309_Spring_JNDI.md",
+  },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 19,
+    title: "비밀번호",
+    date: new Date("2022-03-24"),
+    content: "store/article_data/Web/20220324_Secure_Password.md",
+  },
 ];
 
 const Web_SubCategory = [];
