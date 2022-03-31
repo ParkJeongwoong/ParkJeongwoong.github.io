@@ -23,6 +23,23 @@
         <priority>0.1</priority>
     </url>
 
+<!-- Algorithm -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Algorithm/0</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Algorithm/1</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Algorithm/2</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 <!-- BlockChain -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/BlockChain/0</loc>
