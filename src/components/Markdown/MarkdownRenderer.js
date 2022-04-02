@@ -6,7 +6,7 @@ import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 import globalStyles from "styles/globalStyles.module.css";
 import styles from "styles/components/MarkdownRenderer.module.css";
 
-function MarkdownRenderer({ documentTitle, markdown }) {
+function MarkdownRenderer({ markdown }) {
   // Loading
   const [isLoading, setIsLoading] = useState(true);
 

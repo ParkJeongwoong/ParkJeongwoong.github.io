@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ArticleCategory from "components/Articles/Articles__Category";
 import MarkdownRenderer from "components/Markdown/MarkdownRenderer";
+import MarkdownIndex from "components/Markdown/MarkdownIndex";
 import SEO from "components/seo";
 import { store } from "store/store";
 import globalStyles from "styles/globalStyles.module.css";
@@ -9,7 +10,7 @@ import articles from "store/article_data";
 import { useRouter } from "next/router";
 import Api from "api/api";
 
-function ArticleDetail({ markdown, documentTitle }) {
+function ArticleDetail({ markdown, documentTitle, index }) {
   const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
@@ -67,10 +68,8 @@ function ArticleDetail({ markdown, documentTitle }) {
               className={styles.ArticleDetail__right}
               id="ArticleDetail_right"
             >
-              <MarkdownRenderer
-                documentTitle={documentTitle}
-                markdown={markdown}
-              />
+              <MarkdownRenderer markdown={markdown} />
+              <MarkdownIndex index={index} />
             </div>
           </div>
         )}
@@ -105,6 +104,7 @@ export async function getStaticProps(context) {
   let path = "";
   let documentTitle = "";
   let markdown = "";
+  let index = [];
   let has_SubCategory = false;
 
   // 파일 주소 찾기
@@ -135,12 +135,61 @@ export async function getStaticProps(context) {
     }
 
     markdown = readmePath.default;
+
+    const index_raw = markdown.split("\r\n");
+    let code_line = false;
+
+    index_raw.forEach(line => {
+      // 코드 라인의 주석표시(#) 무시
+      if (/```/.test(line)) {
+        code_line = !code_line;
+      }
+
+      if (!code_line) {
+        if (/^#####/.test(line)) {
+          index.push({
+            type: "type5",
+            data: line
+              .replace("#####", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^####/.test(line)) {
+          index.push({
+            type: "type4",
+            data: line
+              .replace("####", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^###/.test(line)) {
+          index.push({
+            type: "type3",
+            data: line
+              .replace("###", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^##/.test(line)) {
+          index.push({
+            type: "type2",
+            data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
+          });
+        } else if (/^#/.test(line)) {
+          index.push({
+            type: "type1",
+            data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
+          });
+        }
+      }
+    });
   }
 
   return {
     props: {
       markdown,
       documentTitle,
+      index,
     },
   };
 }

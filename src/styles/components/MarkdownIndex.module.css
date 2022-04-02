@@ -1,0 +1,92 @@
+.MarkdownIndex {
+  position: fixed;
+  top: 110px;
+  right: 4%;
+}
+
+.MarkdownIndex_Button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--main-color-dark);
+
+  font-size: var(--mid-font-size);
+  color: aliceblue;
+  text-align: center;
+  line-height: 50px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.MarkdownIndex_Box {
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  right: -50px;
+  padding: 80px 15% 5% 15%;
+  display: none;
+
+  width: 280%;
+  max-height: 70vh;
+  border-radius: 5px;
+  background-color: var(--sub-color);
+
+  user-select: none;
+  transition: 0.7s;
+  overflow-y:auto
+}
+
+.MarkdownIndex_type1 {
+  font-size: var(--mid-font-size);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MarkdownIndex_type2 {
+  margin-left: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MarkdownIndex_type3 {
+  margin-left: 10px;
+  margin-top: 3px;
+  font-size: var(--main-font-size);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MarkdownIndex_type4 {
+  margin-left: 20px;
+  margin-top: 2px;
+  font-size: var(--main-font-size);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MarkdownIndex_type5 {
+  margin-left: 30px;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MarkdownIndex_type1:hover {
+  background: var(--sub-color-dark);
+  transition: 0.2s;
+}
+.MarkdownIndex_type2:hover {
+  background: var(--sub-color-dark);
+  transition: 0.2s;
+}
+.MarkdownIndex_type3:hover {
+  background: var(--sub-color-dark);
+  transition: 0.2s;
+}
+.MarkdownIndex_type4:hover {
+  background: var(--sub-color-dark);
+  transition: 0.2s;
+}
+.MarkdownIndex_type5:hover {
+  background: var(--sub-color-dark);
+  transition: 0.2s;
+}

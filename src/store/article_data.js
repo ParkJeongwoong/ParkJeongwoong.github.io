@@ -7,6 +7,7 @@ import {
 } from "./article_data/BlockChain.js";
 import { Failure, Failure_SubCategory } from "./article_data/Failure.js";
 import { Studied, Studied_SubCategory } from "./article_data/Studied.js";
+import { Algorithm, Algorithm_SubCategory } from "./article_data/Algorithm.js";
 
 const articles = {
   categoryId: -1,
@@ -26,7 +27,12 @@ const articles = {
       subCategory: BlockChain_SubCategory,
       itemList: BlockChain,
     },
-    { id: 4, category: "Algorithm", subCategory: [], itemList: [] },
+    {
+      id: 4,
+      category: "Algorithm",
+      subCategory: Algorithm_SubCategory,
+      itemList: Algorithm,
+    },
     {
       id: 5,
       category: "Studied",
