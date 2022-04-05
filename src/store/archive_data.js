@@ -111,6 +111,12 @@ const archives = [
         content:
           "페이지네이션 기능 추가\n페이지네이션 기능 추가 후 검색 기능의 필요성을 느낌 (더이상 Ctrl+f를 통한 글 검색이 불가능)",
       },
+      {
+        id: 14,
+        date: "2022-04-04",
+        images: ["/archives/blog/15-1.jpg", "/archives/blog/15-2.jpg"],
+        content: "인덱스 기능 추가 (실시간 위치 표시 / 해당 위치로 이동)",
+      },
     ],
   },
 

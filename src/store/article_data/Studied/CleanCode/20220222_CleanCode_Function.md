@@ -90,11 +90,11 @@ public Money calculatePay(Employee e) throws InvalidEmployeeType {
 }
 ```
 
-위의 코드의 문제점은 **Employee 클래스에 새로운 type이 추가될 때마다** 끝도없이 calculatePay 함수에 새로운 분기가 생기면서 함수가 늘어진다는 것입니다. 뿐만 아니라 type별로 나눠서 계산해야하는 모든 작업의 switch문마다 새로운 type을 위한 코드 추가를 해야 합니다.
+위의 코드의 문제점은 **Employee 클래스에 새로운 type이 추가될 때마다** 끝도없이 calculatePay 함수에 새로운 분기가 생기면서 함수가 늘어진다는 것입니다. calculatePay 뿐만 아니라 type별로 나눠서 계산해야하는 모든 함수의 switch문에 새로운 type 추가 작업이 필요합니다.
 
 
 
-위의 코드는 아래처럼 리팩토링할 수 있습니다.
+이 코드는 아래처럼 리팩토링할 수 있습니다.
 
 ```java
 public abstract class Employee {
@@ -141,9 +141,9 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
 }
 ```
 
-리팩토링이 된 함수에서는 switch문을 3개("isPayday", "calculatePay", "deliveryPay")에서 1개(makeEmployee)로 줄였습니다.
+리팩토링이 된 함수에서는 switch문을 하나(makeEmployee)만 사용합니다. (이전에는 "isPayday", "calculatePay", "deliveryPay" 등 여러 곳에서 switch문 사용)
 
-즉 **처음에 객체를 생성할 때만 switch문을 사용**해서 하는 방식으로 switch문에서 파생되는 문제를 줄일 수 있습니다.
+즉 **처음에 객체를 생성할 때만 switch문을 사용**함으로써 switch문에서 파생되는 문제를 줄일 수 있습니다.
 
 
 

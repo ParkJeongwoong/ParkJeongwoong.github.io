@@ -6,6 +6,9 @@
   border-radius: 10px;
 
   transition: 1s;
+
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .MarkdownRenderer h1 {
@@ -29,11 +32,6 @@
 
 .MarkdownRenderer li {
   margin-bottom: 10px;
-}
-
-.MarkdownRenderer a {
-  overflow: hidden;
-  word-break: break-all;
 }
 
 .MarkdownRenderer em {

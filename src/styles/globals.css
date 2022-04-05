@@ -27,6 +27,8 @@ p {
   --main-color-deep-dark: #627f88;
   --sub-color: #f9faf8fd;
   --sub-color-dark: #e3e6e1fd;
+  --sub-color-opacity: rgba(249,250,248,0.8);
+  --sub-color-dark-opacity: rgba(227,230,225,0.8);
   --orange: #FF7A00;
   --red: #FF4842;
   --yellow: #FFC107;
