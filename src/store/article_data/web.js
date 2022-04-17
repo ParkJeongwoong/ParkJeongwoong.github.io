@@ -159,6 +159,14 @@ const Web = [
     date: new Date("2022-03-24"),
     content: "store/article_data/Web/20220324_Secure_Password.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 20,
+    title: "[Spring Boot 프로젝트] 스프링 코드 구조 알아보기",
+    date: new Date("2022-04-17"),
+    content: "store/article_data/Web/20220417_SpringBoot_AWS_Structure.md",
+  },
 ];
 
 const Web_SubCategory = [];

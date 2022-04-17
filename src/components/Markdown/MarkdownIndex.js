@@ -50,7 +50,7 @@ function MarkdownIndex({ index }) {
   // 2. index, subjectMap -> subjectPosition(위치 정보) 생성
   useEffect(() => {
     if (!subjectPosition.length && Object.keys(subjectMap).length) {
-      const newSubjectPosition = index.map((subject, idx) => {
+      const newSubjectPosition = index.map(subject => {
         switch (subject.type) {
           case "type1":
             return subjectMap[subject.type][countType1++].offsetTop;
@@ -78,9 +78,9 @@ function MarkdownIndex({ index }) {
   ]);
 
   const showIndex = event => {
-    setIsShowIndex(!isShowIndex);
     const index_box = document.querySelector("#index_box");
     index_box.style["display"] = isShowIndex ? "none" : "block";
+    setIsShowIndex(!isShowIndex);
 
     event.target.style["font-weight"] = isShowIndex ? "normal" : "bold";
     event.target.style["background-color"] = isShowIndex

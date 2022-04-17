@@ -24,13 +24,17 @@ const apiTest2 = (data, callback, errorCallback) => {
 };
 
 const visited = data => {
-  axios({
-    method: "post",
-    url: BASE_URL + "/blog-api/visited",
-    data: data,
-  })
-    .then()
-    .catch(err => console.log(err));
+  if (RegExp(/^(itsme)/).test(data.who)) {
+    console.log("Welcome tester!");
+  } else {
+    axios({
+      method: "post",
+      url: BASE_URL + "/blog-api/visited",
+      data: data,
+    })
+      .then()
+      .catch(err => console.log(err));
+  }
 };
 
 const Api = {

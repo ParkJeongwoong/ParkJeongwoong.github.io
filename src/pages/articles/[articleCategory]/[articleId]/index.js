@@ -27,6 +27,7 @@ function ArticleDetail({ markdown, documentTitle, index }) {
     // 방문 확인
     Api.visited({
       url: "https://parkjeongwoong.github.io" + router.asPath,
+      who: router.asPath.split("who=")[1],
     });
   }, [dispatch, router.asPath]);
 
@@ -141,7 +142,7 @@ export async function getStaticProps(context) {
 
     index_raw.forEach(line => {
       // 코드 라인의 주석표시(#) 무시
-      if (/```/.test(line)) {
+      if (/^(```)/.test(line)) {
         code_line = !code_line;
       }
 

@@ -37,7 +37,7 @@ const Develop = [
     id: 4,
     title: "[GitHub Blog 개발기] 구글 검색 등록 & SEO 구현(1)",
     date: new Date("2021-10-05"),
-    content: "store/article_data/Develop/20211005_GitHubBlog.md",
+    content: "store/article_data/Develop/20211005_GitHubBlog_seo_1.md",
   },
   {
     category: "Develop",
@@ -45,7 +45,7 @@ const Develop = [
     id: 5,
     title: "[GitHub Blog 개발기] SEO 구현(2) - Next.js app",
     date: new Date("2021-10-06"),
-    content: "store/article_data/Develop/20211006_GitHubBlog.md",
+    content: "store/article_data/Develop/20211006_GitHubBlog_seo_2.md",
   },
   {
     category: "Develop",
@@ -53,7 +53,7 @@ const Develop = [
     id: 6,
     title: "[GitHub Blog 개발기] SEO 구현(3) - Next.js app",
     date: new Date("2021-10-07"),
-    content: "store/article_data/Develop/20211007_GitHubBlog.md",
+    content: "store/article_data/Develop/20211007_GitHubBlog_seo_3.md",
   },
   {
     category: "Develop",
@@ -61,7 +61,15 @@ const Develop = [
     id: 7,
     title: "[GitHub Blog 개발기] sitemap, 게시글 등록 자동화 (Shell Script)",
     date: new Date("2021-10-28"),
-    content: "store/article_data/Develop/20211028_GitHubBlog.md",
+    content: "store/article_data/Develop/20211028_GitHubBlog_auto_script.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 8,
+    title: "[GitHub Blog 개발기] Markdown Index 구현 (TOC)",
+    date: new Date("2022-04-05"),
+    content: "store/article_data/Develop/20220405_GitHubBlog_Index.md",
   },
 ];
 

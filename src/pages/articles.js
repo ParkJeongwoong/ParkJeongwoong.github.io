@@ -54,6 +54,7 @@ function Articles() {
     // 방문 확인
     Api.visited({
       url: "https://parkjeongwoong.github.io" + router.asPath,
+      who: router.asPath.split("who=")[1],
     });
   }, [dispatch, router.asPath]);
 

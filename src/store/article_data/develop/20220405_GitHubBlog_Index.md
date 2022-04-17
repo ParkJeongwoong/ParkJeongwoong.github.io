@@ -1,8 +1,10 @@
-# [GitHub Blog 개발기] Markdown Index 구현
+# [GitHub Blog 개발기] Markdown Index 구현 (TOC)
 
 블로그에 길이가 긴 글들이 생기면서 "목차"의 필요성을 느꼈다.
 
 특히 [알고리즘 정리 글](https://parkjeongwoong.github.io/articles/Algorithm/0)은 워낙 양이 많아 반드시 목차가 필요했다.
+
+(글에선 Markdown Index라고 표현했는데, 나중에 검색을 해보니 이런 목차를 Table Of  Content, TOC라고 부른다는 것을 알았다)
 
 
 
@@ -39,7 +41,7 @@ let code_line = false;
 
 index_raw.forEach(line => {
   // 코드 라인의 주석표시(#) 무시 - 예시 코드에 있는 주석 표시들이 목차로 분류되는 문제 해결
-  if (/```/.test(line)) {
+  if (/^(```)/.test(line)) {
     code_line = !code_line;
   }
 
@@ -135,13 +137,13 @@ const showIndex = event => {
   const index_box = document.querySelector("#index_box");
   index_box.style["display"] = isShowIndex ? "none" : "block";
   setIsShowIndex(!isShowIndex);
-
+    
   // 버튼 토글
   event.target.style["font-weight"] = isShowIndex ? "normal" : "bold";
   event.target.style["background-color"] = isShowIndex
     ? "var(--main-color-dark)"
     : "var(--main-color-deep-dark)";
-
+    
   // 1. subjectMap 생성 - 렌더링 된 요소들을 모두 찾음
   if (!Object.keys(subjectMap).length) {
     setSubjectMap({
@@ -235,7 +237,7 @@ useEffect(() => {
     if (scroll.y + window.innerHeight >= document.body.offsetHeight) {
       i = subjectPosition.length;
     }
-
+      
     if (i - 1 != lastSubject) {
       setLastSubject(i - 1);
     }
