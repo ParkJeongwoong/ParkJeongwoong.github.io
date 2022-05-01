@@ -23,6 +23,14 @@ const Studied = [
     date: new Date("2022-03-02"),
     content: "store/article_data/Studied/CleanCode/20220302_CleanCode_Annotation.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 3,
+    title: "[CleanCode] 형식 (Formatting)",
+    date: new Date("2022-04-21"),
+    content: "store/article_data/Studied/CleanCode/20220421_CleanCode_Formatting.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];

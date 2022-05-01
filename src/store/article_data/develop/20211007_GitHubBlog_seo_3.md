@@ -82,14 +82,14 @@ useEffect(() => {
    3. JS, CSS 파일은 _next 폴더 안에 있기 때문에 JS, CSS 파일에 접근 X
    4. 웹페이지가 제대로 동작 X
 
-2. 위의 문제를 파악하지 못하고 `next.config.js` 파일에 `assetPrefix: "./"`를 사용
+2. 위의 문제를 파악하지 못하고 `next.config.js` 파일에 `assetPrefix: "./"`를 사용해서 문제를 해결하려고 함
    1. 나중에 .nojekyll을 추가
-   2. Dynamic Routing을 하는 /articles/[articleCategory]/[articleId] 의 파일들은 Build - Out 시 Root에서 2 Depth를 더 들어가야 존재
-   3. Dynamic Routing을 하는 페이지들도 _next 폴더에서 JS, CSS를 찾아야 하는데 prefix가 "./"으로 되어 있어 Root 폴더가 아닌 Root에서 2 Depth를 들어간 상태에서 _next 폴더에 대한 접근을 시도
+   2. Dynamic Routing을 하는 ROOT/articles/[articleCategory]/[articleId].html 파일들은 Root에서 2 Depth를 더 들어가야 존재
+   3. 이 페이지들의 JS, CSS도 _next 폴더에 존재하는데 prefix가 "./"으로 되어 있어 Root 폴더에서 _next 폴더를 찾는 게 아니라 페이지의 html이 존재하는 ROOT/articles/[articleCategory]/에서 _next 폴더를 찾음
 
 
 
-해결책은 간단했다.
+이유를 알고나니 해결책은 간단했다.
 
 1. `.nojekyll` 파일 추가
 2. `next.config.js` 에서 assetPrefix 제거

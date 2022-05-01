@@ -12,21 +12,26 @@ function Archives() {
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
-  const { archives } = value;
+  const { archives, pageData } = value;
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     dispatch({ type: "GET_ARCHIVES" });
-    setIsLoading(false);
 
-    // 방문 확인
-    Api.visited({
-      url: "https://parkjeongwoong.github.io" + router.asPath,
-      who: router.asPath.split("who=")[1],
-    });
-  }, [dispatch, router.asPath]);
+    if (isLoading) {
+      // 방문 확인
+      Api.visited({
+        url: "https://parkjeongwoong.github.io" + router.asPath,
+        who: router.asPath.split("who=")[1],
+        lastPage: pageData.currentPage,
+      });
+      dispatch({ type: "SET_PAGE", value: router.asPath });
+    }
+
+    setIsLoading(false);
+  }, [dispatch, router.asPath, pageData.currentPage]);
 
   return (
     <div>

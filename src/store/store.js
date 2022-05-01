@@ -10,6 +10,7 @@ const initialState = {
   profile: {},
   articles: {},
   archives: [],
+  pageData: {},
 };
 // Store - (2) 초기값을 넣은 Context 생성 *****
 const store = createContext(initialState);
@@ -86,6 +87,10 @@ const StateProvider = ({ children }) => {
             page_to,
           },
         };
+
+      case "SET_PAGE":
+        const pageData = { currentPage: action.value };
+        return { ...state, pageData };
 
       default:
         throw new Error();

@@ -23,6 +23,14 @@ const Algorithm = [
     date: new Date("2022-04-02"),
     content: "store/article_data/Algorithm/20220402_Algorithm_DP.md",
   },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 3,
+    title: "DFS & BFS 유형",
+    date: new Date("2022-04-29"),
+    content: "store/article_data/Algorithm/20220429_Algorithm_DFS_BFS.md",
+  },
 ];
 
 const Algorithm_SubCategory = [];
