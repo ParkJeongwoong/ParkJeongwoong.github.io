@@ -12,11 +12,9 @@
 
 4. 노드를 꺼내고 연결 노드를 담기
 
-   - 이 때 노드를 어떻게 꺼내냐에 따라 DFS/BFS가 나뉨
-
-     - DFS : Stack 사용
-
-     - BFS : Queue 사용
+- 이 때 노드를 어떻게 꺼내냐에 따라 DFS/BFS가 나뉨
+  1. DFS : Stack 사용
+  1. BFS : Queue 사용
 
 
 

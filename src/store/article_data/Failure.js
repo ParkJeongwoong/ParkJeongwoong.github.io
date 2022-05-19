@@ -3,7 +3,7 @@ const Failure = [
     category: "Failure",
     subCategory: "",
     id: 0,
-    title: "[Spring Boot 프로젝트] HTTPS 실패",
+    title: "[Spring Boot 프로젝트] HTTPS 설정 실패",
     date: new Date("2022-02-02"),
     content: "store/article_data/Failure/20220202_Failure_HTTPS_AWS.md",
   },
@@ -14,6 +14,14 @@ const Failure = [
     title: "[Spring Boot] JPA에서 Group By 후 null값 문제 해결",
     date: new Date("2022-04-23"),
     content: "store/article_data/Failure/20220423_Failure_JPA_NativeQuery_JPQL.md",
+  },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 2,
+    title: "Certbot 갱신 (ERR_CERT_DATE_INVALID)",
+    date: new Date("2022-05-09"),
+    content: "store/article_data/Failure/20220509_Failure_Certbot_Renew.md",
   },
 ];
 

@@ -328,8 +328,6 @@ markdown.replace(/\n\s\n\s/gi, "\n\n&nbsp;\n\n")
 
 - 현상 : react-markdown에서는 밑줄이 표현 X
 
-
-
 - 해결
 
 `먼저 em 태그의 css를 밑줄로 변경`

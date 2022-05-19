@@ -52,11 +52,7 @@ print(a+b)
 
 
 
-
-
 ## Autolink literals
-
-
 
 www.example.com, https://example.com, and contact@example.com.
 
@@ -64,24 +60,19 @@ www.example.com, https://example.com, and contact@example.com.
 
 ## Strikethrough
 
-
-
 ~one~ or ~~two~~ tildes.
 
 
 
 ## Table
 
-
-
 | a | b | c | d |
 | - | :- | -: | :-: |
+| e | f | g | h |
 
 
 
 ## Tasklist
-
-
 
 * [ ] to do
 
@@ -89,14 +80,10 @@ www.example.com, https://example.com, and contact@example.com.
 
 
 
-
-
 ## Code
 
 ```python
-
 a = 1
 
 print(a+2)
-
 ```

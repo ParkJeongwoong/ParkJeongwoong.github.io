@@ -31,6 +31,22 @@ const Algorithm = [
     date: new Date("2022-04-29"),
     content: "store/article_data/Algorithm/20220429_Algorithm_DFS_BFS.md",
   },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 4,
+    title: "그리디 유형",
+    date: new Date("2022-05-05"),
+    content: "store/article_data/Algorithm/20220505_Algorithm_Greedy.md",
+  },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 5,
+    title: "이분 탐색 유형",
+    date: new Date("2022-05-15"),
+    content: "store/article_data/Algorithm/20220515_Algorithm_Binary_Search.md",
+  },
 ];
 
 const Algorithm_SubCategory = [];

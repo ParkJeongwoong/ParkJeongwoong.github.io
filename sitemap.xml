@@ -44,6 +44,16 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Algorithm/4</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Algorithm/5</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
 <!-- BlockChain -->
     <url>
@@ -125,6 +135,11 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/9</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
 <!-- Failure -->
     <url>
@@ -134,6 +149,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Failure/1</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/2</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

@@ -39,6 +39,23 @@
   text-decoration: underline;
 }
 
+.MarkdownRenderer table {
+  margin: auto;
+}
+
+.MarkdownRenderer th {
+  padding: 0px 50px;
+  background-color: var(--main-color)
+}
+
+.MarkdownRenderer td {
+  padding: 3px 50px;
+  background-color: var(--sub-color);
+}
+
+.MarkdownRenderer ul li {
+  margin-top: 5px;
+}
 
 /* 반응형 웹 디자인 */
 @media (max-width: 960px) {

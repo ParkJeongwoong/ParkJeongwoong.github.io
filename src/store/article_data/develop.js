@@ -71,6 +71,14 @@ const Develop = [
     date: new Date("2022-04-05"),
     content: "store/article_data/Develop/20220405_GitHubBlog_Index.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 9,
+    title: "구글 사이트맵 갱신하기",
+    date: new Date("2022-05-06"),
+    content: "store/article_data/Develop/20220506_Sitemap_Renew.md",
+  },
 ];
 
 const Develop_SubCategory = [];
