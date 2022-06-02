@@ -79,6 +79,14 @@ const Develop = [
     date: new Date("2022-05-06"),
     content: "store/article_data/Develop/20220506_Sitemap_Renew.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 10,
+    title: "[GitHub Blog 개발기] 서버 마이그레이션 (AWS => 라즈베리파이 => 오라클 클라우드)",
+    date: new Date("2022-05-20"),
+    content: "store/article_data/Develop/20220520_GitHubBlog_Server_Migration.md",
+  },
 ];
 
 const Develop_SubCategory = [];

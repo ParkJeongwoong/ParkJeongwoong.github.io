@@ -42,6 +42,8 @@ print(a+b)
 
 ![Fullstack React](https://dzxbosgk90qga.cloudfront.net/fit-in/504x658/n/20190131015240478_fullstack-react-cover-medium%402x.png)
 
+![Fullstack React](../../../../public/myLogo.png)
+
 
 
 ### 링크2
