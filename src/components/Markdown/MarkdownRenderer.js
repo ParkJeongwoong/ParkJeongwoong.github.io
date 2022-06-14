@@ -87,12 +87,18 @@ function MarkdownRenderer({ markdown }) {
                   />
                 );
               },
+              em({ node, children, ...props }) {
+                return (
+                  <span style={{ "font-style": "italic" }} {...props}>
+                    {children}
+                  </span>
+                );
+              },
             }}
           >
             {markdown
               .replace(/\n\s\n\s/gi, "\n\n&nbsp;\n\n")
               .replace(/\*\*/gi, "@$_%!^")
-              .replace(/\**\*/gi, "/")
               .replace(/@\$_%!\^/gi, "**")
               .replace(/<\/?u>/gi, "*")}
           </ReactMarkdown>

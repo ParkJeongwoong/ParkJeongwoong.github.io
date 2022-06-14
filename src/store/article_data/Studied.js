@@ -31,6 +31,14 @@ const Studied = [
     date: new Date("2022-04-21"),
     content: "store/article_data/Studied/CleanCode/20220421_CleanCode_Formatting.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 4,
+    title: "[CleanCode] 객체와 자료구조",
+    date: new Date("2022-06-04"),
+    content: "store/article_data/Studied/CleanCode/20220604_CleanCode_Object_and_Structure.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];
