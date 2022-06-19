@@ -167,6 +167,14 @@ const Web = [
     date: new Date("2022-04-17"),
     content: "store/article_data/Web/20220417_SpringBoot_AWS_Structure.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 21,
+    title: "클린 아키텍처 연습 (SpringBoot)",
+    date: new Date("2022-06-14"),
+    content: "store/article_data/Web/20220614_Clean_Architecture.md",
+  },
 ];
 
 const Web_SubCategory = [];
