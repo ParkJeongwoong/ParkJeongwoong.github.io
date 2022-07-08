@@ -39,6 +39,14 @@ const Studied = [
     date: new Date("2022-06-04"),
     content: "store/article_data/Studied/CleanCode/20220604_CleanCode_Object_and_Structure.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 5,
+    title: "[CleanCode] 오류 처리",
+    date: new Date("2022-06-28"),
+    content: "store/article_data/Studied/CleanCode/20220628_CleanCode_Error_Handling.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];
