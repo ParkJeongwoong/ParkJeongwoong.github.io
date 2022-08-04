@@ -47,6 +47,14 @@ const Studied = [
     date: new Date("2022-06-28"),
     content: "store/article_data/Studied/CleanCode/20220628_CleanCode_Error_Handling.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 6,
+    title: "[CleanCode] 경계",
+    date: new Date("2022-07-13"),
+    content: "store/article_data/Studied/CleanCode/20220713_CleanCode_Boundaries.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];

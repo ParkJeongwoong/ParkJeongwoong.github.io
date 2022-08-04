@@ -17,12 +17,28 @@ const visited = data => {
   }
 };
 
+const getArticle = (data, callback, errorCallback) => {
+  axios({
+    method: "get",
+    url:
+      BASE_URL +
+      "/blog-api/get-article/" +
+      data.articleCategory +
+      "/" +
+      data.articleId,
+  })
+    .then(callback)
+    .catch(errorCallback);
+};
+
 const Api = {
   apiTest1: (data, callback, errorCallback) =>
     apiTest1(data, callback, errorCallback),
   apiTest2: (data, callback, errorCallback) =>
     apiTest2(data, callback, errorCallback),
   visited: data => visited(data),
+  getArticle: (articleCategory, articleId) =>
+    getArticle(articleCategory, articleId),
 };
 
 export default Api;

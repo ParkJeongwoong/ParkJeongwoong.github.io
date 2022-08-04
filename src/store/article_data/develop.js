@@ -87,6 +87,14 @@ const Develop = [
     date: new Date("2022-05-20"),
     content: "store/article_data/Develop/20220520_GitHubBlog_Server_Migration.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 11,
+    title: "MarkText, Typora를 대체할 후보?",
+    date: new Date("2022-07-29"),
+    content: "store/article_data/Develop/20220729_MarkText_Introduce.md",
+  },
 ];
 
 const Develop_SubCategory = [];
