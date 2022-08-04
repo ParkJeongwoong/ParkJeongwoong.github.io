@@ -50,7 +50,10 @@ function MarkdownRenderer({ markdown }) {
                     PreTag="div"
                     {...props}
                   >
-                    {String(children).replace(/\n$/, "")}
+                    {String(children)
+                      .replace(/\n$/, "")
+                      .replace(/\n&nbsp;\n/g, "")
+                      .replace(/\n&nbsp\n/g, "")}
                   </SyntaxHighlighter>
                 ) : (
                   <SyntaxHighlighter

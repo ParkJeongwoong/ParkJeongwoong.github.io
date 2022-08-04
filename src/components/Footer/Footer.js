@@ -1,3 +1,4 @@
+import Api from "api/api";
 import React from "react";
 import styles from "styles/components/Footer.module.css";
 
@@ -14,9 +15,17 @@ function Footer() {
     alert("Copied!");
   };
 
+  const toGitHub = () => {
+    Api.visited({
+      url: "https://github.com/ParkJeongwoong",
+      who: router.asPath.split("who=")[1],
+      lastPage: "Footer",
+    });
+  };
+
   return (
     <div className={styles.Footer}>
-      <div className={styles.Footer__github}>
+      <div onClick={toGitHub} className={styles.Footer__github}>
         Github : <a href="https://github.com/ParkJeongwoong">ParkJeongwoong</a>
       </div>
       <div className={styles.Footer__email}>

@@ -3,6 +3,7 @@
 [할 일]
 
 - 업로드 기능 완성 (이미지 저장까지)
+  - articleId의 Index의 getStaticPaths 부분을 store.articles의 categoryList에서 받는 게 아니라 서버에 articleCategoryList를 요청해서 받아와야 함 (Todo)
 - 글작성 화면 완성
 - Redis 활용
 - Spring Batch 활용

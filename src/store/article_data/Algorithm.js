@@ -47,6 +47,22 @@ const Algorithm = [
     date: new Date("2022-05-15"),
     content: "store/article_data/Algorithm/20220515_Algorithm_Binary_Search.md",
   },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 6,
+    title: "완전 탐색 유형 (브루트 포스) + 순열/조합",
+    date: new Date("2022-08-03"),
+    content: "store/article_data/Algorithm/20220803_Algorithm_Brute_Force.md",
+  },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 7,
+    title: "그래프 유형",
+    date: new Date("2022-08-04"),
+    content: "store/article_data/Algorithm/20220804_Algorithm_Graph.md",
+  },
 ];
 
 const Algorithm_SubCategory = [];
