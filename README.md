@@ -3,7 +3,6 @@
 [할 일]
 
 - 업로드 기능 완성 (이미지 저장까지)
-  - articleId의 Index의 getStaticPaths 부분을 store.articles의 categoryList에서 받는 게 아니라 서버에 articleCategoryList를 요청해서 받아와야 함 (Todo)
 - 글작성 화면 완성
 - Redis 활용
 - Spring Batch 활용
@@ -18,9 +17,12 @@
 
 ---
 
-[공지]
+[계획]
 
-- 이전  내용들은 추후 재업로드 예정
+- 업로드 계횐
+1. WS는 이미지를 호출할 때 WAS에 이미지를 요청하는 방식
+2. WAS는 이미지를 응답하는 API 준비
+3. 업로드 시 이미지 주소에 WAS의 이미지 반환 URI를 사용
 
 
 
