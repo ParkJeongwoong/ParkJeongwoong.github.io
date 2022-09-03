@@ -26,11 +26,16 @@ function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
 
     if (isLoading) {
       // 방문 확인
-      Api.visited({
-        url: "https://parkjeongwoong.github.io" + router.asPath,
-        who: router.asPath.split("who=")[1],
-        lastPage: pageData.currentPage,
-      });
+      Api.apiTest1(
+        "",
+        res => {
+          alert(res.status);
+          console.log(res.status);
+          alert(res.data);
+          console.log(res.data);
+        },
+        error => alert(error)
+      );
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
 

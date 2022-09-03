@@ -175,6 +175,14 @@ const Web = [
     date: new Date("2022-06-14"),
     content: "store/article_data/Web/20220614_Clean_Architecture.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 22,
+    title: "JPA 영속성 컨텍스트",
+    date: new Date("2022-08-14"),
+    content: "store/article_data/Web/20220814_JPA_Persistence_Context.md",
+  },
 ];
 
 const Web_SubCategory = [];

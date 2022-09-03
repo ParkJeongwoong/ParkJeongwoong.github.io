@@ -99,6 +99,13 @@
         <priority>0.8</priority>
     </url>
 
+<!-- DB -->
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/DB/0</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 <!-- Develop -->
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Develop/0</loc>
@@ -157,6 +164,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Develop/11</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/12</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -323,6 +335,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Web/21</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Web/22</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

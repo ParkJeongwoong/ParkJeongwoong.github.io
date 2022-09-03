@@ -19,10 +19,7 @@
 
 [계획]
 
-- 업로드 계횐
-1. WS는 이미지를 호출할 때 WAS에 이미지를 요청하는 방식
-2. WAS는 이미지를 응답하는 API 준비
-3. 업로드 시 이미지 주소에 WAS의 이미지 반환 URI를 사용
+- 로직 : DTO -> Entity (마찬가지로 TEST도 DTO TEST에서 Domain TEST로 수정)
 
 
 

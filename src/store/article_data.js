@@ -8,6 +8,7 @@ import {
 import { Failure, Failure_SubCategory } from "./article_data/Failure.js";
 import { Studied, Studied_SubCategory } from "./article_data/Studied.js";
 import { Algorithm, Algorithm_SubCategory } from "./article_data/Algorithm.js";
+import { DB, DB_SubCategory } from "./article_data/DB.js";
 
 const articles = {
   categoryId: -1,
@@ -44,6 +45,12 @@ const articles = {
       category: "Failure",
       subCategory: Failure_SubCategory,
       itemList: Failure,
+    },
+    {
+      id: 7,
+      category: "DB",
+      subCategory: DB_SubCategory,
+      itemList: DB,
     },
   ],
   page_from: 0,

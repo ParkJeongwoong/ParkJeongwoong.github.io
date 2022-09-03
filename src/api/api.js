@@ -3,6 +3,17 @@ import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL; // 배포용
 // const BASE_URL = "http://localhost:8080"; // 개발용
 
+const apiTest1 = (data, callback, errorCallback) => {
+  console.log("GET TEST");
+  axios({
+    method: "GET",
+    url: process.env.NEXT_PUBLIC_SERVER_URL2 + "/blog-api/count-visitor",
+    params: data,
+  })
+    .then(callback)
+    .catch(errorCallback);
+};
+
 const visited = data => {
   if (RegExp(/^(itsme)/).test(data.who)) {
     console.log("Welcome tester!");
@@ -22,7 +33,7 @@ const getArticle = (data, callback, errorCallback) => {
     method: "get",
     url:
       BASE_URL +
-      "/blog-api/get-article/" +
+      "/blog-api/article/" +
       data.articleCategory +
       "/" +
       data.articleId,

@@ -95,6 +95,14 @@ const Develop = [
     date: new Date("2022-07-29"),
     content: "store/article_data/Develop/20220729_MarkText_Introduce.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 12,
+    title: "라즈베리파이에 접속하기 (Ubuntu 20.04.4 LTS)",
+    date: new Date("2022-08-25"),
+    content: "store/article_data/Develop/20220825_Access_to_RaspberryPi4_Ubuntu.md",
+  },
 ];
 
 const Develop_SubCategory = [];
