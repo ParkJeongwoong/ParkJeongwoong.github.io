@@ -26,16 +26,16 @@ function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
 
     if (isLoading) {
       // 방문 확인
-      Api.apiTest1(
-        "",
-        res => {
-          alert(res.status);
-          console.log(res.status);
-          alert(res.data);
-          console.log(res.data);
-        },
-        error => alert(error)
-      );
+      // Api.apiTest1(
+      //   "",
+      //   res => {
+      //     alert(res.status);
+      //     console.log(res.status);
+      //     alert(res.data);
+      //     console.log(res.data);
+      //   },
+      //   error => alert(error)
+      // );
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
 
