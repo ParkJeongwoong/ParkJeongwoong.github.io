@@ -10,13 +10,20 @@ import articles from "store/article_data";
 import { useRouter } from "next/router";
 import Api from "api/api";
 
-function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
+function ArticleDetail({
+  markdown_gitHub,
+  documentTitle,
+  articleCategory,
+  articleId,
+}) {
   const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
   const { pageData } = value;
   const [markdown, setMarkdown] = useState("");
+  const [origin, setOrigin] = useState("No Server");
+  const [index, setIndex] = useState([]);
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
@@ -25,17 +32,6 @@ function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
     dispatch({ type: "GET_ARTICLES" });
 
     if (isLoading) {
-      // 방문 확인
-      // Api.apiTest1(
-      //   "",
-      //   res => {
-      //     alert(res.status);
-      //     console.log(res.status);
-      //     alert(res.data);
-      //     console.log(res.data);
-      //   },
-      //   error => alert(error)
-      // );
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
 
@@ -45,8 +41,12 @@ function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
   useEffect(() => {
     if (!isLoading && window.innerWidth > 960) {
       Api.getArticle(
-        { articleCategory, articleId },
-        res => setMarkdown(res.data.content),
+        { articleCategory, articleId, markdown_gitHub },
+        (res, origin) => {
+          setMarkdown(res.data.content);
+          setOrigin(origin);
+          setIndex(getIndex(res.data.content));
+        },
         err => console.log(err)
       );
 
@@ -86,6 +86,9 @@ function ArticleDetail({ documentTitle, index, articleCategory, articleId }) {
               className={styles.ArticleDetail__right}
               id="ArticleDetail_right"
             >
+              <span className={globalStyles.content_origin}>
+                This Content is From {origin}
+              </span>
               <MarkdownRenderer markdown={markdown} />
               <MarkdownIndex index={index} />
             </div>
@@ -118,71 +121,95 @@ export async function getStaticPaths() {
   };
 }
 
+function getIndex(markdown) {
+  let index = [];
+  const index_raw = markdown.split("\n");
+  let code_line = false;
+  index_raw.forEach(line => {
+    // 코드 라인의 주석표시(#) 무시
+    if (/^(```)/.test(line)) {
+      code_line = !code_line;
+    }
+
+    if (!code_line) {
+      if (/^#####/.test(line)) {
+        index.push({
+          type: "type5",
+          data: line
+            .replace("#####", "")
+            .replace(/`/gi, "")
+            .replace(/\*/gi, ""),
+        });
+      } else if (/^####/.test(line)) {
+        index.push({
+          type: "type4",
+          data: line.replace("####", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^###/.test(line)) {
+        index.push({
+          type: "type3",
+          data: line.replace("###", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^##/.test(line)) {
+        index.push({
+          type: "type2",
+          data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^#/.test(line)) {
+        index.push({
+          type: "type1",
+          data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      }
+    }
+  });
+  return index;
+}
+
 export async function getStaticProps(context) {
   // 변수
+  let path = "";
   let documentTitle = "";
-  let markdown = "on TEST";
-  let index = [];
+  let markdown_gitHub = "";
+  let has_SubCategory = false;
 
   let articleCategory = context.params.articleCategory;
   let articleId = context.params.articleId;
 
   // 파일 주소 찾기
   if (articles.categoryList) {
-    const index_raw = markdown.split("\r\n");
-    let code_line = false;
-
-    // Table of Content 구현
-    index_raw.forEach(line => {
-      // 코드 라인의 주석표시(#) 무시
-      if (/^(```)/.test(line)) {
-        code_line = !code_line;
-      }
-
-      if (!code_line) {
-        if (/^#####/.test(line)) {
-          index.push({
-            type: "type5",
-            data: line
-              .replace("#####", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^####/.test(line)) {
-          index.push({
-            type: "type4",
-            data: line
-              .replace("####", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^###/.test(line)) {
-          index.push({
-            type: "type3",
-            data: line
-              .replace("###", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^##/.test(line)) {
-          index.push({
-            type: "type2",
-            data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
-          });
-        } else if (/^#/.test(line)) {
-          index.push({
-            type: "type1",
-            data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
-          });
-        }
+    articles.categoryList.find(categoryElement => {
+      if (categoryElement.category === context.params.articleCategory) {
+        categoryElement.itemList.find(articleElement => {
+          if (articleElement.id === parseInt(context.params.articleId)) {
+            path = articleElement.content;
+            documentTitle = articleElement.title;
+            has_SubCategory = articleElement.subCategory ? true : false;
+          }
+        });
       }
     });
   }
 
+  if (path) {
+    let readmePath;
+    if (!has_SubCategory) {
+      readmePath = require(`store/article_data/${path.split("/")[2]}/${
+        path.split("/")[3]
+      }`);
+    } else {
+      readmePath = require(`store/article_data/${path.split("/")[2]}/${
+        path.split("/")[3]
+      }/${path.split("/")[4]}`);
+    }
+
+    markdown_gitHub = readmePath.default;
+  }
+
   return {
     props: {
+      markdown_gitHub,
       documentTitle,
-      index,
       articleCategory,
       articleId,
     },

@@ -55,6 +55,14 @@ const Studied = [
     date: new Date("2022-07-13"),
     content: "store/article_data/Studied/CleanCode/20220713_CleanCode_Boundaries.md",
   },
+  {
+    category: "Studied",
+    subCategory: "CleanCode",
+    id: 7,
+    title: "[CleanCode] 단위 테스트",
+    date: new Date("2022-09-29"),
+    content: "store/article_data/Studied/CleanCode/20220929_CleanCode_Unit_Test.md",
+  },
 ];
 
 const Studied_SubCategory = ["CleanCode",];

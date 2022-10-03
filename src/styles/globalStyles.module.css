@@ -15,3 +15,9 @@
 
   transition: 5s;
 }
+
+.content_origin {
+  position: absolute;
+  font-size: var(--mid-font-size);
+  color: var(--main-color-deep-dark);
+}

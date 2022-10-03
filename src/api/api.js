@@ -19,13 +19,13 @@ const visited = data => {
   if (RegExp(/^(itsme)/).test(data.who)) {
     console.log("Welcome tester!");
   } else {
-    axios({
-      method: "post",
-      url: BASE_URL + "/blog-api/visited",
-      data: data,
-    })
-      .then()
-      .catch(err => console.log(err));
+    // axios({
+    //   method: "post",
+    //   url: BASE_URL + "/blog-api/visited",
+    //   data: data,
+    // })
+    //   .then()
+    //   .catch(err => console.log(err));
 
     axios({
       method: "post",
@@ -38,6 +38,9 @@ const visited = data => {
 };
 
 const getArticle = (data, callback, errorCallback) => {
+  let isArticle = false;
+  const localData = { data: { content: data.markdown_gitHub } };
+
   axios({
     method: "get",
     url:
@@ -47,21 +50,45 @@ const getArticle = (data, callback, errorCallback) => {
       "/" +
       data.articleId,
   })
-    .then(callback)
+    .then(res => {
+      console.log("MAIN SERVER ANSWERED");
+      if (!isArticle) {
+        callback(res, "Main Server");
+        isArticle = true;
+      }
+    })
     .catch(() => {
-      alert("Main Server Error");
-      axios({
-        method: "get",
-        url:
-          BASE_URL +
-          "/blog-api/article/" +
-          data.articleCategory +
-          "/" +
-          data.articleId,
-      })
-        .then(callback)
-        .catch(errorCallback);
+      console.log("Main Server Error");
+      errorCallback;
     });
+
+  axios({
+    method: "get",
+    url:
+      BASE_URL +
+      "/blog-api/article/" +
+      data.articleCategory +
+      "/" +
+      data.articleId,
+  })
+    .then(res => {
+      console.log("SUB SERVER ANSWERED");
+      if (!isArticle) {
+        callback(res, "Sub Server");
+        isArticle = true;
+      }
+    })
+    .catch(() => {
+      console.log("Sub Server Error");
+      errorCallback;
+    });
+
+  setTimeout(() => {
+    if (localData.data.content && !isArticle) {
+      callback(localData, "Github Server");
+      isArticle = true;
+    }
+  }, 500);
 };
 
 const Api = {
