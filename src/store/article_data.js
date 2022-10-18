@@ -55,6 +55,8 @@ const articles = {
   ],
   page_from: 0,
   page_to: 10,
+  searchedWord: "",
+  searchedArticleList: [],
 };
 
 export default articles;

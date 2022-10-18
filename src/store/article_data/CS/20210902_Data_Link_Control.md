@@ -1,6 +1,6 @@
-http://www.kocw.net/home/search/kemView.do?kemId=299067
-
 # Data Link Control
+
+http://www.kocw.net/home/search/kemView.do?kemId=299067
 
 > framing, flow control, error control, protocols
 

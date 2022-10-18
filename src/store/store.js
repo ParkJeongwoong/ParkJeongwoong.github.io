@@ -41,6 +41,14 @@ const StateProvider = ({ children }) => {
           articles.categoryId = state.articles.categoryId;
         }
         return { ...state, articles };
+      // 검색 결과 추가하기
+      case "SEARCH_ARTICLES":
+        const searchedWord = action.value.word;
+        const searchedArticleList = action.value.articleList;
+        return {
+          ...state,
+          articles: { ...state.articles, searchedWord, searchedArticleList },
+        };
       // Archive Data 가져오기
       case "GET_ARCHIVES":
         const archives = archive_data;

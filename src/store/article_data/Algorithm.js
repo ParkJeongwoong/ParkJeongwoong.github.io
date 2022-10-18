@@ -63,6 +63,14 @@ const Algorithm = [
     date: new Date("2022-08-04"),
     content: "store/article_data/Algorithm/20220804_Algorithm_Graph.md",
   },
+  {
+    category: "Algorithm",
+    subCategory: "",
+    id: 8,
+    title: "힙 유형 (우선순위 큐)",
+    date: new Date("2022-10-13"),
+    content: "store/article_data/Algorithm/20221013_Algorithm_Heap.md",
+  },
 ];
 
 const Algorithm_SubCategory = [];

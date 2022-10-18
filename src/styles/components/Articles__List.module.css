@@ -59,6 +59,38 @@
   font-size: small;
 }
 
+.Article__SearchResult {
+  width: 100%;
+}
+
+.Article__SearchResult > h3 {
+  margin-top: 0px;
+}
+
+.Article__SearchAgain {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.Article__SearchAgain > div {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.working:hover {
+  font-weight: bold;
+  color: var(--main-word-color);
+}
+
+.not_working {
+  color: var(--sub-word-color);;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  cursor: default;
+}
+
 
 /* 반응형 웹 디자인 */
 @media (max-width: 960px) {
@@ -90,5 +122,22 @@
     width: 50vw;
     right: 20px;
     bottom: 20px;
+  }
+
+  .Article__SearchResult > h3 {
+    margin-top: 18px;
+  }
+
+  .Article__SearchResult_Content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 3.6em;
+
+    margin-bottom: 20px;
   }
 }

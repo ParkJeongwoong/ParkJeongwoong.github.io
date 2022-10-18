@@ -23,10 +23,17 @@
 }
 
 .Articles__Category > h1 {
+  margin-bottom: 2px;
   font-size: var(--huge-font-size);
 }
 
 .Category__Mobile {
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  height: 0px;
+  top: -38px;
+
   cursor: pointer;
   display: none;
 }
@@ -41,6 +48,61 @@
   cursor: pointer;
 }
 
+.Search__Form {
+  position: relative;
+
+  display: flex;
+  width: 90%;
+  max-width: 200px;
+}
+
+.Search__Input {
+  z-index: 1;
+  width: 80%;
+  height: 16PX;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--main-color-dark);
+  border-radius: 5px;
+  padding-left: 5px;
+
+  color: var(--main-word-color);
+}
+
+.Search__Input:focus {
+  outline: none;
+  border-color: var(--main-color-deep-dark);
+}
+
+.Search__Input:focus::placeholder {
+  color: transparent;
+}
+
+.Search__Button {
+  position: absolute;
+  right: 0;
+
+  width: 20%;
+  height: 20px;
+  
+  margin-left: 2%;
+  
+  background-color: var(--main-color-dark);
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Search__Button:hover {
+  background-color: var(--main-color-deep-dark);
+
+  transition: 0.5s;
+}
+
+.dummy {
+  display: none;
+}
 
 /* 반응형 웹 디자인 */
 @media (max-width: 960px) {
@@ -65,5 +127,15 @@
 
   .SubCategory__Button {
     margin-left: 3%;
+  }
+
+  .Search__Form {
+    align-self: center;
+    max-width: 960px;
+    padding: 5px;
+  }
+
+  .Search__Input {
+    width: 85%;
   }
 }

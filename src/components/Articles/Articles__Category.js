@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { store } from "store/store";
 import { useRouter } from "next/router";
 import styles from "styles/components/Articles__Category.module.css";
+import Api from "api/api";
 
 function Article__Category({ moveList }) {
   const router = useRouter();
@@ -28,39 +29,92 @@ function Article__Category({ moveList }) {
       type: "SELECT_PAGE",
       value: 0,
     });
+
+    toggleCategory("OnlyClose");
   };
 
-  const toggleCategory = () => {
+  const toggleCategory = toggleType => {
     let categoryList = document.querySelectorAll("#Article_Category > div");
     let font_weight;
     let category_visible;
 
-    if (categoryList[0].style["font-weight"]) {
+    if (categoryList[categoryList.length - 1].style["font-weight"]) {
       font_weight = "";
       category_visible = "none";
-    } else {
+    } else if (toggleType != "OnlyClose") {
       font_weight = "bold";
       category_visible = "inline";
     }
 
-    categoryList[0].style["font-weight"] = font_weight;
-    for (let i = 1; i < categoryList.length; i++) {
+    categoryList[categoryList.length - 1].style["font-weight"] = font_weight;
+    for (let i = 0; i < categoryList.length - 1; i++) {
       categoryList[i].style.display = category_visible;
+    }
+  };
+
+  const searchArticle = () => {
+    const word = document.querySelector("#Search_Input").value;
+
+    if (!moveList) {
+      router.push({ pathname: "/articles" });
+    } else {
+      moveList(true);
+    }
+
+    if (word.length) {
+      Api.searchArticle(
+        { word },
+        res => {
+          dispatch({
+            type: "SEARCH_ARTICLES",
+            value: { word, articleList: res.data },
+          });
+        },
+        err => console.log(err)
+      );
+      dispatch({
+        type: "SELECT_CATEGORY",
+        value: ["-2"],
+      });
+    } else {
+      // 검색어가 없을 시 전체 결과 조회
+      dispatch({
+        type: "SELECT_CATEGORY",
+        value: ["-1"],
+      });
+      dispatch({
+        type: "SELECT_PAGE",
+        value: 0,
+      });
+    }
+
+    toggleCategory("OnlyClose");
+  };
+
+  const onKeyPress = event => {
+    if (event.key == "Enter") {
+      searchArticle();
     }
   };
 
   return (
     <div className={styles.Articles__Category} id="Article_Category">
       <h1>Articles</h1>
-      <div className={styles.Category__Mobile} onClick={toggleCategory}>
-        {articles.categoryId == -1
-          ? "전체보기"
-          : articles.subCategoryId == -1
-          ? articles.categoryList[Number(articles.categoryId)].category
-          : articles.categoryList[Number(articles.categoryId)].subCategory[
-              articles.subCategoryId
-            ]}
-      </div>
+      <form className={styles.Search__Form} onSubmit={onKeyPress}>
+        <input
+          type="text"
+          id="Search_Input"
+          placeholder="search"
+          className={styles.Search__Input}
+          onKeyPress={onKeyPress}
+        />
+        <input className={styles.dummy} />
+        <button
+          type="button"
+          className={styles.Search__Button}
+          onClick={searchArticle}
+        />
+      </form>
       <div className={styles.Category__Div}>
         <div
           className={styles.Category__Button}
@@ -91,6 +145,9 @@ function Article__Category({ moveList }) {
           ))}
         </div>
       ))}
+      <div className={styles.Category__Mobile} onClick={toggleCategory}>
+        -
+      </div>
     </div>
   );
 }

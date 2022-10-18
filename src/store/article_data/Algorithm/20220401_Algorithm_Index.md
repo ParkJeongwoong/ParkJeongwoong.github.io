@@ -11,13 +11,14 @@
 - [그리디 문제 유형](https://parkjeongwoong.github.io/articles/Algorithm/4)
 - [이분 탐색 유형](https://parkjeongwoong.github.io/articles/Algorithm/5)
 - [브루트 포스 유형](https://parkjeongwoong.github.io/articles/Algorithm/6)
+- [그래프 유형](https://parkjeongwoong.github.io/articles/Algorithm/7)
+- [힙 유형](https://parkjeongwoong.github.io/articles/Algorithm/8)
 
 (추가예정)
 
 - 구현
 - Tree
 - 투포인터 (대상 배열 1개 / 대상 배열 2개) & 슬라이딩 윈도우
-- 우선순위큐
 - 해시맵
 - Trie (문자열 검색 및 처리)
 - 분할정복

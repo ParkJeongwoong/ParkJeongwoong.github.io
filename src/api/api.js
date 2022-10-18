@@ -8,7 +8,7 @@ const apiTest1 = (data, callback, errorCallback) => {
   console.log("GET TEST");
   axios({
     method: "GET",
-    url: process.env.NEXT_PUBLIC_SERVER_URL2 + "/blog-api/count-visitor",
+    url: process.env.NEXT_PUBLIC_SERVER_URL + "/blog-api/count-visitor",
     params: data,
   })
     .then(callback)
@@ -29,7 +29,7 @@ const visited = data => {
 
     axios({
       method: "post",
-      url: BASE_URL2 + "/blog-api/visited",
+      url: BASE_URL + "/blog-api/visited",
       data: data,
     })
       .then()
@@ -38,29 +38,8 @@ const visited = data => {
 };
 
 const getArticle = (data, callback, errorCallback) => {
-  let isArticle = false;
+  let isReceived = false;
   const localData = { data: { content: data.markdown_gitHub } };
-
-  axios({
-    method: "get",
-    url:
-      BASE_URL2 +
-      "/blog-api/article/" +
-      data.articleCategory +
-      "/" +
-      data.articleId,
-  })
-    .then(res => {
-      console.log("MAIN SERVER ANSWERED");
-      if (!isArticle) {
-        callback(res, "Main Server");
-        isArticle = true;
-      }
-    })
-    .catch(() => {
-      console.log("Main Server Error");
-      errorCallback;
-    });
 
   axios({
     method: "get",
@@ -72,10 +51,31 @@ const getArticle = (data, callback, errorCallback) => {
       data.articleId,
   })
     .then(res => {
+      console.log("MAIN SERVER ANSWERED");
+      if (!isReceived) {
+        callback(res, "Main Server");
+        isReceived = true;
+      }
+    })
+    .catch(() => {
+      console.log("Main Server Error");
+      errorCallback;
+    });
+
+  axios({
+    method: "get",
+    url:
+      BASE_URL2 +
+      "/blog-api/article/" +
+      data.articleCategory +
+      "/" +
+      data.articleId,
+  })
+    .then(res => {
       console.log("SUB SERVER ANSWERED");
-      if (!isArticle) {
+      if (!isReceived) {
         callback(res, "Sub Server");
-        isArticle = true;
+        isReceived = true;
       }
     })
     .catch(() => {
@@ -84,11 +84,20 @@ const getArticle = (data, callback, errorCallback) => {
     });
 
   setTimeout(() => {
-    if (localData.data.content && !isArticle) {
+    if (localData.data.content && !isReceived) {
       callback(localData, "Github Server");
-      isArticle = true;
+      isReceived = true;
     }
   }, 500);
+};
+
+const searchArticle = (data, callback, errorCallback) => {
+  axios({
+    method: "GET",
+    url: BASE_URL + "/blog-api/search/article/" + data.word,
+  })
+    .then(callback)
+    .catch(errorCallback);
 };
 
 const Api = {
@@ -99,6 +108,8 @@ const Api = {
   visited: data => visited(data),
   getArticle: (articleCategory, articleId) =>
     getArticle(articleCategory, articleId),
+  searchArticle: (data, callback, errorCallback) =>
+    searchArticle(data, callback, errorCallback),
 };
 
 export default Api;

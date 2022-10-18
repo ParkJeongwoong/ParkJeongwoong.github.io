@@ -117,6 +117,17 @@ const archives = [
         images: ["/archives/blog/15-1.jpg", "/archives/blog/15-2.jpg"],
         content: "인덱스 기능 추가 (실시간 위치 표시 / 해당 위치로 이동)",
       },
+      {
+        id: 15,
+        date: "2022-10-17",
+        images: [
+          "/archives/blog/16-1.jpg",
+          "/archives/blog/16-2.jpg",
+          "/archives/blog/16-3.jpg",
+          "/archives/blog/16-4.jpg",
+        ],
+        content: "검색 기능 추가\n모바일 화면 개선",
+      },
     ],
   },
 
