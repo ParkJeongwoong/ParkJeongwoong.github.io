@@ -67,7 +67,7 @@ function Article__Category({ moveList }) {
         res => {
           dispatch({
             type: "SEARCH_ARTICLES",
-            value: { word, articleList: res.data },
+            value: { word, articleList: res.data, direction: 0 },
           });
         },
         err => console.log(err)

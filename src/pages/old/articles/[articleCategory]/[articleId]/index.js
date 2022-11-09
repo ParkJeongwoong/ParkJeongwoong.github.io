@@ -10,20 +10,12 @@ import articles from "store/article_data";
 import { useRouter } from "next/router";
 import Api from "api/api";
 
-function ArticleDetail({
-  markdown_gitHub,
-  documentTitle,
-  articleCategory,
-  articleId,
-}) {
+function ArticleDetail({ markdown, documentTitle, index }) {
   const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
   const { pageData } = value;
-  const [markdown, setMarkdown] = useState("");
-  const [origin, setOrigin] = useState("No Server");
-  const [index, setIndex] = useState([]);
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +24,12 @@ function ArticleDetail({
     dispatch({ type: "GET_ARTICLES" });
 
     if (isLoading) {
+      // // 방문 확인
+      // Api.visited({
+      //   url: "https://parkjeongwoong.github.io" + router.asPath,
+      //   who: router.asPath.split("who=")[1],
+      //   lastPage: pageData.currentPage,
+      // });
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
 
@@ -40,16 +38,6 @@ function ArticleDetail({
 
   useEffect(() => {
     if (!isLoading && window.innerWidth > 960) {
-      Api.getArticle(
-        { articleCategory, articleId, markdown_gitHub },
-        (res, origin) => {
-          setMarkdown(res.data.content);
-          setOrigin(origin);
-          setIndex(getIndex(res.data.content));
-        },
-        err => console.log(err)
-      );
-
       setTimeout(function () {
         const articleDetail_left = document.querySelector(
           "#ArticleDetail_left"
@@ -86,9 +74,6 @@ function ArticleDetail({
               className={styles.ArticleDetail__right}
               id="ArticleDetail_right"
             >
-              <span className={globalStyles.content_origin}>
-                This Content is From {origin}
-              </span>
               <MarkdownRenderer markdown={markdown} />
               <MarkdownIndex index={index} />
             </div>
@@ -102,7 +87,6 @@ function ArticleDetail({
 export default ArticleDetail;
 
 export async function getStaticPaths() {
-  // Todo : 이 부분을 articles의 categoryList에서 받는 게 아니라 서버에 articleCategoryList를 요청해서 받아와야 함
   const paths = [];
   articles.categoryList.forEach(category =>
     category.itemList.forEach(article =>
@@ -121,60 +105,13 @@ export async function getStaticPaths() {
   };
 }
 
-function getIndex(markdown) {
-  let index = [];
-  const index_raw = markdown.split("\n");
-  let code_line = false;
-  index_raw.forEach(line => {
-    // 코드 라인의 주석표시(#) 무시
-    if (/^(```)/.test(line)) {
-      code_line = !code_line;
-    }
-
-    if (!code_line) {
-      if (/^#####/.test(line)) {
-        index.push({
-          type: "type5",
-          data: line
-            .replace("#####", "")
-            .replace(/`/gi, "")
-            .replace(/\*/gi, ""),
-        });
-      } else if (/^####/.test(line)) {
-        index.push({
-          type: "type4",
-          data: line.replace("####", "").replace(/`/gi, "").replace(/\*/gi, ""),
-        });
-      } else if (/^###/.test(line)) {
-        index.push({
-          type: "type3",
-          data: line.replace("###", "").replace(/`/gi, "").replace(/\*/gi, ""),
-        });
-      } else if (/^##/.test(line)) {
-        index.push({
-          type: "type2",
-          data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
-        });
-      } else if (/^#/.test(line)) {
-        index.push({
-          type: "type1",
-          data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
-        });
-      }
-    }
-  });
-  return index;
-}
-
 export async function getStaticProps(context) {
   // 변수
   let path = "";
   let documentTitle = "";
-  let markdown_gitHub = "";
+  let markdown = "";
+  let index = [];
   let has_SubCategory = false;
-
-  let articleCategory = context.params.articleCategory;
-  let articleId = context.params.articleId;
 
   // 파일 주소 찾기
   if (articles.categoryList) {
@@ -203,15 +140,62 @@ export async function getStaticProps(context) {
       }/${path.split("/")[4]}`);
     }
 
-    markdown_gitHub = readmePath.default;
+    markdown = readmePath.default;
+
+    const index_raw = markdown.split("\r\n");
+    let code_line = false;
+
+    index_raw.forEach(line => {
+      // 코드 라인의 주석표시(#) 무시
+      if (/^(```)/.test(line)) {
+        code_line = !code_line;
+      }
+
+      if (!code_line) {
+        if (/^#####/.test(line)) {
+          index.push({
+            type: "type5",
+            data: line
+              .replace("#####", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^####/.test(line)) {
+          index.push({
+            type: "type4",
+            data: line
+              .replace("####", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^###/.test(line)) {
+          index.push({
+            type: "type3",
+            data: line
+              .replace("###", "")
+              .replace(/`/gi, "")
+              .replace(/\*/gi, ""),
+          });
+        } else if (/^##/.test(line)) {
+          index.push({
+            type: "type2",
+            data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
+          });
+        } else if (/^#/.test(line)) {
+          index.push({
+            type: "type1",
+            data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
+          });
+        }
+      }
+    });
   }
 
   return {
     props: {
-      markdown_gitHub,
+      markdown,
       documentTitle,
-      articleCategory,
-      articleId,
+      index,
     },
   };
 }

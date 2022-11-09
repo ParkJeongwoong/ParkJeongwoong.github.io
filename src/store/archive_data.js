@@ -128,6 +128,13 @@ const archives = [
         ],
         content: "검색 기능 추가\n모바일 화면 개선",
       },
+      {
+        id: 16,
+        date: "2022-10-18",
+        images: ["/archives/blog/17-1.jpg", "/archives/blog/16-2.jpg"],
+        content:
+          "검색 결과 개선\n기존의 날짜 순 정렬이 아닌 더 연관성 있는 결과를 상단으로 이동",
+      },
     ],
   },
 

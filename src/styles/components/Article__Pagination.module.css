@@ -20,3 +20,42 @@
 
   cursor: pointer;
 }
+
+.Pagination__DefaultPage_Back {
+  font-size: var(--mid-font-size);
+
+  cursor: pointer;
+}
+
+.Pagination__Page_Back {
+  font-size: var(--large-font-size);
+  font-weight: bold;
+  color: var(--main-color-deep-dark);
+  margin-left: 20px;
+
+  cursor: pointer;
+}
+
+.Article__SearchAgain {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.Article__SearchAgain > div {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.working:hover {
+  font-weight: bold;
+  color: var(--main-word-color);
+}
+
+.not_working {
+  color: var(--sub-word-color);;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  cursor: default;
+}

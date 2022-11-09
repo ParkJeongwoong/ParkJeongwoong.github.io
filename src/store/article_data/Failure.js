@@ -23,6 +23,14 @@ const Failure = [
     date: new Date("2022-05-09"),
     content: "store/article_data/Failure/20220509_Failure_Certbot_Renew.md",
   },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 3,
+    title: "IndexOutOfBoundsException 에러 & indexOf() 대소문자 구분 없이 비교",
+    date: new Date("2022-10-18"),
+    content: "store/article_data/Failure/20221018_Failure_Java_Error_IndexOutOfBoundsException.md",
+  },
 ];
 
 const Failure_SubCategory = [];

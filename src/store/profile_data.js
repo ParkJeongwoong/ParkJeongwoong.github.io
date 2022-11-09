@@ -1,6 +1,6 @@
 const profile = {
   introduction:
-    "Web 기술에 관심을 가지고 있는 금융 IT 개발자입니다.\n신소재공학을 전공하고 반도체 기업의 엔지니어로 근무했습니다.\n배우고 성장하는 것을 즐겨 반도체 엔지니어에서 개발자로 전직했습니다.",
+    "Web 기술에 관심을 가지고 있는 금융 IT 개발자입니다.\n업무에는 C와 Oracle을 사용하고 있고 개인적으로는 Java/Spring, MariaDB를 이용해 개발과 공부를 하고 있습니다.",
   tech_stack: {
     frontend: [
       "/tech_stack/javascript.png",

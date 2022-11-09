@@ -10,12 +10,21 @@ import articles from "store/article_data";
 import { useRouter } from "next/router";
 import Api from "api/api";
 
-function ArticleDetail({ markdown, documentTitle, index }) {
+function ArticleDetail({
+  markdown_gitHub,
+  documentTitle,
+  articleCategory,
+  articleId,
+}) {
   const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
   const { value, dispatch } = globalState;
   const { pageData } = value;
+
+  const [markdown, setMarkdown] = useState("");
+  const [origin, setOrigin] = useState("No Server");
+  const [index, setIndex] = useState([]);
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +46,19 @@ function ArticleDetail({ markdown, documentTitle, index }) {
   }, [dispatch, router.asPath, pageData.currentPage]);
 
   useEffect(() => {
-    if (!isLoading && window.innerWidth > 960) {
+    if (!isLoading) {
+      Api.getArticle(
+        { articleCategory, articleId, markdown_gitHub },
+        (res, origin) => {
+          setMarkdown(res.data.content);
+          setOrigin(origin);
+          setIndex(getIndex(res.data.content));
+        },
+        err => console.log(err)
+      );
+    }
+
+    if (window.innerWidth > 960) {
       setTimeout(function () {
         const articleDetail_left = document.querySelector(
           "#ArticleDetail_left"
@@ -53,7 +74,7 @@ function ArticleDetail({ markdown, documentTitle, index }) {
   return (
     <div>
       <SEO
-        description={markdown}
+        description={markdown_gitHub}
         title={documentTitle}
         siteTitle="웅's 블로그"
       />
@@ -74,6 +95,9 @@ function ArticleDetail({ markdown, documentTitle, index }) {
               className={styles.ArticleDetail__right}
               id="ArticleDetail_right"
             >
+              <span className={globalStyles.content_origin}>
+                This Content is From {origin}
+              </span>
               <MarkdownRenderer markdown={markdown} />
               <MarkdownIndex index={index} />
             </div>
@@ -109,9 +133,11 @@ export async function getStaticProps(context) {
   // 변수
   let path = "";
   let documentTitle = "";
-  let markdown = "";
-  let index = [];
+  let markdown_gitHub = "";
   let has_SubCategory = false;
+
+  let articleCategory = context.params.articleCategory;
+  let articleId = context.params.articleId;
 
   // 파일 주소 찾기
   if (articles.categoryList) {
@@ -140,62 +166,60 @@ export async function getStaticProps(context) {
       }/${path.split("/")[4]}`);
     }
 
-    markdown = readmePath.default;
-
-    const index_raw = markdown.split("\r\n");
-    let code_line = false;
-
-    index_raw.forEach(line => {
-      // 코드 라인의 주석표시(#) 무시
-      if (/^(```)/.test(line)) {
-        code_line = !code_line;
-      }
-
-      if (!code_line) {
-        if (/^#####/.test(line)) {
-          index.push({
-            type: "type5",
-            data: line
-              .replace("#####", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^####/.test(line)) {
-          index.push({
-            type: "type4",
-            data: line
-              .replace("####", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^###/.test(line)) {
-          index.push({
-            type: "type3",
-            data: line
-              .replace("###", "")
-              .replace(/`/gi, "")
-              .replace(/\*/gi, ""),
-          });
-        } else if (/^##/.test(line)) {
-          index.push({
-            type: "type2",
-            data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
-          });
-        } else if (/^#/.test(line)) {
-          index.push({
-            type: "type1",
-            data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
-          });
-        }
-      }
-    });
+    markdown_gitHub = readmePath.default;
   }
 
   return {
     props: {
-      markdown,
+      markdown_gitHub,
       documentTitle,
-      index,
+      articleCategory,
+      articleId,
     },
   };
+}
+
+function getIndex(markdown) {
+  let index = [];
+  const index_raw = markdown.split("\n");
+  let code_line = false;
+  index_raw.forEach(line => {
+    // 코드 라인의 주석표시(#) 무시
+    if (/^(```)/.test(line)) {
+      code_line = !code_line;
+    }
+
+    if (!code_line) {
+      if (/^#####/.test(line)) {
+        index.push({
+          type: "type5",
+          data: line
+            .replace("#####", "")
+            .replace(/`/gi, "")
+            .replace(/\*/gi, ""),
+        });
+      } else if (/^####/.test(line)) {
+        index.push({
+          type: "type4",
+          data: line.replace("####", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^###/.test(line)) {
+        index.push({
+          type: "type3",
+          data: line.replace("###", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^##/.test(line)) {
+        index.push({
+          type: "type2",
+          data: line.replace("##", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      } else if (/^#/.test(line)) {
+        index.push({
+          type: "type1",
+          data: line.replace("#", "").replace(/`/gi, "").replace(/\*/gi, ""),
+        });
+      }
+    }
+  });
+  return index;
 }

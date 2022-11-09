@@ -3,23 +3,25 @@ import { store } from "store/store";
 import { useRouter } from "next/router";
 import styles from "styles/components/Articles__List.module.css";
 import Article__Pagination from "components/Articles/Article__Pagination";
-import Api from "api/api";
 
 function Articles__List() {
   // router 사용
   const router = useRouter();
   // 전역 상태 관리 (store)
   const globalState = useContext(store);
-  const { value, dispatch } = globalState;
+  const { value } = globalState;
   const { articles } = value;
 
   const [selectedCategory, setSelectedCategory] = useState("전체보기");
   const [articleList, setArticleList] = useState([]);
-  const [postSearch, setPostSearch] = useState(0);
-  const [preSearch, setPreSearch] = useState(0);
+  const [isNextSearch, setIsNextSearch] = useState(false); // 다음 검색 가능 ? (=미래상태)
+  const [currSearch, setCurrSearch] = useState(0); // 이전 검색 가능 ? (=현재상태)
+
+  const offset = 100; // Default : 100
 
   useEffect(() => {
     if (articles.categoryId === -1) {
+      // 전체보기
       setSelectedCategory("전체보기");
       setArticleList(
         articles.categoryList
@@ -35,10 +37,39 @@ function Articles__List() {
             }
           })
       );
-    } else if (articles.categoryId === -2) {
+    } else if (articles.categoryId !== -2) {
+      const selectedArticles = articles.categoryList.filter(
+        category => category.id === articles.categoryId
+      );
+      if (articles.subCategoryId === -1) {
+        setSelectedCategory(selectedArticles[0].category);
+        setArticleList(selectedArticles[0].itemList);
+      } else {
+        setSelectedCategory(
+          selectedArticles[0].subCategory[articles.subCategoryId]
+        );
+        setArticleList(
+          selectedArticles[0].itemList.filter(
+            article =>
+              article.subCategory ===
+              selectedArticles[0].subCategory[articles.subCategoryId]
+          )
+        );
+      }
+    }
+  }, [
+    articles.categoryId,
+    articles.subCategoryId,
+    articles.categoryList,
+    articles.page_from,
+  ]);
+
+  useEffect(() => {
+    if (articles.categoryId === -2) {
+      // 검색
       if (articles.searchedArticleList && articles.searchedArticleList.length) {
         const searchedArticles = articles.searchedArticleList
-          .splice(0, 10)
+          .splice(0, offset) // 100개까지만 받음 (101개가 오면 다음 검색 활성화)
           .map(article => {
             return {
               ...article,
@@ -53,6 +84,7 @@ function Articles__List() {
             };
           });
 
+        // 일치하는 단어 볼드 처리
         for (let i = 0; i < searchedArticles.length; i++) {
           searchedArticles[i]["matchedContent"] = [];
           let lastBool = searchedArticles[i].matchWords[0];
@@ -83,75 +115,18 @@ function Articles__List() {
         }
 
         setArticleList(searchedArticles);
-        setSelectedCategory('"' + articles.searchedWord + '" 검색결과');
-        setPostSearch(
-          articles.searchedArticleList.length ? postSearch + 10 : 0
-        );
-      }
-    } else {
-      const selectedArticles = articles.categoryList.filter(
-        category => category.id === articles.categoryId
-      );
-      if (articles.subCategoryId === -1) {
-        setSelectedCategory(selectedArticles[0].category);
-        setArticleList(selectedArticles[0].itemList);
+        setIsNextSearch(articles.searchedArticleList.length ? true : false);
       } else {
-        setSelectedCategory(
-          selectedArticles[0].subCategory[articles.subCategoryId]
-        );
-        setArticleList(
-          selectedArticles[0].itemList.filter(
-            article =>
-              article.subCategory ===
-              selectedArticles[0].subCategory[articles.subCategoryId]
-          )
-        );
+        setArticleList([]);
       }
+      setSelectedCategory('"' + articles.searchedWord + '" 검색결과');
     }
-  }, [
-    articles.categoryId,
-    articles.subCategoryId,
-    articles.categoryList,
-    articles.page_from,
-    articles.searchedWord,
-    articles.searchedArticleList,
-  ]);
+  }, [articles.searchedWord, articles.searchedArticleList]);
 
   // 글 선택
   const selectArticle = event => {
     const path = event.target.getAttribute("value");
     router.push({ pathname: `/articles/${path}` });
-  };
-
-  const searchLastArticle = () => {
-    const word = articles.searchedWord;
-    Api.searchArticle(
-      { word: word + "/" + (preSearch - 10) },
-      res => {
-        setPreSearch(preSearch - 10);
-        setPostSearch(preSearch - 10);
-        dispatch({
-          type: "SEARCH_ARTICLES",
-          value: { word, articleList: res.data },
-        });
-      },
-      err => console.log(err)
-    );
-  };
-
-  const searchNextArticle = () => {
-    const word = articles.searchedWord;
-    Api.searchArticle(
-      { word: word + "/" + postSearch },
-      res => {
-        setPreSearch(postSearch);
-        dispatch({
-          type: "SEARCH_ARTICLES",
-          value: { word, articleList: res.data },
-        });
-      },
-      err => console.log(err)
-    );
   };
 
   return (
@@ -241,30 +216,15 @@ function Articles__List() {
       ) : (
         <div>게시글이 없습니다.</div>
       )}
-      {articles.categoryId == -2 ? (
-        <div className={styles.Article__SearchAgain}>
-          <div>
-            {preSearch ? (
-              <span className={styles.working} onClick={searchLastArticle}>
-                이전 검색
-              </span>
-            ) : (
-              <span className={styles.not_working}>이전 검색</span>
-            )}
-          </div>
-          <div>
-            {postSearch ? (
-              <span className={styles.working} onClick={searchNextArticle}>
-                다음 검색
-              </span>
-            ) : (
-              <span className={styles.not_working}>다음 검색</span>
-            )}
-          </div>
-        </div>
-      ) : (
-        <Article__Pagination article_count={articleList.length} />
-      )}
+      <Article__Pagination
+        article_count={
+          articles.searchedArticleList.length ? offset : articleList.length
+        }
+        offset={offset}
+        isNextSearch={isNextSearch}
+        currSearch={currSearch}
+        setCurrSearch={setCurrSearch}
+      />
     </div>
   );
 }

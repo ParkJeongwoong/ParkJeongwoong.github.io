@@ -9,9 +9,10 @@
 - 데이터 통계 화면
 - Spring Cloud 공부
 - 서버 구조도 정리해서 만들기
-- 글검색 검색 구현
 - Index 구현 (완료)
 - Webpack 공부
+- 추천 글 기능
+- (중요) 게시글이 100개 이상인 경우의 Pagination
 
 
 
@@ -19,7 +20,10 @@
 
 [계획]
 
-- 로직 : DTO -> Entity (마찬가지로 TEST도 DTO TEST에서 Domain TEST로 수정)
+- Test 완성
+- 서버 이중화 (데이터 연동 작업 완료)
+- 관리자 페이지
+- Spring Batch
 
 
 

@@ -45,9 +45,15 @@ const StateProvider = ({ children }) => {
       case "SEARCH_ARTICLES":
         const searchedWord = action.value.word;
         const searchedArticleList = action.value.articleList;
+        const searchDirection = action.value.direction;
         return {
           ...state,
-          articles: { ...state.articles, searchedWord, searchedArticleList },
+          articles: {
+            ...state.articles,
+            searchedWord,
+            searchedArticleList,
+            searchDirection,
+          },
         };
       // Archive Data 가져오기
       case "GET_ARCHIVES":

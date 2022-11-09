@@ -21,3 +21,11 @@
   font-size: var(--mid-font-size);
   color: var(--main-color-deep-dark);
 }
+
+@media (max-width: 960px) {
+  .content_origin {
+    right: 6%;
+    font-size: var(--small-font-size);
+    padding-top: 4px;
+  }
+}

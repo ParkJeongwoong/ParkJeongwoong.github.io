@@ -92,7 +92,7 @@ function MarkdownRenderer({ markdown }) {
               },
               em({ node, children, ...props }) {
                 return (
-                  <span style={{ "font-style": "italic" }} {...props}>
+                  <span style={{ fontStyle: "italic" }} {...props}>
                     {children}
                   </span>
                 );

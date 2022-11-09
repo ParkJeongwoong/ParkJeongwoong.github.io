@@ -1,4 +1,4 @@
-# java.lang.IndexOutOfBoundsException & indexOf() 대소문자 구분 없이 비교
+# IndexOutOfBoundsException 에러 & indexOf() 대소문자 구분 없이 비교
 
 ![](../../../../public/assets/2022-10-18-08-51-15-image.png)
 
