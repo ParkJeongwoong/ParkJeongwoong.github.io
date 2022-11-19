@@ -31,6 +31,14 @@ const Failure = [
     date: new Date("2022-10-18"),
     content: "store/article_data/Failure/20221018_Failure_Java_Error_IndexOutOfBoundsException.md",
   },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 4,
+    title: "Certbot, Connection Refused Error (maunal 인증서)",
+    date: new Date("2022-11-12"),
+    content: "store/article_data/Failure/20221112_Failure_Certbot_Connection_Refused.md",
+  },
 ];
 
 const Failure_SubCategory = [];

@@ -103,6 +103,14 @@ const Develop = [
     date: new Date("2022-08-25"),
     content: "store/article_data/Develop/20220825_Access_to_RaspberryPi4_Ubuntu.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 13,
+    title: "[GitHub Blog 개발기] 검색 기능 추가",
+    date: new Date("2022-11-09"),
+    content: "store/article_data/Develop/20221109_Search.md",
+  },
 ];
 
 const Develop_SubCategory = [];

@@ -177,6 +177,11 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/13</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
 <!-- Failure -->
     <url>
@@ -196,6 +201,11 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Failure/3</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/4</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

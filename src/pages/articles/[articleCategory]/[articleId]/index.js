@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ArticleCategory from "components/Articles/Articles__Category";
 import MarkdownRenderer from "components/Markdown/MarkdownRenderer";
 import MarkdownIndex from "components/Markdown/MarkdownIndex";
+import Article__Recommendation from "components/Articles/Articles__Recommendation";
 import SEO from "components/seo";
 import { store } from "store/store";
 import globalStyles from "styles/globalStyles.module.css";
@@ -28,6 +29,7 @@ function ArticleDetail({
 
   // Loading
   const [isLoading, setIsLoading] = useState(true);
+  const [documentId, setDocumentId] = useState(null);
 
   useEffect(() => {
     dispatch({ type: "GET_ARTICLES" });
@@ -53,6 +55,7 @@ function ArticleDetail({
           setMarkdown(res.data.content);
           setOrigin(origin);
           setIndex(getIndex(res.data.content));
+          setDocumentId(res.data.id);
         },
         err => console.log(err)
       );
@@ -99,6 +102,7 @@ function ArticleDetail({
                 This Content is From {origin}
               </span>
               <MarkdownRenderer markdown={markdown} />
+              <Article__Recommendation documentId={documentId} />
               <MarkdownIndex index={index} />
             </div>
           </div>

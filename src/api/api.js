@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL; // 배포용
 const BASE_URL2 = process.env.NEXT_PUBLIC_SERVER_URL2; // 배포용
 // const BASE_URL = "http://localhost:8080"; // 개발용
-// const BASE_URL = "http://192.168.25.3"; // 개발용
+// const BASE_URL_TEST = "http://192.168.25.3"; // 개발용
 
 const apiTest1 = (data, callback, errorCallback) => {
   console.log("GET TEST");
@@ -101,6 +101,16 @@ const searchArticle = (data, callback, errorCallback) => {
     .catch(errorCallback);
 };
 
+const getRecommendedArticle = (data, callback, errorCallback) => {
+  axios({
+    method: "GET",
+    url:
+      BASE_URL + "/blog-api/recommend/get-5-similar-article/" + data.documentId,
+  })
+    .then(callback)
+    .catch(errorCallback);
+};
+
 const Api = {
   apiTest1: (data, callback, errorCallback) =>
     apiTest1(data, callback, errorCallback),
@@ -111,6 +121,8 @@ const Api = {
     getArticle(articleCategory, articleId),
   searchArticle: (data, callback, errorCallback) =>
     searchArticle(data, callback, errorCallback),
+  getRecommendedArticle: (data, callback, errorCallback) =>
+    getRecommendedArticle(data, callback, errorCallback),
 };
 
 export default Api;
