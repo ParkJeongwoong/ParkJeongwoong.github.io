@@ -39,6 +39,22 @@ const Failure = [
     date: new Date("2022-11-12"),
     content: "store/article_data/Failure/20221112_Failure_Certbot_Connection_Refused.md",
   },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 5,
+    title: "Java (Spring Boot) 동시성 테스트",
+    date: new Date("2023-01-11"),
+    content: "store/article_data/Failure/20230111_Failure_Concurrency.md",
+  },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 6,
+    title: "mysqldump 명령문 에러 (착각으로 인한 에러)",
+    date: new Date("2023-01-20"),
+    content: "store/article_data/Failure/20230120_Failure_Mysqldump_Command.md",
+  },
 ];
 
 const Failure_SubCategory = [];

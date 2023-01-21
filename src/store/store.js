@@ -58,6 +58,7 @@ const StateProvider = ({ children }) => {
       // Archive Data 가져오기
       case "GET_ARCHIVES":
         const archives = archive_data;
+        archives.forEach(itemList => itemList.details.reverse());
         return { ...state, archives };
       // Article - Choose Article Category
       case "SELECT_CATEGORY":

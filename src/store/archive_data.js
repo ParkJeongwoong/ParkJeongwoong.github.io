@@ -135,6 +135,36 @@ const archives = [
         content:
           "검색 결과 개선\n기존의 날짜 순 정렬이 아닌 더 연관성 있는 결과를 상단으로 이동",
       },
+      {
+        id: 17,
+        date: "2022-11-19",
+        images: ["/archives/blog/18-1.jpg", "/archives/blog/18-2.jpg"],
+        content: "연관 게시글 추천 기능 추가",
+      },
+      {
+        id: 18,
+        date: "2022-11-20",
+        images: ["/archives/blog/19-1.gif"],
+        content: "Archive 사진 스와이프 구현",
+      },
+      {
+        id: 19,
+        date: "2022-11-20",
+        images: ["/archives/blog/20-1.jpg", "/archives/blog/20-2.jpg"],
+        content: "모니터링을 위한 Prometheus, Grafana 연동",
+      },
+      {
+        id: 20,
+        date: "2022-12-10",
+        images: ["/archives/blog/21-1.jpg"],
+        content: "시간대별 방문자수 통계 페이지 구현",
+      },
+      {
+        id: 21,
+        date: "2023-01-05",
+        images: ["/archives/blog/22-1.jpg"],
+        content: "Promtail, Loki, Grafana를 이용한 로그 모니터링 시스템 구축",
+      },
     ],
   },
 

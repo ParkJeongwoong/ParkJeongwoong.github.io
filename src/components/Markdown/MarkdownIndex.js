@@ -77,7 +77,7 @@ function MarkdownIndex({ index }) {
     countType5,
   ]);
 
-  const showIndex = event => {
+  const toggleIndex = event => {
     const index_box = document.querySelector("#index_box");
     index_box.style["display"] = isShowIndex ? "none" : "block";
     setIsShowIndex(!isShowIndex);
@@ -107,7 +107,7 @@ function MarkdownIndex({ index }) {
 
   return (
     <div className={styles.MarkdownIndex}>
-      <div className={styles.MarkdownIndex_Button} onClick={showIndex}>
+      <div className={styles.MarkdownIndex_Button} onClick={toggleIndex}>
         Index
       </div>
       <div className={styles.MarkdownIndex_Box} id="index_box">

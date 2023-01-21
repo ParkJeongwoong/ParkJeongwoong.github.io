@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL; // 배포용
 const BASE_URL2 = process.env.NEXT_PUBLIC_SERVER_URL2; // 배포용
 // const BASE_URL = "http://localhost:8080"; // 개발용
-// const BASE_URL_TEST = "http://192.168.25.3"; // 개발용
+const BASE_URL_TEST = "http://192.168.25.3"; // 개발용
 
 const apiTest1 = (data, callback, errorCallback) => {
   console.log("GET TEST");

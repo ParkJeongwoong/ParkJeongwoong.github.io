@@ -8,6 +8,8 @@ export default function ArchivedItem__ImgCarousel({
 }) {
   // Offset
   const [offset, setOffset] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
 
   // Method
   // offset을 조정해서 Carousel Element 왼쪽 이동
@@ -20,6 +22,28 @@ export default function ArchivedItem__ImgCarousel({
   const moveRight = () => {
     if (offset < 0) {
       setOffset(offset + 70);
+    }
+  };
+
+  const swipeStart = event => {
+    // console.log(event.touches[0]);
+    setTouchStartX(event.touches[0].clientX);
+    setTouchStartY(event.touches[0].clientY);
+  };
+
+  const swipeEnd = event => {
+    if (event.touches.length == 0) {
+      var touch = event.changedTouches[event.changedTouches.length - 1];
+      // console.log(touch);
+      const touchEndX = touch.clientX;
+      const touchEndY = touch.clientY;
+      if (
+        (touchEndX - touchStartX >= 80 || touchStartX - touchEndX >= 80) &&
+        (touchEndY - touchStartY <= 10 || touchStartY - touchEndY <= 10)
+      ) {
+        if (touchEndX - touchStartX > 0) moveRight();
+        else moveLeft();
+      }
     }
   };
 
@@ -60,7 +84,11 @@ export default function ArchivedItem__ImgCarousel({
 
   return (
     <div className={styles.ArchivedItem__ImgCarousel}>
-      <div className={styles.ImgCarousel_images}>
+      <div
+        className={styles.ImgCarousel_images}
+        onTouchStart={swipeStart}
+        onTouchEnd={swipeEnd}
+      >
         {images.map((image, img_idx) => (
           <img
             className={styles.ImgCarousel_image}

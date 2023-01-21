@@ -16,7 +16,8 @@
 
 .ImgCarousel_images > img {
   position: relative;
-  width: 70vw;
+  max-width: 70vw;
+  max-height: 40vw;
   transition: 1s;
 }
 

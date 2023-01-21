@@ -111,6 +111,22 @@ const Develop = [
     date: new Date("2022-11-09"),
     content: "store/article_data/Develop/20221109_Search.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 14,
+    title: "[GitHub Blog 개발기] 현재 개발 중인 내용 (2022.12.20)",
+    date: new Date("2022-12-20"),
+    content: "store/article_data/Develop/20221220_GitHubBlog_OnProcessing.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 15,
+    title: "[GitHub Blog 개발기] 문서유사도 생성에 대한 고민",
+    date: new Date("2023-01-04"),
+    content: "store/article_data/Develop/20230104_GitHubBlog_Developing_Recommendation_System.md",
+  },
 ];
 
 const Develop_SubCategory = [];
