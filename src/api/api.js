@@ -27,6 +27,14 @@ const visited = data => {
     // })
     //   .then()
     //   .catch(err => console.log(err));
+
+    axios({
+      method: "post",
+      url: BASE_URL + "/blog-api/visited",
+      data: data,
+    })
+      .then()
+      .catch(err => console.log(err));
   }
 };
 
