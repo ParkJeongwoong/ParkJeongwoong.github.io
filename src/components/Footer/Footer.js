@@ -16,10 +16,12 @@ function Footer() {
   };
 
   const toGitHub = () => {
+    const { referrer } = document;
     Api.visited({
       url: "https://github.com/ParkJeongwoong",
       who: router.asPath.split("who=")[1],
       lastPage: "Footer",
+      referrer,
     });
   };
 

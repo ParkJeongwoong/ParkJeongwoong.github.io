@@ -17,24 +17,30 @@ const apiTest1 = (data, callback, errorCallback) => {
 };
 
 const visited = data => {
+  let isReceived = false;
+
   if (RegExp(/^(itsme)/).test(data.who)) {
     console.log("Welcome tester!");
   } else {
-    // axios({
-    //   method: "post",
-    //   url: BASE_URL + "/blog-api/visited",
-    //   data: data,
-    // })
-    //   .then()
-    //   .catch(err => console.log(err));
-
     axios({
       method: "post",
       url: BASE_URL + "/blog-api/visited",
       data: data,
     })
-      .then()
+      .then((isReceived = true))
       .catch(err => console.log(err));
+
+    setTimeout(() => {
+      if (!isReceived) {
+        axios({
+          method: "post",
+          url: BASE_URL2 + "/blog-api/visited",
+          data: data,
+        })
+          .then((isReceived = true))
+          .catch(err => console.log(err));
+      }
+    }, 500);
   }
 };
 
@@ -63,31 +69,37 @@ const getArticle = (data, callback, errorCallback) => {
       errorCallback;
     });
 
-  axios({
-    method: "get",
-    url:
-      BASE_URL2 +
-      "/blog-api/article/" +
-      data.articleCategory +
-      "/" +
-      data.articleId,
-  })
-    .then(res => {
-      console.log("SUB SERVER ANSWERED");
-      if (!isReceived) {
-        callback(res, "Sub Server");
-        isReceived = true;
-      }
-    })
-    .catch(() => {
-      console.log("Sub Server Error");
-      errorCallback;
-    });
-
+  // Sub Server
   setTimeout(() => {
     if (localData.data.content && !isReceived) {
-      callback(localData, "Github Server");
-      isReceived = true;
+      axios({
+        method: "get",
+        url:
+          BASE_URL2 +
+          "/blog-api/article/" +
+          data.articleCategory +
+          "/" +
+          data.articleId,
+      })
+        .then(res => {
+          console.log("SUB SERVER ANSWERED");
+          if (!isReceived) {
+            callback(res, "Sub Server");
+            isReceived = true;
+          }
+        })
+        .catch(() => {
+          console.log("Sub Server Error");
+          errorCallback;
+        });
+
+      // GithubServer
+      setTimeout(() => {
+        if (localData.data.content && !isReceived) {
+          callback(localData, "Github Server");
+          isReceived = true;
+        }
+      }, 500);
     }
   }, 500);
 };

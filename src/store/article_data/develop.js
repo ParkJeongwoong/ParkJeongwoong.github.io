@@ -127,6 +127,30 @@ const Develop = [
     date: new Date("2023-01-04"),
     content: "store/article_data/Develop/20230104_GitHubBlog_Developing_Recommendation_System.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 16,
+    title: "[GitHub Blog 개발기] Oracle Cloud Infra 무료 인스턴스 정지",
+    date: new Date("2023-03-08"),
+    content: "store/article_data/Develop/20230308_GitHubBlog_Oracle_Cloud_Infra_Idle_Instance.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 17,
+    title: "ical4j 파일 읽기 (+CalendarBuilder 에러)",
+    date: new Date("2023-04-16"),
+    content: "store/article_data/Develop/20230416_YeoYeo_ical4j.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 18,
+    title: "[숙박 서비스] 개발 기록",
+    date: new Date("2023-07-13"),
+    content: "store/article_data/Develop/20230713_YeoYeo_review.md",
+  },
 ];
 
 const Develop_SubCategory = [];

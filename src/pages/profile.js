@@ -21,10 +21,12 @@ function Profile() {
 
     if (isLoading) {
       // 방문 확인
+      const { referrer } = document;
       Api.visited({
         url: "https://parkjeongwoong.github.io" + router.asPath,
         who: router.asPath.split("who=")[1],
         lastPage: pageData.currentPage,
+        referrer,
       });
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
@@ -56,6 +58,12 @@ function Profile() {
             </div>
             <h2>기술스택</h2>
             <div className={styles.Profile__tech_stack}>
+              <h3>Language</h3>
+              <div className={styles.Profile__tech_stack_logo}>
+                {profile.tech_stack.language.map((element, idx) => (
+                  <img src={element} alt="tech_stack" key={idx} />
+                ))}
+              </div>
               <h3>Front-end</h3>
               <div className={styles.Profile__tech_stack_logo}>
                 {profile.tech_stack.frontend.map((element, idx) => (
@@ -74,12 +82,12 @@ function Profile() {
                   <img src={element} alt="tech_stack" key={idx} />
                 ))}
               </div>
-              <h3>Studying</h3>
+              {/* <h3>Studying</h3>
               <div className={styles.Profile__tech_stack_logo}>
                 {profile.tech_stack.studying.map((element, idx) => (
                   <img src={element} alt="tech_stack" key={idx} />
                 ))}
-              </div>
+              </div> */}
             </div>
             <h2>경력</h2>
             <div className={styles.Profile__career}>

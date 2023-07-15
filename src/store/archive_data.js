@@ -1,7 +1,22 @@
 const archives = [
-  // Github Blog
+  // Hanokstay Yeoyeo
   {
     id: 0,
+    title: "한옥스테이 여여",
+    details: [
+      {
+        id: 0,
+        date: "2022-12.08 ~ 2023-03-16",
+        images: ["/archives/yeoyeo/0.jpg"],
+        content:
+          "숙박 결제 사이트 개발 및 운영\n참고 : https://dvlprjw.notion.site/4a867eb55db440e5a67b3cac160c75cd",
+      },
+    ],
+  },
+
+  // Github Blog
+  {
+    id: 1,
     title: "Github Blog",
     details: [
       {
@@ -170,7 +185,7 @@ const archives = [
 
   // BITZ
   {
-    id: 1,
+    id: 2,
     title: "BITZ",
     details: [
       {

@@ -21,11 +21,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && next dev",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && next build",
     "export": "next export",
-    "start": "next start",
-    "predeploy": "rm -rf node_modules/.cache && next build && next export && cp google74bbd1bb0c2ee4ad.html out/google74bbd1bb0c2ee4ad.html && cp robots.txt out/robots.txt && cp sitemap.xml out/sitemap.xml && touch out/.nojekyll",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && next start",
+    "predeploy": "SET NODE_OPTIONS=--openssl-legacy-provider && rm -rf node_modules/.cache && next build && next export && cp google74bbd1bb0c2ee4ad.html out/google74bbd1bb0c2ee4ad.html && cp robots.txt out/robots.txt && cp sitemap.xml out/sitemap.xml && touch out/.nojekyll",
     "deploy": "gh-pages --dotfiles -d out"
   },
   "eslintConfig": {

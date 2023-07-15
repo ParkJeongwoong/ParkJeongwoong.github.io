@@ -1,5 +1,5 @@
 const home = {
-  profile_img: "/images/profile2.jpg",
+  profile_img: "/images/profile3.jpg",
   summary:
     "Yonsei Univ.\n\tMaterial Science & Engineering\nKATUSA, USFK\n\tUnited States Forces Korea\nSK Hynix\n\tNAND Flash CMP Engineering\nSSAFY\n\tSamsung SW Academy For Youth\nDAOU Tech.\n: KIWOOM Securities\n\tFinancial SW Developer",
   welcome_word: "안녕하세요! 금융 IT 개발자 박정웅입니다!",

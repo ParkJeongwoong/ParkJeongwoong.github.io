@@ -183,6 +183,14 @@ const Web = [
     date: new Date("2022-08-14"),
     content: "store/article_data/Web/20220814_JPA_Persistence_Context.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 23,
+    title: "Java Thread.run()과 Thread.start()의 차이",
+    date: new Date("2023-01-23"),
+    content: "store/article_data/Web/20230123_Java_Thread_Run_Start.md",
+  },
 ];
 
 const Web_SubCategory = [];

@@ -36,10 +36,12 @@ function ArticleDetail({
 
     if (isLoading) {
       // 방문 확인
+      const { referrer } = document;
       Api.visited({
         url: "https://parkjeongwoong.github.io" + router.asPath,
         who: router.asPath.split("who=")[1],
         lastPage: pageData.currentPage,
+        referrer,
       });
       dispatch({ type: "SET_PAGE", value: router.asPath });
     }
