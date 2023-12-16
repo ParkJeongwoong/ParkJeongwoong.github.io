@@ -55,6 +55,22 @@ const Failure = [
     date: new Date("2023-01-20"),
     content: "store/article_data/Failure/20230120_Failure_Mysqldump_Command.md",
   },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 7,
+    title: "remember-me 동작 안 함",
+    date: new Date("2023-09-20"),
+    content: "store/article_data/Failure/20230920_Failure_Remember_Me.md",
+  },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 8,
+    title: "비정상적인 메모리 증가, java.lang.NoClassDefFoundError",
+    date: new Date("2023-10-03"),
+    content: "store/article_data/Failure/20231003_TroubleShooting_Memory_Leak.md",
+  },
 ];
 
 const Failure_SubCategory = [];

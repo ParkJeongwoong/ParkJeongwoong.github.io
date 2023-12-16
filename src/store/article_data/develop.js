@@ -151,6 +151,14 @@ const Develop = [
     date: new Date("2023-07-13"),
     content: "store/article_data/Develop/20230713_YeoYeo_review.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 19,
+    title: "[Spring Boot] 멀티 서버 스케쥴링, AOP",
+    date: new Date("2023-09-29"),
+    content: "store/article_data/Develop/20230929_Scheduling_AOP.md",
+  },
 ];
 
 const Develop_SubCategory = [];

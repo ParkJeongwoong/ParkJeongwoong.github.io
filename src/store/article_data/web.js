@@ -191,6 +191,14 @@ const Web = [
     date: new Date("2023-01-23"),
     content: "store/article_data/Web/20230123_Java_Thread_Run_Start.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 24,
+    title: "동시성 관리 (Java, DB Lock)",
+    date: new Date("2023-08-17"),
+    content: "store/article_data/Web/20230817_Synchronization.md",
+  },
 ];
 
 const Web_SubCategory = [];
