@@ -166,9 +166,19 @@ function Articles__List() {
                             {article.matchedContent.map(
                               ({ matched, content }, idx) =>
                                 matched ? (
-                                  <b key={idx}>{content}</b>
+                                  <b
+                                    key={idx}
+                                    value={`${article.category}/${article.id}`}
+                                  >
+                                    {content}
+                                  </b>
                                 ) : (
-                                  <span key={idx}>{content}</span>
+                                  <span
+                                    key={idx}
+                                    value={`${article.category}/${article.id}`}
+                                  >
+                                    {content}
+                                  </span>
                                 )
                             )}
                           </div>
