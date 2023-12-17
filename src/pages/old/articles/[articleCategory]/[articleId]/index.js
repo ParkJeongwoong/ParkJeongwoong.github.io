@@ -34,7 +34,7 @@ function ArticleDetail({ markdown, documentTitle, index }) {
     }
 
     setIsLoading(false);
-  }, [dispatch, router.asPath, pageData.currentPage]);
+  }, [dispatch, router.asPath, pageData.currentPage, isLoading]);
 
   useEffect(() => {
     if (!isLoading && window.innerWidth > 960) {

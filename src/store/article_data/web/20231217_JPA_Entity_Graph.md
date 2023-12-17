@@ -52,7 +52,7 @@ Fetch Join이나 Entity Graph를 사용하거나, Batch Size를 설정해서 해
 
 
 
-![after5](20231216_JPA_Entity_Graph.assets/20231216after5.jpg)
+![after5](../../../../public/assets/20231216after5.jpg)
 
 ![after0](../../../../public/assets/20231216after0.jpg)
 

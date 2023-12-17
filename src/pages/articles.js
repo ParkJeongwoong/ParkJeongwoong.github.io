@@ -64,7 +64,7 @@ function Articles() {
     }
 
     setIsLoading(false);
-  }, [dispatch, router.asPath, pageData.currentPage]);
+  }, [dispatch, router.asPath, pageData.currentPage, isLoading]);
 
   useEffect(() => {
     moveList();

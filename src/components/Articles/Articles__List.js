@@ -121,7 +121,11 @@ function Articles__List() {
       }
       setSelectedCategory('"' + articles.searchedWord + '" 검색결과');
     }
-  }, [articles.searchedWord, articles.searchedArticleList]);
+  }, [
+    articles.searchedWord,
+    articles.searchedArticleList,
+    articles.categoryId,
+  ]);
 
   // 글 선택
   const selectArticle = event => {
@@ -158,7 +162,7 @@ function Articles__List() {
                         value={`${article.category}/${article.id}`}
                       >
                         {article.matchedContent ? (
-                          <div>
+                          <div value={`${article.category}/${article.id}`}>
                             {article.matchedContent.map(
                               ({ matched, content }, idx) =>
                                 matched ? (
@@ -169,7 +173,9 @@ function Articles__List() {
                             )}
                           </div>
                         ) : (
-                          <div>{article.content}</div>
+                          <div value={`${article.category}/${article.id}`}>
+                            {article.content}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -183,7 +189,10 @@ function Articles__List() {
                       </h2>
                     </div>
                   )}
-                  <div className={styles.Article_SubCategory}>
+                  <div
+                    className={styles.Article_SubCategory}
+                    value={`${article.category}/${article.id}`}
+                  >
                     {article.subCategory}
                   </div>
                   <div

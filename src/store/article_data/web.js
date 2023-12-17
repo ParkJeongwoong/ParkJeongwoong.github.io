@@ -199,6 +199,22 @@ const Web = [
     date: new Date("2023-08-17"),
     content: "store/article_data/Web/20230817_Synchronization.md",
   },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 25,
+    title: "Pinpoint - Client IP(REMOTE_ADDRESS) 172.17.0.1",
+    date: new Date("2023-12-16"),
+    content: "store/article_data/Web/20231216_Pinpoint_Address.md",
+  },
+  {
+    category: "Web",
+    subCategory: "",
+    id: 26,
+    title: "N+1 문제 해결 - Entity Graph",
+    date: new Date("2023-12-17"),
+    content: "store/article_data/Web/20231217_JPA_Entity_Graph.md",
+  },
 ];
 
 const Web_SubCategory = [];
