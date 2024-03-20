@@ -217,6 +217,11 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/21</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
 <!-- Failure -->
     <url>
