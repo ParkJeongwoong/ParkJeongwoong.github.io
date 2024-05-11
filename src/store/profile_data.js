@@ -1,10 +1,13 @@
 const profile = {
   introduction:
-    "Web 개발을 하는 금융 IT 개발자입니다.\nJava/Spring, MariaDB를 이용해 개발과 공부를 하고 있습니다.",
+    "백엔드 개발자 박정웅입니다.\n반도체 엔지니어, 증권사 IT 개발자를 거쳐 핀테크 기업의 백엔드 개발자로 일하고 있습니다.",
   tech_stack: {
     language: [
       "/tech_stack/java.png",
+      "/tech_stack/kotlin.png",
+      "/tech_stack/go.png",
       "/tech_stack/javascript.png",
+      "/tech_stack/typescript.png",
       "/tech_stack/c.png",
       "/tech_stack/python.png",
     ],
@@ -23,6 +26,14 @@ const profile = {
     // studying: ["/tech_stack/cpp.png"],
   },
   career: [
+    {
+      name: "뱅크샐러드",
+      content: "CoreBackend",
+    },
+    {
+      name: "노드크루",
+      content: "데일리알고 개발",
+    },
     {
       name: "한옥스테이 여여 개발",
       content:

@@ -71,6 +71,30 @@ const Failure = [
     date: new Date("2023-10-03"),
     content: "store/article_data/Failure/20231003_TroubleShooting_Memory_Leak.md",
   },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 9,
+    title: "JPA Save 메서드 트러블슈팅 (repository.save가 return한 객체가 저장한 entity와 다른 경우)",
+    date: new Date("2024-02-06"),
+    content: "store/article_data/Failure/20240206_TroubleShooting_JPA_Save.md",
+  },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 10,
+    title: "Bean의 이름",
+    date: new Date("2024-02-08"),
+    content: "store/article_data/Failure/20240208_TroubleShooting_ApplicationContext_BeanName.md",
+  },
+  {
+    category: "Failure",
+    subCategory: "",
+    id: 11,
+    title: "비동기 처리(@Async)",
+    date: new Date("2024-02-21"),
+    content: "store/article_data/Failure/20240221_TroubleShooting_Async.md",
+  },
 ];
 
 const Failure_SubCategory = [];

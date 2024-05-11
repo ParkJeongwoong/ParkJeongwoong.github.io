@@ -1,0 +1,161 @@
+# [숙박 서비스] 개선 내역 - 오버부킹 시 다른 객실 제안
+
+마지막으로 업데이트한 기능은 "오버부킹 발생 시 다른 객실을 제안"하는 기능이다.
+
+
+
+홈페이지 예약과 AirBnb나 Booking.com 예약이 동시에 발생하는 경우 오버부킹이 발생할 수 있다.
+
+이렇게 되면 동기화 과정에서 이렇게 충돌이 발생하게 되고 이런 경우 홈페이지 예약을 취소하는 방법을 사용했었다.
+
+이 방식이 사용자 친화적이지 않기 때문에 대안을 찾아야 했고 오버부킹이 발생했을 때 동일한 일정에 다른 방이 예약이 가능하다면 변경을 제안하는 기능을 넣기로 했다.
+
+
+
+# 동작 과정
+
+큰 과정은 이렇다.
+
+1. 동기화 중 충돌 발생
+2. 플랫폼 예약을 우선적으로 배정
+3. 동일한 일정에 다른 객실이 예약 가능한 지 확인
+4. 예약이 가능하다면 다른 객실을 예약 대기 상태로 상태 변경
+   - 예약이 불가능하다면 전액 환불 진행
+5. 객실 변경 제안 문자 발송
+6. 고객 응답
+   - 수락 시, 예약 대기 상태를 예약 완료 상태로 변경
+   - 거절 시, 예약 대기 상태를 미예약 상태로 변경 후 전액 환불 진행
+   - 6시간 동안 응답이 없을 경우, 거절 작업 진행
+
+
+
+# 개발 과정
+
+1. 예약 가능한 객실이 있는지 확인하는 메서드 추가
+2. 예약 상태를 바꾸는 메서드 추가
+   - 충돌한 예약과 기존 DateRoom과 연관 관계를 끊고, 새로운 객실의 DateRoom과의 연관 관계를 생성
+3. 변경 제안에 대한 응답을 처리하는 비동기 스레드 생성
+   - 6시간 동안 Sleep
+   - 중간에 Interrupt 되거나, Sleep이 끝나면 변경 제안 작업 처리
+4. 고객의 변경에 대한 응답을 처리하는 메서드 추가
+   - 처리 후 비동기 스레드 Interrupt
+
+
+
+# 특이사항
+
+## 비동기 처리
+
+비동기 스레드를 만들어서 처리하는 방식이 좋은 건지에 대한 의문은 남아있지만, 마땅히 나은 대안을 찾지 못해 적용하기로 했다.
+
+
+
+비동기 스레드는 Thread.currentThread().getName()을 이용해 자신의 스레드명 찾고 예약 번호와 스레드명을 Key-Value로 하여 HashMap에 저장해 두고
+
+고객이 응답하면 해당 스레드명을 HashMap에서 찾아 대응하는 스레드를 Interrupt 시킨다.
+
+
+
+문제는 이렇게 변경 대기 중인 예약이 있는 상태에서 서버가 다운되는 일이 발생하는 경우인데,
+
+지금의 방식으로는 변경 대기 중인 예약을 처리할 수 없게 된다.
+
+
+
+조금 더 검색해보니 Quartz와 같은 Scheduling 라이브러리를 사용하거나 Message Queue를 사용하는 방법도 가능할 것 같다.
+
+Messsage Queue를 이용해서 예약작업을 처리하는 Consumer를 만든다면 병렬적으로 확장하기도 쉽고 데이터가 소실될 위험도 없다.
+
+하지만 매우 드물게(지금껏 한 번도 일어나지 않은) 일어나는 일을 위해 새로 서버를 띄우기는 힘들 것 같다.
+
+
+
+나중에 메시지 기능이 생기게 되면서 Kafaka를 사용하게 된다면 그 때 개선을 생각해 봐야 겠다.
+
+
+
+당장은 DB에 저장해뒀다가 서버 재실행 시 미처리된 객실 변경 제안 내역이 있는지 확인하는 게 좋아보인다.
+
+
+
+### illegalstateexception: illegal pop() with non-matching jdbcvaluessourceprocessingstate
+
+비동기 처리를 하면서 illegalstateException 에러가 계속 발생했고 다음과 같은 과정을 통해 해결할 수 있었다.
+
+#### 배경지식
+
+Lazy Loading
+
+- Lazy Loading의 경우 당장 사용하지 않는 건 프록시 객체로 생성해서 매핑 (원본 엔티티를 상속 받는 프록시)
+- 호출되는 시점에 프록시 객체를 초기화
+    - 엔티티가 영속성 컨텍스트에 있으면 이미 있는 엔티티를 호출
+    - 만약 엔티티가 없으면 DB에 접근하여 엔티티를 가져오고 호출
+
+#### 에러 조사
+- Hibernate 또는 JPA와 관련된 작업에서 내부 상태 관리와 관련된 예외
+- DB 세션 연결 문제거나 엔티티 매니저 쪽 문제일 가능성
+- 여러 스레드가 동시에 하나의 세션에 접근할 때 발생 가능
+
+#### 과정
+1. 비동기 스레드의 예외가 메인 스레드에 전파되는 사례를 찾아봄
+2. 로컬 환경에서 메인 스레드를 Sleep 시키고 비동기 스레드에 예외를 발생시키는 테스트도 문제 없음
+3. 스레드가 다르기 때문에 세션 충돌보다는 Entity Manager 쪽 문제라고 생각
+4. 하지만 updateCache 메서드는 Redis만 연결하고, paymentProcess는 DB만 연결하는 줄 앎
+5. 구글링을 해보니 LazyLoading 이 에러가 발생한 케이스가 잦음
+6. LazyLoading 존재 확인, 비동기 스레드에서 LazyLoading으로 객체 호출 확인
+7. 스레드가 다른 데 충돌 되는 이유..? -> 비동기 스레드에 DateRoom 엔티티를 그대로 넘겨줌 & LazyLoading 존재 & DateRoom 엔티티에 2차 캐싱이 걸려 있는 걸 확인
+
+#### 해결
+- Entity를 넘겨주는 일 지양 (DTO로 넘겨주기)
+- 불필요한 2차 캐싱 제거
+
+
+
+## DateRoom 연관 관계 변경
+
+간단할 거라고 생각한 이 작업을 처리하면서 JPA에 대한 나의 무지를 깨닫게 되었다.
+
+
+
+### Delete 쿼리 미전송
+
+Delete를 했는데 Delete가 되지 않는 문제가 있었다.
+
+이게 무슨 소리냐하면 DateRoom과 Reservation 사이의 N:M 매핑을 표현하는 [DateRoom - MapDateRoomReservation - Reservation] 관계에서 MapDateRoomReservation을 지우기 위해 repository.delete(entity)를 사용했는데 아무 반응이 없었다는 이야기다.
+
+
+
+#### 과정
+
+Reservation Entity의 List<MapDateRoomReservation> 을 clear() 했지만 Map삭제되지 않았다. (Cascade도 설정되어 있는 상태였다)
+
+MapDateRoomReservationRepository를 이용해서 delete를 직접 실행시켜도 삭제 쿼리가 날아가지 않았다.
+
+
+
+구글링을 통해 찾은 이유는 다음과 같다.
+
+MapDateRoomReservation에는 Cascade 옵션을 따로 붙이지 않았는데, Reservation, DateRoom을 호출해서 Entity Manager에 가져온 상태에서 Reservation의 MapDateRoomReservation을 삭제하는 행위는 DateRoom의 MapDateRoomReservation을 삭제하는 행위로까지 이어지지는 않고 이는 데이터의 불일치를 가져오기 때문에 JPA가 삭제 쿼리를 날리지 않는 것이었다.
+
+즉 삭제할 거면 DateRoom의 List<MapDateRoomReservation>에도 같이 clear를 날려야 했다.
+
+
+
+혹은 DateRoom이나 Reservation은 가져오지 않고 MapDateRoomReservation만 따로 가져와서 Entity Manager에 넣어둔 상태에서 delete를 날리면 지울 수가 있다. 하지만 매핑 테이블을 가져오는 건 말이 되지 않기 때문에 사용할 수 없다.
+
+
+
+마지막으로 **Orphan Removal** 을 사용해도 된다. `orphanRemoval = true` 속성을 추가하면 고아 객체가 된 엔티티를 자동으로 삭제할 수 있다.
+
+나는 이 방법을 사용했다.
+
+
+
+### jpaobjectretrievalfailureexception: unable to find.... id = 1
+
+이렇게 MapDateRoomReservation을 지우고 나니 **JPAObjectRetrievalFailureException** 가 발생했다.
+
+이는 Entity Manager에 있는 DateRoom 엔티티에는 아직 MapDateRoomReservation가 남아있는데, Reservation 측에서 고아 객체가 되면서 삭제가 되는 바람에 생기는 문제다.
+
+이를 해결하기 위해 DateRoom과 MapDateRoomReservation 사이의 연관관계를 해제하는 로직을 추가했다. (DateRoom 쪽에도 List<MapDateRoomReservation>를 clear하는 코드를 추가했다)
+

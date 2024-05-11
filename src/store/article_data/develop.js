@@ -159,6 +159,30 @@ const Develop = [
     date: new Date("2023-09-29"),
     content: "store/article_data/Develop/20230929_Scheduling_AOP.md",
   },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 20,
+    title: "[Spring Boot] 3.1.0 버전 업데이트",
+    date: new Date("2023-12-24"),
+    content: "store/article_data/Develop/20231224_SpringBoot_3.1.0.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 21,
+    title: "[숙박 서비스] 개선 내역",
+    date: new Date("2024-03-20"),
+    content: "store/article_data/Develop/20240320_YeoYeo_Develop1.md",
+  },
+  {
+    category: "Develop",
+    subCategory: "",
+    id: 22,
+    title: "[숙박 서비스] 개선 내역 - 오버부킹 시 다른 객실 제안",
+    date: new Date("2024-03-23"),
+    content: "store/article_data/Develop/20240323_YeoYeo_Develop2.md",
+  },
 ];
 
 const Develop_SubCategory = [];

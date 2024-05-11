@@ -212,6 +212,21 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/20</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/21</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Develop/22</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
 <!-- Failure -->
     <url>
@@ -256,6 +271,21 @@
     </url>
     <url>
         <loc>https://parkjeongwoong.github.io/articles/Failure/8</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/9</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/10</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://parkjeongwoong.github.io/articles/Failure/11</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

@@ -38,11 +38,10 @@ export default function Home() {
   return (
     <div>
       <SEO
-        description="안녕하세요! 금융 IT 개발자 박정웅입니다!
-        공부한 내용을 기록하고 포트폴리오를 정리하는 개인 블로그입니다.
-        끊임없이 배우고 성장하는 것을 즐겨 반도체 엔지니어에서 개발자로 전직했습니다.
-        효율적이고 깔끔한 코드에 관심이 많습니다.        
-        피아노, 운동, 여행을 좋아합니다.        
+        description="안녕하세요! 박정웅입니다.
+        반도체 엔지니어에서 증권사 원장 개발자를 거쳐 현재는 백엔드 개발자로 일하고 있습니다.
+        이 블로그는 개발자로 전직하면서 공부한 내용을 기록하고 포트폴리오를 정리하는 개인 블로그입니다.
+        배우고 성장하는 것을 즐기며 피아노, 수영, 여행을 좋아합니다.        
         Yonsei Univ.
         Material Science & Engineering
         KATUSA, USFK
@@ -53,7 +52,9 @@ export default function Home() {
         Samsung SW Academy For Youth
         DAOU Tech.
         : KIWOOM Securities
-        Financial SW Developer"
+        Financial SW Developer
+        BankSalad
+        Backend Developer"
         title="Home"
         siteTitle="웅's 블로그"
       />
